@@ -1,0 +1,623 @@
+<html>
+<head>
+<title>PicsView.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,0,255); }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+PicsView.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">package </span><span class="s1">com.apps.akaya.picnest; 
+ 
+</span><span class="s0">import </span><span class="s1">android.app.Activity; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Bitmap; 
+</span><span class="s0">import </span><span class="s1">android.graphics.BitmapFactory; 
+</span><span class="s0">import </span><span class="s1">android.graphics.BlurMaskFilter; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Canvas; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Color; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Paint; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Path; 
+</span><span class="s0">import </span><span class="s1">android.graphics.PointF; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Point; 
+</span><span class="s0">import </span><span class="s1">android.graphics.Rect; 
+</span><span class="s0">import </span><span class="s1">android.graphics.RectF; 
+</span><span class="s0">import </span><span class="s1">android.graphics.drawable.BitmapDrawable; 
+</span><span class="s0">import </span><span class="s1">android.graphics.drawable.Drawable; 
+</span><span class="s0">import </span><span class="s1">android.os.Message; 
+</span><span class="s0">import </span><span class="s1">android.util.Log; 
+</span><span class="s0">import </span><span class="s1">android.view.MotionEvent; 
+</span><span class="s0">import </span><span class="s1">android.os.Handler; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.widget.RelativeLayout; 
+</span><span class="s0">import </span><span class="s1">android.widget.Toast; 
+ 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+</span><span class="s0">import </span><span class="s1">java.util.Timer; 
+</span><span class="s0">import </span><span class="s1">java.util.TimerTask; 
+ 
+</span><span class="s0">public class </span><span class="s1">PicsView </span><span class="s0">extends </span><span class="s1">View { 
+    Activity context; 
+    </span><span class="s0">int </span><span class="s1">horizontalCount; 
+    </span><span class="s0">int </span><span class="s1">verticalCount; 
+    </span><span class="s0">int </span><span class="s1">width; 
+    </span><span class="s0">int </span><span class="s1">height; 
+    </span><span class="s0">float </span><span class="s1">picWidth; 
+    </span><span class="s0">float </span><span class="s1">picHeight; 
+    ArrayList&lt;Pic&gt; pics; 
+    Paint paint; 
+    Paint mPaint; 
+    Paint blurPaint; 
+ 
+    </span><span class="s0">private </span><span class="s1">PointF downPos; 
+    </span><span class="s0">private </span><span class="s1">PointF movePos; 
+    </span><span class="s0">private </span><span class="s1">PointF upPos; 
+ 
+    </span><span class="s0">private boolean </span><span class="s1">geomInitialized = </span><span class="s0">false</span><span class="s1">; 
+ 
+    </span><span class="s0">private </span><span class="s1">Timer timer; 
+    </span><span class="s0">private </span><span class="s1">TimerTask timerTask; 
+    </span><span class="s0">private </span><span class="s1">Canvas canvas; 
+    </span><span class="s0">private </span><span class="s1">RelativeLayout parentLayout; 
+ 
+    </span><span class="s0">private </span><span class="s1">RectF rectActs; 
+    </span><span class="s0">private </span><span class="s1">RectF rectAct1; 
+    </span><span class="s0">private </span><span class="s1">RectF rectAct2; 
+    </span><span class="s0">private </span><span class="s1">RectF rectAct3; 
+ 
+    </span><span class="s0">private </span><span class="s1">Bitmap bitmapAct1; 
+    </span><span class="s0">private </span><span class="s1">Bitmap bitmapAct2; 
+    </span><span class="s0">private </span><span class="s1">Bitmap bitmapAct3; 
+ 
+    </span><span class="s0">private </span><span class="s1">Path mTriangle; 
+    PointF ta; 
+    PointF tb; 
+    PointF tc; 
+ 
+    </span><span class="s0">private int </span><span class="s1">paddingLeft; 
+    </span><span class="s0">private int </span><span class="s1">paddingTop; 
+ 
+    </span><span class="s0">private int </span><span class="s1">picsDrawable; 
+ 
+    </span><span class="s0">public </span><span class="s1">Bitmap picsBitmap; 
+    </span><span class="s0">public int </span><span class="s1">selectedPicId; 
+ 
+    </span><span class="s0">public int </span><span class="s1">actionNumber; 
+ 
+ 
+ 
+ 
+    </span><span class="s0">public </span><span class="s1">PicsView(Activity context, RelativeLayout parentLayout, </span><span class="s0">int </span><span class="s1">horizontalCount, </span><span class="s0">int </span><span class="s1">verticalCount, </span><span class="s0">int </span><span class="s1">picsDrawable) { 
+        </span><span class="s0">super</span><span class="s1">(context); 
+ 
+        </span><span class="s0">this</span><span class="s1">.parentLayout = parentLayout; 
+        </span><span class="s0">this</span><span class="s1">.context = context; 
+        </span><span class="s0">this</span><span class="s1">.horizontalCount = horizontalCount; 
+        </span><span class="s0">this</span><span class="s1">.verticalCount = verticalCount; 
+        </span><span class="s0">this</span><span class="s1">.pics = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Pic&gt;(); 
+        </span><span class="s0">this</span><span class="s1">.picsBitmap  = BitmapFactory.decodeResource(context.getResources(),picsDrawable); 
+        </span><span class="s0">this</span><span class="s1">.picsDrawable = picsDrawable; 
+ 
+        </span><span class="s0">this</span><span class="s1">.bitmapAct1  = BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_camera); 
+        </span><span class="s0">this</span><span class="s1">.bitmapAct2  = BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_gallery); 
+        </span><span class="s0">this</span><span class="s1">.bitmapAct3  = BitmapFactory.decodeResource(context.getResources(),R.drawable.ic_edit); 
+ 
+        paint = </span><span class="s0">new </span><span class="s1">Paint(); 
+        mPaint = </span><span class="s0">new </span><span class="s1">Paint(); 
+        blurPaint = </span><span class="s0">new </span><span class="s1">Paint(); 
+ 
+        mTriangle = </span><span class="s0">new </span><span class="s1">Path(); 
+        mTriangle.setFillType(Path.FillType.EVEN_ODD); 
+ 
+        ta = </span><span class="s0">new </span><span class="s1">PointF(); 
+        tb = </span><span class="s0">new </span><span class="s1">PointF(); 
+        tc = </span><span class="s0">new </span><span class="s1">PointF(); 
+</span><span class="s2">//        blurPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.SOLID));</span><span class="s1"> 
+ 
+        timerTask = </span><span class="s0">new </span><span class="s1">TimerTask() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">run() { 
+                handler.sendEmptyMessage(</span><span class="s3">0</span><span class="s1">); 
+            } 
+        }; 
+ 
+        timer = </span><span class="s0">new </span><span class="s1">Timer(); 
+        timer.scheduleAtFixedRate(timerTask, </span><span class="s3">1000</span><span class="s1">, </span><span class="s3">100000</span><span class="s1">); 
+ 
+        rectActs = </span><span class="s0">new </span><span class="s1">RectF(); 
+        rectAct1 = </span><span class="s0">new </span><span class="s1">RectF(); 
+        rectAct2 = </span><span class="s0">new </span><span class="s1">RectF(); 
+        rectAct3 = </span><span class="s0">new </span><span class="s1">RectF(); 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">changeTiles(</span><span class="s0">int </span><span class="s1">horizontalCount, </span><span class="s0">int </span><span class="s1">verticalCount) 
+    { 
+        </span><span class="s0">this</span><span class="s1">.picsBitmap  = MyGraphicFunctions.drawableToBitmap(getResources().getDrawable(</span><span class="s0">this</span><span class="s1">.picsDrawable)); 
+        </span><span class="s0">float </span><span class="s1">rt = (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.verticalCount / (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.horizontalCount; 
+ 
+        </span><span class="s0">this</span><span class="s1">.picsBitmap = Bitmap.createScaledBitmap(</span><span class="s0">this</span><span class="s1">.picsBitmap, (</span><span class="s0">int</span><span class="s1">)((</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.parentLayout.getWidth()/rt), (</span><span class="s0">int</span><span class="s1">)(</span><span class="s0">this</span><span class="s1">.parentLayout.getWidth()*rt), </span><span class="s0">false</span><span class="s1">); 
+        </span><span class="s2">///////////////////////////////////////////////////////</span><span class="s1"> 
+ 
+ 
+        </span><span class="s0">this</span><span class="s1">.horizontalCount = horizontalCount; 
+        </span><span class="s0">this</span><span class="s1">.verticalCount = verticalCount; 
+ 
+        initGeom(</span><span class="s0">true</span><span class="s1">); 
+ 
+        </span><span class="s0">this</span><span class="s1">.pics.clear(); 
+ 
+        </span><span class="s0">this</span><span class="s1">.initBlankPicsBitmaps(); 
+ 
+        </span><span class="s0">this</span><span class="s1">.invalidate(); 
+    } 
+    </span><span class="s0">public void </span><span class="s1">arangeTiles() 
+    { 
+        initGeom(</span><span class="s0">true</span><span class="s1">); 
+ 
+        </span><span class="s0">this</span><span class="s1">.pics.clear(); 
+ 
+        </span><span class="s0">this</span><span class="s1">.initBlankPicsBitmaps(); 
+        </span><span class="s0">this</span><span class="s1">.invalidate(); 
+    } 
+ 
+ 
+    </span><span class="s0">public void </span><span class="s1">setPicsBitmap(</span><span class="s0">int </span><span class="s1">picsDrawable, </span><span class="s0">boolean </span><span class="s1">deletePics) 
+    { 
+        System.gc(); 
+        </span><span class="s0">this</span><span class="s1">.picsBitmap  = MyGraphicFunctions.drawableToBitmap(getResources().getDrawable(picsDrawable)); 
+        </span><span class="s0">this</span><span class="s1">.picsDrawable = picsDrawable; 
+        </span><span class="s0">float </span><span class="s1">rt = (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.verticalCount / (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.horizontalCount; 
+ 
+        </span><span class="s0">this</span><span class="s1">.picsBitmap = Bitmap.createScaledBitmap(</span><span class="s0">this</span><span class="s1">.picsBitmap, (</span><span class="s0">int</span><span class="s1">)((</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.parentLayout.getWidth()/rt), (</span><span class="s0">int</span><span class="s1">)(</span><span class="s0">this</span><span class="s1">.parentLayout.getWidth()*rt), </span><span class="s0">false</span><span class="s1">); 
+ 
+        </span><span class="s0">this</span><span class="s1">.picWidth = </span><span class="s0">this</span><span class="s1">.width / MyConstants.MAX_COL_COUNT;</span><span class="s2">//this.horizontalCount;</span><span class="s1"> 
+        </span><span class="s0">this</span><span class="s1">.picHeight = </span><span class="s0">this</span><span class="s1">.picWidth; 
+ 
+        arangeTiles(); 
+ 
+</span><span class="s2">//        if( deletePics )</span><span class="s1"> 
+</span><span class="s2">//        {</span><span class="s1"> 
+</span><span class="s2">//            this.initBlankPicsBitmaps();</span><span class="s1"> 
+</span><span class="s2">//        }</span><span class="s1"> 
+</span><span class="s2">//        else</span><span class="s1"> 
+</span><span class="s2">//        {</span><span class="s1"> 
+</span><span class="s2">//            this.initPicsBitmap();</span><span class="s1"> 
+</span><span class="s2">//        }</span><span class="s1"> 
+</span><span class="s2">//</span><span class="s1"> 
+</span><span class="s2">//        geomInitialized = true;</span><span class="s1"> 
+        </span><span class="s0">this</span><span class="s1">.invalidate(); 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">blankizePics() 
+    { 
+        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), 
+                R.drawable.ic_blank_image); 
+        </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s1">; i &lt; </span><span class="s0">this</span><span class="s1">.pics.size(); i++) 
+        { 
+            pics.get(i).bitmap = bmp; 
+            pics.get(i).isBlank = </span><span class="s0">true</span><span class="s1">; 
+        } 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">blankizePic(</span><span class="s0">int </span><span class="s1">i) 
+    { 
+        </span><span class="s0">if</span><span class="s1">(i &gt;= </span><span class="s0">this</span><span class="s1">.pics.size()) { </span><span class="s0">return</span><span class="s1">; } 
+        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), 
+                R.drawable.ic_blank_image); 
+        pics.get(i).bitmap = bmp; 
+        pics.get(i).isBlank = </span><span class="s0">true</span><span class="s1">; 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">changePicBitmap(</span><span class="s0">int </span><span class="s1">index) 
+    { 
+ 
+        Point pos = getCoordsById(index); 
+        </span><span class="s0">float </span><span class="s1">w = (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.width / (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.horizontalCount; 
+        </span><span class="s0">float </span><span class="s1">W = </span><span class="s0">this</span><span class="s1">.picWidth; 
+        System.gc(); 
+        Bitmap pb = Bitmap.createBitmap(</span><span class="s0">this</span><span class="s1">.picsBitmap, (</span><span class="s0">int</span><span class="s1">)(pos.x*W), (</span><span class="s0">int</span><span class="s1">)(pos.y*W), (</span><span class="s0">int</span><span class="s1">)w, (</span><span class="s0">int</span><span class="s1">)w); 
+ 
+        </span><span class="s0">this</span><span class="s1">.pics.get(index).picBitmap = pb; 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">addBlankPic() 
+    { 
+        </span><span class="s0">if</span><span class="s1">( ( </span><span class="s0">this</span><span class="s1">.pics.size() &gt;= </span><span class="s0">this</span><span class="s1">.horizontalCount * </span><span class="s0">this</span><span class="s1">.verticalCount ) ) { </span><span class="s0">return</span><span class="s1">; } 
+ 
+        Point pos = getCoordsById(</span><span class="s0">this</span><span class="s1">.pics.size()); 
+        </span><span class="s0">float </span><span class="s1">t = (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.width / (</span><span class="s0">float</span><span class="s1">)MyConstants.MAX_COL_COUNT;</span><span class="s2">//(float)this.horizontalCount;</span><span class="s1"> 
+        </span><span class="s0">float </span><span class="s1">W = </span><span class="s0">this</span><span class="s1">.picWidth; 
+</span><span class="s2">//        System.gc();</span><span class="s1"> 
+        Bitmap pb = Bitmap.createBitmap(</span><span class="s0">this</span><span class="s1">.picsBitmap, (</span><span class="s0">int</span><span class="s1">)((</span><span class="s0">float</span><span class="s1">)pos.x*W), (</span><span class="s0">int</span><span class="s1">)((</span><span class="s0">float</span><span class="s1">)pos.y*W), (</span><span class="s0">int</span><span class="s1">)t, (</span><span class="s0">int</span><span class="s1">)t); 
+ 
+        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), 
+                R.drawable.ic_blank_image); 
+        </span><span class="s0">this</span><span class="s1">.pics.add(</span><span class="s0">new </span><span class="s1">Pic(pos.x*W, pos.y*W, bmp, pb)); 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">initGeom(</span><span class="s0">boolean </span><span class="s1">force) { 
+        </span><span class="s0">if </span><span class="s1">(!geomInitialized || force) { 
+            </span><span class="s0">this</span><span class="s1">.width = parentLayout.getWidth(); 
+            </span><span class="s0">this</span><span class="s1">.height = </span><span class="s0">this</span><span class="s1">.width; 
+            </span><span class="s0">if </span><span class="s1">(</span><span class="s0">this</span><span class="s1">.width &gt; </span><span class="s3">100</span><span class="s1">) { 
+</span><span class="s2">//                this.picsBitmap = Bitmap.createScaledBitmap(this.picsBitmap, this.parentLayout.getWidth(), this.parentLayout.getWidth(), false);</span><span class="s1"> 
+ 
+ 
+</span><span class="s2">//                this.picWidth  = (float)this.width / (float)this.horizontalCount;</span><span class="s1"> 
+</span><span class="s2">//                this.picHeight = this.picWidth;</span><span class="s1"> 
+</span><span class="s2">//                if(this.picHeight*this.verticalCount &gt; this.height)</span><span class="s1"> 
+                { 
+                    </span><span class="s0">this</span><span class="s1">.picWidth  = (</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.width / (</span><span class="s0">float</span><span class="s1">)MyConstants.MAX_COL_COUNT;</span><span class="s2">//this.horizontalCount;</span><span class="s1"> 
+                    </span><span class="s0">this</span><span class="s1">.picHeight = </span><span class="s0">this</span><span class="s1">.picWidth; 
+                } 
+ 
+                </span><span class="s0">this</span><span class="s1">.paddingLeft = (</span><span class="s0">int</span><span class="s1">)(((</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.width - (</span><span class="s0">this</span><span class="s1">.picWidth*</span><span class="s0">this</span><span class="s1">.horizontalCount))/</span><span class="s3">2f</span><span class="s1">); 
+                </span><span class="s0">this</span><span class="s1">.paddingTop = (</span><span class="s0">int</span><span class="s1">)(((</span><span class="s0">float</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.width - (</span><span class="s0">this</span><span class="s1">.picWidth*</span><span class="s0">this</span><span class="s1">.verticalCount))/</span><span class="s3">2f</span><span class="s1">); 
+ 
+                </span><span class="s0">this</span><span class="s1">.paint.setTextSize(</span><span class="s0">this</span><span class="s1">.width/</span><span class="s3">20</span><span class="s1">); 
+ 
+                System.gc(); 
+                </span><span class="s0">this</span><span class="s1">.picsBitmap = Bitmap.createScaledBitmap(</span><span class="s0">this</span><span class="s1">.picsBitmap, (</span><span class="s0">int</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.picHeight*</span><span class="s0">this</span><span class="s1">.horizontalCount, (</span><span class="s0">int</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.picHeight*</span><span class="s0">this</span><span class="s1">.verticalCount, </span><span class="s0">false</span><span class="s1">); 
+                initBlankPicsBitmaps(); 
+ 
+                geomInitialized = </span><span class="s0">true</span><span class="s1">; 
+                </span><span class="s0">this</span><span class="s1">.invalidate(); 
+            } 
+        } 
+    } 
+    </span><span class="s0">private void </span><span class="s1">initBlankPicsBitmaps() 
+    { 
+        </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s1">; i &lt; </span><span class="s0">this</span><span class="s1">.horizontalCount * </span><span class="s0">this</span><span class="s1">.verticalCount; i++) 
+        { 
+            </span><span class="s0">this</span><span class="s1">.addBlankPic(); 
+        } 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">initPicsBitmap() 
+    { 
+        </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s1">; i &lt; </span><span class="s0">this</span><span class="s1">.horizontalCount * </span><span class="s0">this</span><span class="s1">.verticalCount; i++) 
+        { 
+            </span><span class="s0">this</span><span class="s1">.changePicBitmap(i); 
+        } 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">setPicBitmap(</span><span class="s0">int </span><span class="s1">id, Bitmap bmp) 
+    { 
+        </span><span class="s0">if</span><span class="s1">( id &gt;= </span><span class="s0">this</span><span class="s1">.pics.size() || id &lt; </span><span class="s3">0</span><span class="s1">) </span><span class="s0">return</span><span class="s1">; 
+ 
+        </span><span class="s0">this</span><span class="s1">.pics.get(id).bitmap = bmp; 
+        </span><span class="s0">this</span><span class="s1">.pics.get(id).isBlank = </span><span class="s0">false</span><span class="s1">; 
+    } 
+ 
+    </span><span class="s0">private int </span><span class="s1">getPicIdByCoords(</span><span class="s0">float </span><span class="s1">x, </span><span class="s0">float </span><span class="s1">y) { 
+        </span><span class="s0">float </span><span class="s1">hc = </span><span class="s0">this</span><span class="s1">.horizontalCount; 
+ 
+        </span><span class="s0">float </span><span class="s1">elementW = </span><span class="s0">this</span><span class="s1">.picWidth;</span><span class="s2">//this.width / hc;</span><span class="s1"> 
+ 
+        </span><span class="s0">float </span><span class="s1">tx = (</span><span class="s0">int</span><span class="s1">) (x / elementW); 
+        </span><span class="s0">float </span><span class="s1">ty = (</span><span class="s0">int</span><span class="s1">) (y / elementW); 
+ 
+        </span><span class="s0">return </span><span class="s1">(</span><span class="s0">int</span><span class="s1">) ((ty * horizontalCount) + tx); 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public void </span><span class="s1">onDraw(Canvas canvas) { 
+        canvas.translate(</span><span class="s0">this</span><span class="s1">.paddingLeft,</span><span class="s0">this</span><span class="s1">.paddingTop); 
+        </span><span class="s0">this</span><span class="s1">.canvas = canvas; 
+        </span><span class="s0">super</span><span class="s1">.onDraw(canvas); 
+        </span><span class="s0">int </span><span class="s1">picCount = </span><span class="s0">this</span><span class="s1">.pics.size(); 
+ 
+        </span><span class="s0">float </span><span class="s1">x; 
+        </span><span class="s0">float </span><span class="s1">y; 
+ 
+        paint.setARGB(</span><span class="s3">255</span><span class="s1">,</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">); 
+        canvas.drawRect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">,(</span><span class="s0">int</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.width, (</span><span class="s0">int</span><span class="s1">)</span><span class="s0">this</span><span class="s1">.height, paint); 
+        </span><span class="s0">float </span><span class="s1">picW = </span><span class="s0">this</span><span class="s1">.width/MyConstants.MAX_COL_COUNT; </span><span class="s2">// this.horizontalCount;</span><span class="s1"> 
+ 
+        </span><span class="s0">boolean </span><span class="s1">picSelected = </span><span class="s0">false</span><span class="s1">; 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s3">0</span><span class="s1">; i &lt; picCount; i++) { 
+            Point p = getCoordsById(i); 
+            x = p.x * picWidth; 
+            y = p.y * picWidth; 
+            paint.setStyle(Paint.Style.STROKE); 
+            </span><span class="s0">this</span><span class="s1">.pics.get(i).draw(canvas, paint); 
+ 
+ 
+            </span><span class="s0">if</span><span class="s1">( i == selectedPicId ) 
+            { 
+                picSelected = </span><span class="s0">true</span><span class="s1">; 
+ 
+</span><span class="s2">//                if(actionNumber &lt; 1 || actionNumber&gt;3)</span><span class="s1"> 
+                { 
+                    mPaint.setStyle(Paint.Style.FILL); 
+                    mPaint.setARGB(</span><span class="s3">150</span><span class="s1">, </span><span class="s3">255</span><span class="s1">, </span><span class="s3">30</span><span class="s1">, </span><span class="s3">30</span><span class="s1">); 
+                    canvas.drawRect(x, y, x+picW, y+picW, mPaint); 
+                } 
+            } 
+ 
+            { 
+                mPaint.setColor(context.getResources().getColor(R.color.mediumSlateBlue)); 
+                mPaint.setStyle(Paint.Style.STROKE); 
+                mPaint.setStrokeWidth(</span><span class="s0">this</span><span class="s1">.width/</span><span class="s3">100</span><span class="s1">); 
+                canvas.drawRect(x, y, x+picW, y+picW, mPaint); 
+            } 
+        } 
+ 
+        </span><span class="s0">if</span><span class="s1">(picSelected) 
+        { 
+            </span><span class="s0">float </span><span class="s1">round = </span><span class="s3">0</span><span class="s1">;</span><span class="s2">//rectAct2.width()/8;</span><span class="s1"> 
+            blurPaint.setStyle(Paint.Style.FILL_AND_STROKE); 
+ 
+            blurPaint.setColor(context.getResources().getColor(R.color.myColor1)); 
+            blurPaint.setAlpha(</span><span class="s3">200</span><span class="s1">); 
+            </span><span class="s0">if</span><span class="s1">(actionNumber == </span><span class="s3">1</span><span class="s1">) 
+            { 
+                blurPaint.setColor(context.getResources().getColor(R.color.myBlack)); 
+                canvas.drawRoundRect(rectAct1, round, round, blurPaint); 
+                canvas.drawBitmap(bitmapAct1,</span><span class="s0">new </span><span class="s1">Rect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">, bitmapAct1.getWidth(), bitmapAct1.getHeight()), rectAct1, blurPaint); 
+            } 
+            </span><span class="s0">else</span><span class="s1"> 
+            </span><span class="s0">if</span><span class="s1">(actionNumber == </span><span class="s3">2</span><span class="s1">) 
+            { 
+                blurPaint.setColor(context.getResources().getColor(R.color.myBlack)); 
+                canvas.drawRoundRect(rectAct2, round, round, blurPaint); 
+                canvas.drawBitmap(bitmapAct2,</span><span class="s0">new </span><span class="s1">Rect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">, bitmapAct2.getWidth(), bitmapAct2.getHeight()), rectAct2, blurPaint); 
+            }</span><span class="s0">else</span><span class="s1"> 
+            </span><span class="s0">if</span><span class="s1">(actionNumber == </span><span class="s3">3</span><span class="s1">) 
+            { 
+                blurPaint.setColor(context.getResources().getColor(R.color.myBlack)); 
+                canvas.drawRoundRect(rectAct3, round, round, blurPaint); 
+                canvas.drawBitmap(bitmapAct3,</span><span class="s0">new </span><span class="s1">Rect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">, bitmapAct3.getWidth(), bitmapAct3.getHeight()), rectAct3, blurPaint); 
+            } 
+            </span><span class="s0">else</span><span class="s1"> 
+            { 
+                canvas.drawRect(rectAct1,blurPaint); 
+                canvas.drawRect(rectAct2,blurPaint); 
+                canvas.drawRect(rectAct3,blurPaint); 
+ 
+                canvas.drawBitmap(bitmapAct1,</span><span class="s0">new </span><span class="s1">Rect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">, bitmapAct1.getWidth(), bitmapAct1.getHeight()), rectAct1, blurPaint); 
+                canvas.drawBitmap(bitmapAct2,</span><span class="s0">new </span><span class="s1">Rect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">, bitmapAct2.getWidth(), bitmapAct2.getHeight()), rectAct2, blurPaint); 
+                canvas.drawBitmap(bitmapAct3,</span><span class="s0">new </span><span class="s1">Rect(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">0</span><span class="s1">, bitmapAct3.getWidth(), bitmapAct3.getHeight()), rectAct3, blurPaint); 
+                </span><span class="s2">//        mTriangle.reset();</span><span class="s1"> 
+                mTriangle = </span><span class="s0">new </span><span class="s1">Path(); 
+                mTriangle.moveTo(ta.x, ta.y); 
+                mTriangle.lineTo(tb.x, tb.y); 
+                mTriangle.lineTo(tc.x, tc.y); 
+                mTriangle.lineTo(ta.x, ta.y); 
+                mTriangle.close(); 
+                canvas.drawPath(mTriangle, blurPaint); 
+            } 
+ 
+ 
+ 
+        } 
+ 
+        paint.setColor(getResources().getColor(R.color.mediumSlateBlue)); 
+        String xxx = </span><span class="s0">this</span><span class="s1">.horizontalCount + </span><span class="s4">&quot;x&quot;</span><span class="s1">+</span><span class="s0">this</span><span class="s1">.verticalCount; 
+        canvas.drawText(xxx, </span><span class="s0">this</span><span class="s1">.width / </span><span class="s3">2 </span><span class="s1">- (paint.measureText(xxx)/</span><span class="s3">2</span><span class="s1">) - paddingLeft, (</span><span class="s0">int</span><span class="s1">)(</span><span class="s0">this</span><span class="s1">.height*</span><span class="s3">1.1</span><span class="s1">) - paddingTop, paint); 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public boolean </span><span class="s1">onTouchEvent(MotionEvent event) { 
+        </span><span class="s0">super</span><span class="s1">.onTouchEvent(event); 
+ 
+        </span><span class="s0">float </span><span class="s1">tx = event.getX() - paddingLeft; 
+        </span><span class="s0">float </span><span class="s1">ty = event.getY() - paddingTop; 
+        </span><span class="s0">switch </span><span class="s1">(event.getAction()) { 
+            </span><span class="s0">case </span><span class="s1">MotionEvent.ACTION_DOWN: { 
+                touchDown(</span><span class="s0">new </span><span class="s1">PointF( tx, ty)); 
+                </span><span class="s0">break</span><span class="s1">; 
+            } 
+            </span><span class="s0">case </span><span class="s1">MotionEvent.ACTION_MOVE: { 
+                touchMove(</span><span class="s0">new </span><span class="s1">PointF( tx, ty)); 
+                </span><span class="s0">break</span><span class="s1">; 
+            } 
+            </span><span class="s0">case </span><span class="s1">MotionEvent.ACTION_UP: { 
+                touchUp(</span><span class="s0">new </span><span class="s1">PointF( tx, ty)); 
+                </span><span class="s0">break</span><span class="s1">; 
+            } 
+        } 
+        </span><span class="s0">this</span><span class="s1">.invalidate(); 
+        </span><span class="s0">return true</span><span class="s1">; 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">touchDown(PointF pos) { 
+        downPos = pos; 
+        </span><span class="s0">boolean </span><span class="s1">actSelected = selectAction(pos); 
+        </span><span class="s0">if</span><span class="s1">(!actSelected) 
+        { 
+            Log.i(</span><span class="s4">&quot;&quot;</span><span class="s1">,</span><span class="s4">&quot;Down: selectAction ret false&quot;</span><span class="s1">); 
+            </span><span class="s0">int </span><span class="s1">lastPicId = </span><span class="s0">this</span><span class="s1">.selectedPicId; 
+            </span><span class="s0">this</span><span class="s1">.selectedPicId = </span><span class="s0">this</span><span class="s1">.getPicIdByCoords(pos.x, pos.y); 
+ 
+            </span><span class="s0">if</span><span class="s1">(lastPicId == </span><span class="s0">this</span><span class="s1">.selectedPicId) 
+            { 
+                </span><span class="s0">this</span><span class="s1">.selectedPicId = -</span><span class="s3">1</span><span class="s1">; 
+            } 
+        } 
+        </span><span class="s0">else</span><span class="s1"> 
+        { 
+            Log.i(</span><span class="s4">&quot;&quot;</span><span class="s1">,</span><span class="s4">&quot;Down: selectAction ret true&quot;</span><span class="s1">); 
+</span><span class="s2">//            this.selectedPicId = -1;</span><span class="s1"> 
+        } 
+ 
+        </span><span class="s0">this</span><span class="s1">.postInvalidate(); 
+ 
+</span><span class="s2">//        if(actSelected)</span><span class="s1"> 
+</span><span class="s2">//        {</span><span class="s1"> 
+</span><span class="s2">//            hideActions();</span><span class="s1"> 
+</span><span class="s2">//        }</span><span class="s1"> 
+ 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">touchMove(PointF pos) { 
+        movePos = pos; 
+</span><span class="s2">//        this.selectedPicId = this.getPicIdByCoords(pos.x, pos.y);</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">touchUp(PointF pos) { 
+        upPos = pos; 
+        </span><span class="s0">if</span><span class="s1">(actionNumber &gt; </span><span class="s3">0 </span><span class="s1">&amp;&amp; actionNumber &lt; </span><span class="s3">4</span><span class="s1">) 
+        { 
+            hideActions(); 
+            Log.i(</span><span class="s4">&quot;&quot;</span><span class="s1">,</span><span class="s4">&quot;Up: actNumber =&quot;</span><span class="s1">+actionNumber); 
+            </span><span class="s0">return</span><span class="s1">; 
+        } 
+ 
+        </span><span class="s0">if</span><span class="s1">(selectAction(pos)) { 
+            Log.i(</span><span class="s4">&quot;&quot;</span><span class="s1">,</span><span class="s4">&quot;Up: selectAction ret true, actNumber =&quot;</span><span class="s1">+actionNumber); 
+            </span><span class="s0">return</span><span class="s1">; 
+        } 
+        </span><span class="s0">else</span><span class="s1"> 
+        { 
+            Log.i(</span><span class="s4">&quot;&quot;</span><span class="s1">,</span><span class="s4">&quot;Up: selectAction ret false&quot;</span><span class="s1">); 
+        } 
+ 
+        </span><span class="s0">if</span><span class="s1">(selectedPicId == -</span><span class="s3">1</span><span class="s1">) {</span><span class="s0">return</span><span class="s1">;} 
+ 
+        Point p = getCoordsById(selectedPicId); 
+        </span><span class="s0">float </span><span class="s1">x = p.x * picWidth + (picWidth/</span><span class="s3">2</span><span class="s1">); 
+        </span><span class="s0">float </span><span class="s1">y = (p.y+</span><span class="s3">1</span><span class="s1">) * picWidth; 
+ 
+ 
+ 
+        </span><span class="s0">float </span><span class="s1">bw = </span><span class="s0">this</span><span class="s1">.width/</span><span class="s3">5</span><span class="s1">; 
+        </span><span class="s0">float </span><span class="s1">by = </span><span class="s0">this</span><span class="s1">.width/</span><span class="s3">5</span><span class="s1">; 
+        </span><span class="s2">//////////////////////</span><span class="s1"> 
+        ta = </span><span class="s0">new </span><span class="s1">PointF(x, y); 
+        tb = </span><span class="s0">new </span><span class="s1">PointF(x+(bw/</span><span class="s3">4</span><span class="s1">), y+(bw/</span><span class="s3">2</span><span class="s1">)); 
+        tc = </span><span class="s0">new </span><span class="s1">PointF(x-(bw/</span><span class="s3">4</span><span class="s1">), y+(bw/</span><span class="s3">2</span><span class="s1">)); 
+        </span><span class="s0">if</span><span class="s1">(y &gt; (</span><span class="s0">this</span><span class="s1">.height - (</span><span class="s3">1.5</span><span class="s1">*bw))) 
+        { 
+            </span><span class="s0">float </span><span class="s1">ny = y-</span><span class="s0">this</span><span class="s1">.picHeight; 
+            ta = </span><span class="s0">new </span><span class="s1">PointF(x, ny); 
+            tb = </span><span class="s0">new </span><span class="s1">PointF(x+(bw/</span><span class="s3">4</span><span class="s1">), ny-(bw/</span><span class="s3">2</span><span class="s1">)); 
+            tc = </span><span class="s0">new </span><span class="s1">PointF(x-(bw/</span><span class="s3">4</span><span class="s1">), ny-(bw/</span><span class="s3">2</span><span class="s1">)); 
+        } 
+        </span><span class="s2">//////////////////////</span><span class="s1"> 
+        </span><span class="s0">if</span><span class="s1">( x &gt; (</span><span class="s0">this</span><span class="s1">.width + paddingLeft - (</span><span class="s3">1.5</span><span class="s1">*bw)) ) 
+        { 
+            x = (</span><span class="s0">float</span><span class="s1">)(</span><span class="s0">this</span><span class="s1">.width + paddingLeft - (</span><span class="s3">1.5</span><span class="s1">*bw)); 
+        } 
+        </span><span class="s0">if</span><span class="s1">( x &lt; (</span><span class="s3">1.5</span><span class="s1">*bw-paddingLeft) ) 
+        { 
+            x = (</span><span class="s0">float</span><span class="s1">)</span><span class="s3">1.5</span><span class="s1">*bw-paddingLeft; 
+        } 
+ 
+        </span><span class="s0">float </span><span class="s1">yDiff = </span><span class="s3">0</span><span class="s1">; 
+        </span><span class="s0">if</span><span class="s1">( y &gt; (</span><span class="s0">this</span><span class="s1">.height - (</span><span class="s3">1.5</span><span class="s1">*bw)) ) 
+        { 
+            yDiff = -</span><span class="s3">2f</span><span class="s1">*by - (</span><span class="s0">this</span><span class="s1">.height / </span><span class="s0">this</span><span class="s1">.verticalCount); 
+ 
+        } 
+ 
+        rectAct1.set(x-(</span><span class="s0">float</span><span class="s1">)(bw*</span><span class="s3">1.5</span><span class="s1">),y + (by/</span><span class="s3">2</span><span class="s1">)+yDiff,x-(bw/</span><span class="s3">2</span><span class="s1">),y + (</span><span class="s0">float</span><span class="s1">)(by*</span><span class="s3">1.5</span><span class="s1">)+yDiff); 
+        rectAct2.set(x-(bw/</span><span class="s3">2</span><span class="s1">),y + (by/</span><span class="s3">2</span><span class="s1">)+yDiff,x+(bw/</span><span class="s3">2</span><span class="s1">),y + (</span><span class="s0">float</span><span class="s1">)(by*</span><span class="s3">1.5</span><span class="s1">)+yDiff); 
+        rectAct3.set(x+(bw/</span><span class="s3">2</span><span class="s1">),y + (by/</span><span class="s3">2</span><span class="s1">)+yDiff,x+(</span><span class="s0">float</span><span class="s1">)(bw*</span><span class="s3">1.5</span><span class="s1">),y + (</span><span class="s0">float</span><span class="s1">)(by*</span><span class="s3">1.5</span><span class="s1">)+yDiff); 
+ 
+        </span><span class="s0">if</span><span class="s1">( rectAct1.top &gt; rectAct1.bottom ) 
+        { 
+            </span><span class="s0">float </span><span class="s1">c = rectAct1.top; 
+            rectAct1.top = rectAct1.bottom; 
+            rectAct1.bottom = c; 
+        } 
+ 
+        </span><span class="s0">if</span><span class="s1">( rectAct2.top &gt; rectAct2.bottom ) 
+        { 
+            </span><span class="s0">float </span><span class="s1">c = rectAct2.top; 
+            rectAct2.top = rectAct2.bottom; 
+            rectAct2.bottom = c; 
+        } 
+ 
+        </span><span class="s0">if</span><span class="s1">( rectAct3.top &gt; rectAct3.bottom ) 
+        { 
+            </span><span class="s0">float </span><span class="s1">c = rectAct3.top; 
+            rectAct3.top = rectAct3.bottom; 
+            rectAct3.bottom = c; 
+        } 
+ 
+        Log.i(</span><span class="s4">&quot;&quot;</span><span class="s1">, </span><span class="s4">&quot;actionNumber-----&gt;&quot;</span><span class="s1">+actionNumber); 
+ 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">hideActions() 
+    { 
+        rectAct1.set(-</span><span class="s3">100</span><span class="s1">,-</span><span class="s3">100</span><span class="s1">,-</span><span class="s3">99</span><span class="s1">,-</span><span class="s3">99</span><span class="s1">); 
+        rectAct2.set(-</span><span class="s3">100</span><span class="s1">,-</span><span class="s3">100</span><span class="s1">,-</span><span class="s3">99</span><span class="s1">,-</span><span class="s3">99</span><span class="s1">); 
+        rectAct3.set(-</span><span class="s3">100</span><span class="s1">,-</span><span class="s3">100</span><span class="s1">,-</span><span class="s3">99</span><span class="s1">,-</span><span class="s3">99</span><span class="s1">); 
+ 
+        ta.set(-</span><span class="s3">4</span><span class="s1">,-</span><span class="s3">4</span><span class="s1">); 
+        tb.set(-</span><span class="s3">4</span><span class="s1">,-</span><span class="s3">4</span><span class="s1">); 
+        tc.set(-</span><span class="s3">4</span><span class="s1">,-</span><span class="s3">4</span><span class="s1">); 
+    } 
+ 
+    </span><span class="s0">private boolean </span><span class="s1">selectAction(PointF pos) 
+    { 
+        </span><span class="s0">if</span><span class="s1">( rectAct1.contains(pos.x, pos.y) ) 
+        { 
+            actionNumber = </span><span class="s3">1</span><span class="s1">; 
+</span><span class="s2">//            hideActions();</span><span class="s1"> 
+            </span><span class="s0">return true</span><span class="s1">; 
+        } 
+        </span><span class="s0">if</span><span class="s1">( rectAct2.contains(pos.x, pos.y) ) 
+        { 
+            actionNumber = </span><span class="s3">2</span><span class="s1">; 
+</span><span class="s2">//            hideActions();</span><span class="s1"> 
+            </span><span class="s0">return true</span><span class="s1">; 
+        } 
+        </span><span class="s0">if</span><span class="s1">( rectAct3.contains(pos.x, pos.y) ) 
+        { 
+            actionNumber = </span><span class="s3">3</span><span class="s1">; 
+</span><span class="s2">//            hideActions();</span><span class="s1"> 
+            </span><span class="s0">return true</span><span class="s1">; 
+        } 
+ 
+        actionNumber = -</span><span class="s3">1</span><span class="s1">; 
+        </span><span class="s0">return false</span><span class="s1">; 
+    } 
+ 
+    </span><span class="s0">private int </span><span class="s1">gestureId(Point p1, Point p2, </span><span class="s0">int </span><span class="s1">range) { 
+        </span><span class="s0">if </span><span class="s1">((p2.x - p1.x) &gt; range) { 
+            </span><span class="s0">return </span><span class="s3">1</span><span class="s1">; 
+        } 
+        </span><span class="s0">if </span><span class="s1">((p1.x - p2.x) &gt; range) { 
+            </span><span class="s0">return </span><span class="s3">2</span><span class="s1">; 
+        } 
+ 
+        </span><span class="s0">if </span><span class="s1">((p2.y - p1.y) &gt; range) { 
+            </span><span class="s0">return </span><span class="s3">3</span><span class="s1">; 
+        } 
+        </span><span class="s0">if </span><span class="s1">((p1.y - p2.y) &gt; range) { 
+            </span><span class="s0">return </span><span class="s3">4</span><span class="s1">; 
+        } 
+ 
+        </span><span class="s0">return </span><span class="s3">0</span><span class="s1">; 
+    } 
+ 
+    </span><span class="s0">private </span><span class="s1">Point getCoordsById(</span><span class="s0">int </span><span class="s1">index) { 
+        </span><span class="s0">int </span><span class="s1">column = index % </span><span class="s0">this</span><span class="s1">.horizontalCount; 
+        </span><span class="s0">int </span><span class="s1">row = (index - column)/ </span><span class="s0">this</span><span class="s1">.horizontalCount; 
+ 
+        </span><span class="s0">return new </span><span class="s1">Point(column, row); 
+    } 
+ 
+    </span><span class="s0">private </span><span class="s1">Handler handler = </span><span class="s0">new </span><span class="s1">Handler() { 
+        @Override 
+        </span><span class="s0">public void </span><span class="s1">handleMessage(Message msg) { 
+            initGeom(</span><span class="s0">false</span><span class="s1">); 
+        } 
+    }; 
+}</span></pre>
+</body>
+</html>

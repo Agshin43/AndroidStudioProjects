@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myBlack"
+    tools:context="com.apps.akaya.picnest.MakePicnest">
+
+    <include
+        android:id="@+id/toolbarv7main"
+        layout="@layout/toolbar_main"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbarv7main"
+        android:id="@+id/lay_picsView">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/myColor1"
+        android:padding="@dimen/layout_padding"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/sp_pic_select" />
+        <ImageButton
+            android:onClick="onBtnChoosePicClicked"
+            android:layout_height="@dimen/image_button_height"
+            android:layout_width ="@dimen/image_button_width"
+            android:layout_margin="@dimen/button_margin"
+            android:src="@drawable/ic_choose"
+            android:scaleType="fitXY"
+            android:background="@color/myTransparent"
+            android:id="@+id/btn_choose" />
+
+        <ImageButton
+            android:layout_width="@dimen/image_button_width"
+            android:layout_height="@dimen/image_button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:src="@drawable/ic_resize"
+            android:scaleType="fitXY"
+            android:background="@color/myTransparent"
+            android:id="@+id/btn_tile_size" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

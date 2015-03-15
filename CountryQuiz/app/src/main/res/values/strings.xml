@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Country Quiz</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_learn">learn</string>
+    <string name="btn_play">play</string>
+    <string name="btn_high_scores">high scores</string>
+    <string name="title_activity_choose_game">Choose game</string>
+    <string name="btn_flags">flags</string>
+    <string name="btn_coats">coat of arms</string>
+    <string name="btn_capitals">capitals</string>
+    <string name="btn_populations">populations</string>
+    <string name="btn_areas">areas</string>
+    <string name="btn_mixed">mixed</string>
+    <string name="title_activity_game">Game</string>
+
+</resources>

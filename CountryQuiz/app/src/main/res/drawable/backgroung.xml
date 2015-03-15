@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/repeat_yellow"
+    android:autoMirrored="true"
+    android:filter="true"
+    android:tileMode="repeat" />

@@ -1,0 +1,7 @@
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/classes/release
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/release/internal_impl-21.0.2-de2d02e7f9cca4d3ab042935de69d22510c9fc7d.jar
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/release/support-annotations-21.0.2-6404cbb5a7b594762466462991cd1e76a98edfed.jar
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/release/classes-03dbb1f1aa26abae9dba2ea4d402e961307eb8a9.jar
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/release/classes-a20e002d60601c5428ac1ac53a10de9d1be12384.jar
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/release/internal_impl-21.0.2-3ef1da28cb39893cc09cf9672989312f5ad46cb0.jar
+/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/release/classes-9d48da6494780f0190985f620e0d83b0bc0bbb18.jar

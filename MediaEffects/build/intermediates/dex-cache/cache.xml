@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/debug/classes-9d48da6494780f0190985f620e0d83b0bc0bbb18.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/Documents/adt/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-6404cbb5a7b594762466462991cd1e76a98edfed.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-3ef1da28cb39893cc09cf9672989312f5ad46cb0.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="b017100da14f9c158c9f5f2f508333c224b24a7c">
+        <dex dex="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/debug/classes-a20e002d60601c5428ac1ac53a10de9d1be12384.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="61965ae058916e6a57950dd61b0164dc866af19a">
+        <dex dex="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/debug/classes-03dbb1f1aa26abae9dba2ea4d402e961307eb8a9.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.2/libs/internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="9346da9fb778af9e451211bbc3541daced174ba7">
+        <dex dex="/Users/agshin/AndroidStudioProjects/MediaEffects/Application/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-de2d02e7f9cca4d3ab042935de69d22510c9fc7d.jar" />
+    </item>
+
+</items>

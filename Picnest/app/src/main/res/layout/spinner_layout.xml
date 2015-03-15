@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/myColor2">
+    <ImageView android:id="@+id/imageIc"
+        android:layout_width="@dimen/image_button_width"
+        android:layout_height="@dimen/image_button_height"
+        android:scaleType="fitXY"
+        />
+    <TextView android:id="@+id/tv_pic_name"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:ellipsize="marquee"/>
+</LinearLayout>

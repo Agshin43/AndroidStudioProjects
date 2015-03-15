@@ -1,0 +1,7 @@
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/classes/debug
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-6404cbb5a7b594762466462991cd1e76a98edfed.jar
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/pre-dexed/debug/classes-d451cd5cbc2219ec08b8e7670b0a27827ec330f7.jar
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/pre-dexed/debug/classes-75924ab1973ff64c7fcece2eedf5f4cb1000f404.jar
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-3403550e8adb765c5ae25a311a1281e157887736.jar
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/pre-dexed/debug/classes-b783ba27bfbc1d6c25cd517090b4597043a83ae3.jar
+/Users/agshin/AndroidStudioProjects/ActionBarCompat-Basic/Application/build/intermediates/pre-dexed/debug/classes-696dbe5e6a5a93b5273f5d6ea8e16a133b24c978.jar
