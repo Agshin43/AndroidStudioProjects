@@ -14,16 +14,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.apps.akaya.picnest.library.QuickAction;
 
 import java.util.ArrayList;
 
@@ -35,32 +37,25 @@ public class MakePicnest extends ActionBarActivity{
 
     Spinner picSpinner;
     ArrayList<PicData> myPics;
-    QuickAction customQuickAction;
+
+
+    private LinearLayout layTools;
+    Animation vanish;
+    Button btn_copy;
+    Button btn_paste;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_picnest);
 
+        vanish = AnimationUtils.loadAnimation(MakePicnest.this, R.anim.vanish);
+        layTools = (LinearLayout) findViewById(R.id.lay_tools);
+        layTools.setVisibility(View.INVISIBLE);
 
-        //////////////////// Quick action ////////////////////////
+        btn_copy = (Button) findViewById(R.id.btn_copy);
+        btn_paste = (Button) findViewById(R.id.btn_paste);
 
-
-        @SuppressLint("InflateParams") RelativeLayout customLayout =
-                (RelativeLayout) getLayoutInflater().inflate(R.layout.popup_custom_layout, null);
-
-        ImageButton btn_test = (ImageButton) customLayout.findViewById(R.id.btn_test);
-        btn_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MakePicnest.this,"Test button clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        customQuickAction = new QuickAction(this, R.style.PopupAnimation, customLayout);
-
-
-        ///////////////////////////////////////////////////////////
         toolbar = (Toolbar) findViewById(R.id.toolbarv7main);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -86,9 +81,39 @@ public class MakePicnest extends ActionBarActivity{
         picsView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
         layPicsView.addView(picsView);
         picsView.invalidate();
+        picsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!picsView.started) {
+                    picsView.started = true;
+
+                    LinearLayout layOptions = (LinearLayout) findViewById(R.id.lay_start_options);
+//                    layOptions.startAnimation(vanish);
+
+                    picsView.invalidate();
+                    layOptions.setVisibility(View.INVISIBLE);
+//                    layTools.startAnimation(vanish);
+                    layTools.setVisibility(View.INVISIBLE);
+                    return;
+
+                }
+                if (picsView.selectedPicId != -1) {
+                    if(layTools.getVisibility() != View.VISIBLE)
+                    {
+                        layTools.setVisibility(View.VISIBLE);
+//                        layTools.startAnimation(vanish);
+                    }
+                }
+                else
+                {
+//                    layTools.startAnimation(vanish);
+                    layTools.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         ////////////////////////////////////////////////////////////////////
-        ImageButton btn_choose = (ImageButton) findViewById(R.id.btn_choose);
+        final ImageButton btn_choose = (ImageButton) findViewById(R.id.btn_choose);
 
         // add button listener
         btn_choose.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +121,11 @@ public class MakePicnest extends ActionBarActivity{
             @Override
             public void onClick(View arg0) {
                 picSpinner.performClick();
-
+                btn_choose.startAnimation(vanish);
             }
         });
 
 
-        ////////////////////////////////////////////////////////////////////
         final ImageButton btnTileSize = (ImageButton) findViewById(R.id.btn_tile_size);
 
 
@@ -111,6 +135,7 @@ public class MakePicnest extends ActionBarActivity{
             @Override
             public void onClick(View arg0) {
 
+                btn_choose.startAnimation(vanish);
 
                 LayoutInflater inflater = LayoutInflater.from(MakePicnest.this);
                 View layout = inflater.inflate(R.layout.layout_tile_size_dialog, null);
@@ -130,10 +155,25 @@ public class MakePicnest extends ActionBarActivity{
                 MyBuilder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         picsView.changeTiles(tileSizeMenu.columnCount, tileSizeMenu.rowCount);
+                        picsView.selectedPicId = -1;
                     }
                 });
                 MyDialog = MyBuilder.create();
                 MyDialog.show();
+            }
+        });
+
+        btn_copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_copy.startAnimation(vanish);
+            }
+        });
+
+        btn_paste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_paste.startAnimation(vanish);
             }
         });
         ////////////////////////////////////////////////////////////////////
@@ -170,7 +210,7 @@ public class MakePicnest extends ActionBarActivity{
     @SuppressWarnings("unused")
     public void onBtnChoosePicClicked(View view)
     {
-        Toast.makeText(this, " Choose clicked ", Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, " Choose clicked ", Toast.LENGTH_LONG).show();
 //        customQuickAction.show(view,);
     }
 
@@ -209,20 +249,15 @@ public class MakePicnest extends ActionBarActivity{
     {
         System.gc();
         ArrayList<PicData> pics = new ArrayList<PicData>();
-        pics.add(new PicData( R.drawable.pic_leaf6, "vwefgwe"));
-        pics.add(new PicData( R.drawable.pic_leaf2, "xwefgwe"));
-        pics.add(new PicData( R.drawable.pic_animal14, "qwefgwe"));
-        pics.add(new PicData( R.drawable.pic_smiley9, "awefgwe"));
-        pics.add(new PicData( R.drawable.pic_smiley2, "ywefgwe"));
-        pics.add(new PicData( R.drawable.pic_leaf1, "twefgwe"));
-        pics.add(new PicData( R.drawable.pic_smiley6, "rwefgwe"));
-        pics.add(new PicData( R.drawable.pic_heart4 , "dwefgwe"));
-        pics.add(new PicData( R.drawable.pic_heart1 , "dwefgwe"));
-        pics.add(new PicData( R.drawable.pic_heart2 , "dwefgwe"));
-        pics.add(new PicData( R.drawable.pic_heart3 , "dwefgwe"));
-        pics.add(new PicData( R.drawable.pic_heart5 , "dwefgwe"));
-        pics.add(new PicData( R.drawable.pic_leaf5 , "dwefgwe"));
-        pics.add(new PicData( R.drawable.pic_smiley10 , "dwefgwe"));
+
+        ArrayList<String> hearts = new ArrayList<String>();
+
+        String[] itemNames = getResources().getStringArray(R.array.pics_array);
+        for (int i = 0;i < itemNames.length; i++) {
+            String[] ss = itemNames[i].split(",");
+            int id = getResources().getIdentifier(ss[0], "drawable", getPackageName());
+            pics.add(new PicData(id , ss[1]));
+        }
 
         return pics;
     }

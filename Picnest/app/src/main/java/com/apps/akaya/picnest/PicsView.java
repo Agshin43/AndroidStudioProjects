@@ -1,6 +1,7 @@
 package com.apps.akaya.picnest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BlurMaskFilter;
@@ -74,11 +75,16 @@ public class PicsView extends View {
 
     public int actionNumber;
 
+    public boolean started;
+
 
 
 
     public PicsView(Activity context, RelativeLayout parentLayout, int horizontalCount, int verticalCount, int picsDrawable) {
         super(context);
+
+        this.started = false;
+        this.selectedPicId = -1;
 
         this.parentLayout = parentLayout;
         this.context = context;
@@ -96,6 +102,10 @@ public class PicsView extends View {
         mPaint = new Paint();
         blurPaint = new Paint();
 
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        blurPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+
         mTriangle = new Path();
         mTriangle.setFillType(Path.FillType.EVEN_ODD);
 
@@ -112,7 +122,7 @@ public class PicsView extends View {
         };
 
         timer = new Timer();
-        timer.scheduleAtFixedRate(timerTask, 1000, 100000);
+        timer.scheduleAtFixedRate(timerTask, 0, 100000);
 
         rectActs = new RectF();
         rectAct1 = new RectF();
@@ -140,7 +150,7 @@ public class PicsView extends View {
 
         this.invalidate();
     }
-    public void arangeTiles()
+    public void arrangeTiles()
     {
         initGeom(true);
 
@@ -149,7 +159,6 @@ public class PicsView extends View {
         this.initBlankPicsBitmaps();
         this.invalidate();
     }
-
 
     public void setPicsBitmap(int picsDrawable, boolean deletePics)
     {
@@ -160,43 +169,24 @@ public class PicsView extends View {
 
         this.picsBitmap = Bitmap.createScaledBitmap(this.picsBitmap, (int)((float)this.parentLayout.getWidth()/rt), (int)(this.parentLayout.getWidth()*rt), false);
 
-        this.picWidth = this.width / MyConstants.MAX_COL_COUNT;//this.horizontalCount;
-        this.picHeight = this.picWidth;
+//        this.picWidth = this.width / MyConstants.MAX_COL_COUNT;//this.horizontalCount;
+//        this.picHeight = this.picWidth;
 
-        arangeTiles();
+
+        initPicSize();
+
+        arrangeTiles();
         this.invalidate();
-    }
-
-    private void blankizePics()
-    {
-        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(),
-                R.drawable.ic_blank_image);
-        for(int i = 0; i < this.pics.size(); i++)
-        {
-            pics.get(i).bitmap = bmp;
-            pics.get(i).isBlank = true;
-        }
-    }
-
-    private void blankizePic(int i)
-    {
-        if(i >= this.pics.size()) { return; }
-        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(),
-                R.drawable.ic_blank_image);
-        pics.get(i).bitmap = bmp;
-        pics.get(i).isBlank = true;
     }
 
     private void changePicBitmap(int index)
     {
-
         Point pos = getCoordsById(index);
-        float w = (float)this.width / (float)this.horizontalCount;
-        float W = this.picWidth;
+        float w = this.picWidth;//(float)this.width / (float)this.horizontalCount;
+//        float W = this.picWidth;
         System.gc();
-        Bitmap pb = Bitmap.createBitmap(this.picsBitmap, (int)(pos.x*W), (int)(pos.y*W), (int)w, (int)w);
 
-        this.pics.get(index).picBitmap = pb;
+        this.pics.get(index).picBitmap = Bitmap.createBitmap(this.picsBitmap, (int)(pos.x*w), (int)(pos.y*w), (int)w, (int)w);
     }
 
     private void addBlankPic()
@@ -204,7 +194,7 @@ public class PicsView extends View {
         if( ( this.pics.size() >= this.horizontalCount * this.verticalCount ) ) { return; }
 
         Point pos = getCoordsById(this.pics.size());
-        float t = (float)this.width / (float)MyConstants.MAX_COL_COUNT;//(float)this.horizontalCount;
+        float t = this.picWidth;//(float)this.width / (float)MyConstants.MAX_COL_COUNT;//(float)this.horizontalCount;
         float W = this.picWidth;
 //        System.gc();
         Bitmap pb = Bitmap.createBitmap(this.picsBitmap, (int)((float)pos.x*W), (int)((float)pos.y*W), (int)t, (int)t);
@@ -214,23 +204,47 @@ public class PicsView extends View {
         this.pics.add(new Pic(pos.x*W, pos.y*W, bmp, pb));
     }
 
+    private void initPicSize()
+    {
+        if(this.verticalCount > this.horizontalCount)
+        {
+            this.picWidth = this.width / (float) this.verticalCount;
+        }
+        else
+        {
+            this.picWidth = this.width / (float) this.horizontalCount;
+        }
+
+        this.picHeight = this.picWidth;
+
+
+//        this.picWidth = (float)this.width / (float)this.horizontalCount;
+//        this.picHeight = this.picWidth;
+//        if((float)this.verticalCount * (float)this.picWidth > this.height)
+//        {
+//            this.picWidth  = (float)this.width / (float)MyConstants.MAX_COL_COUNT;
+//            this.picHeight = this.picWidth;
+//        }
+
+    }
     public void initGeom(boolean force) {
         if (!geomInitialized || force) {
             this.width = parentLayout.getWidth();
             this.height = this.width;
             if (this.width > 100) {
                 {
-                    this.picWidth  = (float)this.width / (float)MyConstants.MAX_COL_COUNT;//this.horizontalCount;
-                    this.picHeight = this.picWidth;
+//                    this.picWidth  = (float)this.width / (float)MyConstants.MAX_COL_COUNT;//this.horizontalCount;
+//                    this.picHeight = this.picWidth;
+
+                    initPicSize();
                 }
 
                 this.paddingLeft = (int)(((float)this.width - (this.picWidth*this.horizontalCount))/2f);
                 this.paddingTop = (int)(((float)this.width - (this.picWidth*this.verticalCount))/2f);
 
-                this.paint.setTextSize(this.width/20);
+                this.paint.setTextSize(this.width/20f);
 
-                System.gc();
-                this.picsBitmap = Bitmap.createScaledBitmap(this.picsBitmap, (int)this.picHeight*this.horizontalCount, (int)this.picHeight*this.verticalCount, false);
+                this.picsBitmap = Bitmap.createScaledBitmap(this.picsBitmap, (int)(this.picHeight*this.horizontalCount), (int)(this.picHeight*this.verticalCount), false);
                 initBlankPicsBitmaps();
 
                 geomInitialized = true;
@@ -278,6 +292,7 @@ public class PicsView extends View {
         canvas.translate(this.paddingLeft,this.paddingTop);
         this.canvas = canvas;
         super.onDraw(canvas);
+
         int picCount = this.pics.size();
 
         float x;
@@ -285,7 +300,7 @@ public class PicsView extends View {
 
         paint.setARGB(255,0,0,0);
         canvas.drawRect(0,0,(int)this.width, (int)this.height, paint);
-        float picW = this.width/MyConstants.MAX_COL_COUNT; // this.horizontalCount;
+        float picW = this.picWidth;//this.width/MyConstants.MAX_COL_COUNT; // this.horizontalCount;
 
         boolean picSelected = false;
         for (int i = 0; i < picCount; i++) {
@@ -317,8 +332,8 @@ public class PicsView extends View {
             float round = 0;//rectAct2.width()/8;
             blurPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
-            blurPaint.setColor(context.getResources().getColor(R.color.myColor1));
-            blurPaint.setAlpha(200);
+            blurPaint.setColor(context.getResources().getColor(R.color.myColor2));
+//            blurPaint.setAlpha(220);
             if(actionNumber == 1)
             {
                 blurPaint.setColor(context.getResources().getColor(R.color.myBlack));
@@ -360,15 +375,34 @@ public class PicsView extends View {
 
 
         }
+        ////////////////////
+        if (!started)
+        {
+            paint.setColor(context.getResources().getColor(R.color.myColor2));
+            paint.setAlpha(180);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setTextSize(this.width/8);
+            canvas.drawRect(-this.paddingLeft, -this.paddingTop, this.width, this.height, paint);
+            paint.setColor(context.getResources().getColor(R.color.myColor1));
+            paint.setTextAlign(Paint.Align.CENTER);
+            canvas.drawText(getResources().getString(R.string.start), this.width / 2 - paddingLeft, this.height/2, paint);
+        }
+        ////////////////////
 
+        this.paint.setTextSize(this.width/20f);
         paint.setColor(getResources().getColor(R.color.mediumSlateBlue));
         String xxx = this.horizontalCount + "x"+this.verticalCount;
-        canvas.drawText(xxx, this.width / 2 - (paint.measureText(xxx)/2) - paddingLeft, (int)(this.height*1.1) - paddingTop, paint);
+        canvas.drawText(xxx, this.width / 2 - paddingLeft, (int)(this.height*1.1) - paddingTop, paint);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);
+
+        if (!started) {
+//            started = true;
+            return true;
+        }
 
         float tx = event.getX() - paddingLeft;
         float ty = event.getY() - paddingTop;
@@ -393,6 +427,21 @@ public class PicsView extends View {
     private void touchDown(PointF pos) {
         downPos = pos;
         boolean actSelected = selectAction(pos);
+
+        //////////////////////
+        if (actionNumber == 2) {
+            context.startActivity(new Intent(context, ImageTranslation.class));
+        } else {
+//            MyTools.showToast(context, "Action "+actionNumber,true);
+        }
+
+        if (actionNumber == 1) {
+            context.startActivity(new Intent(context, Capture.class));
+        } else {
+//            MyTools.showToast(context, "Action "+actionNumber,true);
+        }
+
+        //////////////////////
         if(!actSelected)
         {
             int lastPicId = this.selectedPicId;
@@ -432,13 +481,11 @@ public class PicsView extends View {
         if(selectedPicId == -1) {return;}
 
         Point p = getCoordsById(selectedPicId);
-        float x = p.x * picWidth + (picWidth/2);
-        float y = (p.y+1) * picWidth;
+        float x = p.x * picWidth + (picWidth/2f);
+        float y = (float)(p.y+0.5f) * picWidth;
 
-
-
-        float bw = this.width/5;
-        float by = this.width/5;
+        float bw = this.width/5f;
+        float by = this.width/5f;
         //////////////////////
         ta = new PointF(x, y);
         tb = new PointF(x+(bw/4), y+(bw/2));
@@ -446,30 +493,30 @@ public class PicsView extends View {
         if(y > (this.height - (1.5*bw)))
         {
             float ny = y-this.picHeight;
-            ta = new PointF(x, ny);
-            tb = new PointF(x+(bw/4), ny-(bw/2));
-            tc = new PointF(x-(bw/4), ny-(bw/2));
+            ta = new PointF(x, ny+picWidth);
+            tb = new PointF(x+(bw/4), ny-(bw/2)+picWidth);
+            tc = new PointF(x-(bw/4), ny-(bw/2)+picWidth);
         }
         //////////////////////
-        if( x > (this.width + paddingLeft - (1.5*bw)) )
+        if( x > (this.width - paddingLeft - (1.5*bw)) )
         {
-            x = (float)(this.width + paddingLeft - (1.5*bw));
+            x = (float)(this.width - paddingLeft - (1.5*bw));
         }
         if( x < (1.5*bw-paddingLeft) )
         {
             x = (float)1.5*bw-paddingLeft;
         }
 
-        float yDiff = 0;
+        rectAct1.set(x-(float)(bw*1.5),y + (by/2),x-(bw/2),y + (float)(by*1.5));
+        rectAct2.set(x-(bw/2),y + (by/2),x+(bw/2),y + (float)(by*1.5));
+        rectAct3.set(x+(bw/2),y + (by/2),x+(float)(bw*1.5),y + (float)(by*1.5));
+
         if( y > (this.height - (1.5*bw)) )
         {
-            yDiff = -2f*by - (this.height / this.verticalCount);
-
+            rectAct1.set(x-(float)(bw*1.5),tb.y - (bw),x-(bw/2),tb.y);
+            rectAct2.set(x-(bw/2),tb.y - (bw),x+(bw/2),tb.y);
+            rectAct3.set(x+(bw/2),tb.y - (bw),x+(float)(bw*1.5),tb.y);
         }
-
-        rectAct1.set(x-(float)(bw*1.5),y + (by/2)+yDiff,x-(bw/2),y + (float)(by*1.5)+yDiff);
-        rectAct2.set(x-(bw/2),y + (by/2)+yDiff,x+(bw/2),y + (float)(by*1.5)+yDiff);
-        rectAct3.set(x+(bw/2),y + (by/2)+yDiff,x+(float)(bw*1.5),y + (float)(by*1.5)+yDiff);
 
         if( rectAct1.top > rectAct1.bottom )
         {
@@ -491,6 +538,7 @@ public class PicsView extends View {
             rectAct3.top = rectAct3.bottom;
             rectAct3.bottom = c;
         }
+
     }
 
     public void hideActions()
@@ -499,9 +547,9 @@ public class PicsView extends View {
         rectAct2.set(-100,-100,-99,-99);
         rectAct3.set(-100,-100,-99,-99);
 
-        ta.set(-4,-4);
-        tb.set(-4,-4);
-        tc.set(-4,-4);
+        ta.set(-400,-400);
+        tb.set(-400,-400);
+        tc.set(-400,-400);
     }
 
     private boolean selectAction(PointF pos)

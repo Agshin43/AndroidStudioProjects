@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/myBlack"
+    tools:context=".TorchSettings"
+    android:id="@+id/bb">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/lay_base">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/myWhite"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:paddingRight="@dimen/activity_vertical_margin"
+                    android:text="@string/fac"
+                    android:id="@+id/tv_finger_action_count" />
+
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:id="@+id/sp_fac" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/activity_vertical_margin"
+                android:src="@drawable/ic_instructions1"
+                android:scaleType="fitXY"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/myDarkGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sensity"
+                    android:textColor="@color/myWhite"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/tv_sensity" />
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sb_sensity"
+                    android:max="1000"
+                    android:secondaryProgress="1000"
+                    android:indeterminate="false" />
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/myDarkGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vibration"
+                    android:textColor="@color/myWhite"
+                    android:id="@+id/cb_vibation"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:checked="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sounds"
+                    android:textColor="@color/myWhite"
+                    android:id="@+id/cb_sounds"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:checked="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_restore_defaults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/restore_defaults"
+            android:background="@drawable/selector_spinner"
+            android:onClick="onBtnRestoreClicked"
+            android:textColor="@color/myWhite" />
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:onClick="onBtnSaveClicked"
+            android:background="@drawable/selector_spinner"
+            android:textColor="@color/myWhite" />
+    </LinearLayout>
+</RelativeLayout>

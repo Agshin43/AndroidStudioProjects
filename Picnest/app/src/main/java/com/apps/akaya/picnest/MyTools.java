@@ -9,7 +9,7 @@ import android.widget.Toast;
  */
 public class MyTools {
 
-    public void printI(String tag, String message, boolean print)
+    public static void printI(String tag, String message, boolean print)
     {
         if(print)
         {
@@ -17,13 +17,11 @@ public class MyTools {
         }
     }
 
-    public void showToast(Context context, String message, boolean show)
+    public static void showToast(Context context, String message, boolean show)
     {
         if(show)
         {
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         }
     }
-
-    
 }

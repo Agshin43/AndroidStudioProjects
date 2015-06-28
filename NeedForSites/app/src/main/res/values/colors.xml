@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--FFA8A4-->
+    <item name="myColor1" type="color">#FFEE7AE9</item>
+    <item name="myColor1Dark" type="color">#FFDF8884</item>
+    <item name="myColor2" type="color">#FF4DD7FA</item>
+    <item name="myAnimCircleColor" type="color">#BBf1d30e</item>
+    <item name="myColor2Dark" type="color">#FF2DB7DA</item>
+    <item name="myWhite" type="color">#FFFFFFFF</item>
+    <item name="myDarkGreen" type="color">#FF338844</item>
+    <item name="myGrey" type="color">#FFEAEAEA</item>
+    <item name="myDarkBlue" type="color">#FF002244</item>
+    <item name="myBColorYellow" type="color">#f1d30e</item>
+    <item name="myBlack" type="color">#FF000000</item>
+    <item name="myTransparent" type="color">#00000000</item>
+    <item name="mySemiTransparent" type="color">#88000000</item>
+    <item name="mediumSlateBlue" type="color">#FF7B68EE</item>
+
+</resources>

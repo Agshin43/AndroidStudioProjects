@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:background="@color/myColor1"
         android:padding="@dimen/layout_padding"
+        android:id="@+id/lay_start_options"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
 
@@ -51,6 +52,40 @@
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_tools"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/myColor2"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="onBtnChoosePicClicked"
+            android:layout_height="@dimen/image_button_height"
+            android:layout_width ="@dimen/image_button_width"
+            android:layout_margin="@dimen/button_margin"
+            android:drawableBottom="@drawable/ic_copy"
+            android:text="@string/copy"
+            android:scaleType="fitXY"
+            android:textColor="@color/myWhite"
+            android:background="@color/myTransparent"
+            android:id="@+id/btn_copy" />
+
+        <Button
+            android:layout_width="@dimen/image_button_width"
+            android:layout_height="@dimen/image_button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:drawableBottom="@drawable/ic_copy"
+            android:scaleType="fitXY"
+            android:text="@string/paste"
+            android:textColor="@color/myWhite"
+            android:background="@color/myTransparent"
+            android:id="@+id/btn_paste" />
+
+        </LinearLayout>
 
 
 

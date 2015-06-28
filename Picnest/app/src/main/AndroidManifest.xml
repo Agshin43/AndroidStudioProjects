@@ -27,11 +27,15 @@
         <activity
             android:name=".Capture"
             android:label="@string/title_activity_capture"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".MakePicnest"
             android:label="@string/title_activity_make_picnest" >
+        </activity>
+        <activity
+            android:name=".ImageTranslation"
+            android:label="@string/title_activity_image_translation" >
         </activity>
     </application>
 

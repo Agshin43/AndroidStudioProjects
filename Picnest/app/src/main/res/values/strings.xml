@@ -35,17 +35,50 @@
     <string name="logos">Logos</string>
     <string name="smileys">Smileys</string>
     <string name="extras">Extras</string>
+    <string name="start">Start</string>
+    <string name="copy">Copy</string>
+    <string name="paste">Paste</string>
     <string name="title_activity_tile_size_and_pic_select">TileSizeAndPicSelect</string>
 
 
-    <string-array name="hearts_array">
+    <string-array name="pics_array">
         <item>pic_heart1,Heart 1</item>
         <item>pic_heart2,Heart 2</item>
         <item>pic_heart3,Heart 3</item>
         <item>pic_heart4,Heart 4</item>
         <item>pic_heart5,Heart 5</item>
-        <item>pic_flower1,Heart 6</item>
-        <item>pic_flower2,Heart 7</item>
-        <item>pic_flower3,Heart 8</item>
+
+        <item>pic_animal1,Animal 1</item>
+        <item>pic_animal2,Animal 2</item>
+        <item>pic_animal3,Animal 3</item>
+        <item>pic_animal4,Animal 4</item>
+        <item>pic_animal5,Animal 5</item>
+
+        <item>pic_fruit1,Fruit 1</item>
+        <item>pic_fruit2,Fruit 2</item>
+        <item>pic_fruit3,Fruit 3</item>
+        <item>pic_fruit4,Fruit 4</item>
+        <item>pic_fruit5,Fruit 5</item>
+
+        <item>pic_leaf1,Leaf 1</item>
+        <item>pic_leaf2,Leaf 2</item>
+        <item>pic_leaf3,Leaf 3</item>
+        <item>pic_leaf4,Leaf 4</item>
+        <item>pic_leaf5,Leaf 5</item>
+
+        <item>pic_smiley1,Smiley 1</item>
+        <item>pic_smiley2,Smiley 2</item>
+        <item>pic_smiley3,Smiley 3</item>
+        <item>pic_smiley4,Smiley 4</item>
+        <item>pic_smiley5,Smiley 5</item>
+
+        <item>pic_flower1,Flower 1</item>
+        <item>pic_flower2,Flower 2</item>
+        <item>pic_flower3,Flower 3</item>
+        <item>pic_flower4,Flower 4</item>
+        <item>pic_flower5,Flower 5</item>
     </string-array>
+    <string name="title_activity_image_translation">ImageTranslation</string>
+    <string name="title_activity_test_translate">TestTranslate</string>
+
 </resources>

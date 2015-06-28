@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Position Tracker</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="registered">You are already registered</string>
+    <string name="register">Register</string>
+
+    <string name="server_url">http://172.16.6.74:8080/WebApplication1</string>
+
+    <string name="title_activity_activty_turn_gps">ActivtyTurnGps</string>
+    <string name="turn_gps_on">Turn on GPS</string>
+    <string name="turn_on">Turn on</string>
+    <string name="turn_on_wireless">Turn on wireless</string>
+    <string name="turn_on_wifi">Turn on wifi</string>
+    <string name="turn_on_mobile_data">Turn on mobile data</string>
+    <string name="warning">Gps Tracker - Warning!</string>
+    <string name="gps_is_off">Can\'t get location. \n Click here to go to GPS settings menu</string>
+    <string name="internet_is_off_wl">Your internet connection is off.\n Go wireless settings</string>
+    <string name="internet_is_off_wf">Your internet connection is off.\n Go wifi settings</string>
+    <string name="internet_is_off_md">Your internet connection is off.\n Go mobile data settings</string>
+    <string name="internet_is_off">Your internet connection is off.\n</string>
+    <string name="title_activity_activity_turn_internet">ActivityTurnInternet</string>
+    <!--<string name="server_url">http://172.20.10.4:8080/WebApplication1</string>-->
+</resources>

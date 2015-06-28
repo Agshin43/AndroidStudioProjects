@@ -175,7 +175,6 @@ public class TileSizeMenu extends View {
             this.width = parentLayout.getWidth();
             this.height = this.width;
             if (this.width > 100) {
-
                 paint.setTextSize(this.width / 15);
                 geomInitialized = true;
                 this.invalidate();

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Easy Torch</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="sensity">Sensity</string>
+    <string name="fac">Finger move count</string>
+    <string name="save">Save</string>
+    <string name="restore_defaults">Restore to defaults</string>
+    <string name="vibration">Vibrate when torch on/off.</string>
+    <string name="sounds">Play sound when torch on/off.</string>
+    <!--<string name="action_settings">Settings</string>-->
+    <!--<string name="action_settings">Settings</string>-->
+</resources>

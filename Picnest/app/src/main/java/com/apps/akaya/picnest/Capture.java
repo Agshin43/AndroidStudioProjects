@@ -4,11 +4,19 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -29,6 +37,8 @@ public class Capture extends Activity implements PictureCallback, SurfaceHolder.
     private Button mCaptureImageButton;
     private byte[] mCameraData;
     private boolean mIsCapturing;
+
+
 
     private OnClickListener mCaptureImageButtonClickListener = new OnClickListener() {
         @Override
@@ -58,19 +68,27 @@ public class Capture extends Activity implements PictureCallback, SurfaceHolder.
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_capture);
 
+//        mCameraPreview.setVisibility(View.INVISIBLE);
+//        mCameraImage.setVisibility(View.VISIBLE);
+        ////////////
+
+        ////////////
+        setContentView(R.layout.activity_capture);
         mCameraImage = (ImageView) findViewById(R.id.camera_image_view);
-        mCameraImage.setVisibility(View.INVISIBLE);
+        mCameraImage.setVisibility(View.VISIBLE);
 
         mCameraPreview = (SurfaceView) findViewById(R.id.preview_view);
+        mCameraPreview.setVisibility(View.VISIBLE);
         final SurfaceHolder surfaceHolder = mCameraPreview.getHolder();
         surfaceHolder.addCallback(this);
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+//        surfaceHolder.setFormat(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         mCaptureImageButton = (Button) findViewById(R.id.capture_image_button);
         mCaptureImageButton.setOnClickListener(mCaptureImageButtonClickListener);
@@ -150,6 +168,29 @@ public class Capture extends Activity implements PictureCallback, SurfaceHolder.
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+
+        try {
+            mCamera.setPreviewDisplay(holder);
+            Camera.Parameters parameters = mCamera.getParameters();
+            if (this.getResources().getConfiguration().orientation !=
+                    Configuration.ORIENTATION_LANDSCAPE)
+            {
+                parameters.set("orientation", "portrait");// <----THis gets the job done!!!
+                    // For Android Version 2.2 and above
+                    mCamera.setDisplayOrientation(90);
+                // For Android Version 2.0 and above
+                parameters.setRotation(90);
+//                parameters.setColorEffect(Camera.Parameters.);
+            }
+
+
+            // End Effects for Android Version 2.0 and higher
+            mCamera.setParameters(parameters);
+        }
+        catch (IOException exception)
+        {
+            mCamera.release();
+        }
     }
 
     @Override
@@ -157,12 +198,16 @@ public class Capture extends Activity implements PictureCallback, SurfaceHolder.
     }
 
     private void captureImage() {
-        mCamera.takePicture(null, null, this);
+        try {
+            mCamera.takePicture(null, null, this);
+        }
+        catch (Exception e){};
     }
 
     private void setupImageCapture() {
         mCameraImage.setVisibility(View.INVISIBLE);
         mCameraPreview.setVisibility(View.VISIBLE);
+
         mCamera.startPreview();
         mCaptureImageButton.setText(R.string.capture_image);
         mCaptureImageButton.setOnClickListener(mCaptureImageButtonClickListener);
@@ -170,6 +215,9 @@ public class Capture extends Activity implements PictureCallback, SurfaceHolder.
 
     private void setupImageDisplay() {
         Bitmap bitmap = BitmapFactory.decodeByteArray(mCameraData, 0, mCameraData.length);
+        Matrix mt = new Matrix();
+        mt.setRotate(90);
+        bitmap = Bitmap.createBitmap(bitmap,0,0, bitmap.getWidth(), bitmap.getHeight(), mt, false);
         mCameraImage.setImageBitmap(bitmap);
         mCamera.stopPreview();
         mCameraPreview.setVisibility(View.INVISIBLE);

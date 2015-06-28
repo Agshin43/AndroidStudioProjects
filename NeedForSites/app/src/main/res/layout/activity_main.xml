@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:background="@color/myBlack"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbarv7main"
+        layout="@layout/toolbar"/>
+    <com.google.android.gms.ads.AdView
+        android:layout_below="@id/toolbarv7main"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_id">
+    </com.google.android.gms.ads.AdView>
+
+
+<RelativeLayout
+    android:layout_below="@id/toolbarv7main"
+    android:layout_width="match_parent"
+    android:id="@+id/lay_touch_view"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/lay_buttons"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btn_random"
+            android:layout_margin="@dimen/base_padding"
+            style="?android:attr/buttonBarButtonStyle"
+            android:src="@drawable/ic_random"
+            android:scaleType="centerInside"
+            android:onClick="onButtonRandomClicked"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size" />
+        <ImageButton
+            android:id="@+id/btn_add_tofavorites"
+            android:layout_margin="@dimen/base_padding"
+            style="?android:attr/buttonBarButtonStyle"
+            android:onClick="onButtonAddToFavoritesClicked"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_favorite"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size" />
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_margin="@dimen/base_padding"
+            style="?android:attr/buttonBarButtonStyle"
+            android:onClick="onButtonShareClicked"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_share"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size" />
+        <ImageButton
+            android:id="@+id/btn_go"
+            android:layout_margin="@dimen/base_padding"
+            style="?android:attr/buttonBarButtonStyle"
+            android:onClick="onButtonGoClicked"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_go_this_page"
+            android:layout_width="@dimen/image_button_size"
+            android:layout_height="@dimen/image_button_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/lay_sites_view"
+        android:orientation="vertical"
+        android:layout_above="@id/lay_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+<LinearLayout
+    android:layout_below="@id/adView"
+    android:layout_toRightOf="@id/lay_touch_view"
+    android:id="@+id/lay_favorites"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lv_favorites"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</LinearLayout>
+<LinearLayout
+    android:layout_toRightOf="@id/lay_favorites"
+    android:layout_below="@id/adView"
+    android:id="@+id/lay_search"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lv_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</LinearLayout>
+
+
+</RelativeLayout>

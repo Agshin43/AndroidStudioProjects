@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/base_padding"
+    android:layout_gravity="center"
+    android:background="@color/myBlack"
+    android:layout_height="@dimen/image_button_size">
+
+
+    <ImageButton
+        android:id="@+id/btn_go"
+        android:src="@drawable/ic_go_this_page"
+        android:layout_alignParentRight="true"
+        style="?android:attr/buttonBarButtonStyle"
+        android:scaleType="centerInside"
+        android:layout_width="@dimen/image_button_size_small"
+        android:layout_height="@dimen/image_button_size_small" />
+
+
+    <ImageButton
+        android:id="@+id/btn_share"
+        android:src="@drawable/ic_share"
+        android:layout_toLeftOf="@id/btn_go"
+        style="?android:attr/buttonBarButtonStyle"
+        android:scaleType="centerInside"
+        android:layout_width="@dimen/image_button_size_small"
+        android:layout_height="@dimen/image_button_size_small" />
+    <ImageButton
+        android:id="@+id/btn_add_tofavorites"
+        android:src="@drawable/ic_favorite"
+        android:layout_toLeftOf="@id/btn_share"
+        style="?android:attr/buttonBarButtonStyle"
+        android:scaleType="centerInside"
+        android:layout_width="@dimen/image_button_size_small"
+        android:layout_height="@dimen/image_button_size_small" />
+
+
+    <TextView
+        android:id="@+id/tv_domain_name"
+        android:layout_toLeftOf="@id/btn_add_tofavorites"
+        android:gravity="center|left"
+        android:ellipsize="end"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/myWhite"
+        android:layout_alignParentLeft="true"
+        android:text="brazzers.com"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

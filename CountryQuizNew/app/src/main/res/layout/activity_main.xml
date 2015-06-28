@@ -1,0 +1,164 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/myDarkBlue"
+    tools:context="com.apps.agshin.countryquiz.MainActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/image_button_margin_large"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="imageButtonClicked"
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/btn_flag"
+                android:src="@drawable/ic_flag"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/image_button_size_large"
+                android:layout_height="@dimen/image_button_size_large" />
+            <TextView
+                android:textColor="@color/myWhite"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/quiz_flags"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/image_button_margin_large"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="imageButtonClicked"
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/btn_coat_of_arms"
+                android:src="@drawable/ic_coat_of_arms"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/image_button_size_large"
+                android:layout_height="@dimen/image_button_size_large" />
+            <TextView
+                android:textColor="@color/myWhite"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/quiz_coat_of_arms"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="@dimen/image_button_margin_large"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="imageButtonClicked"
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/btn_capital"
+                android:src="@drawable/ic_capital"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/image_button_size_large"
+                android:layout_height="@dimen/image_button_size_large" />
+            <TextView
+                android:textColor="@color/myWhite"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/quiz_capitals"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="@dimen/image_button_margin_large"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="imageButtonClicked"
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/btn_area"
+                android:src="@drawable/ic_area"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/image_button_size_large"
+                android:layout_height="@dimen/image_button_size_large" />
+            <TextView
+                android:textColor="@color/myWhite"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/quiz_areas"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="@dimen/image_button_margin_large"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="imageButtonClicked"
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/btn_currency"
+                android:src="@drawable/ic_currency"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/image_button_size_large"
+                android:layout_height="@dimen/image_button_size_large" />
+            <TextView
+                android:textColor="@color/myWhite"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/quiz_currencies"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="@dimen/image_button_margin_large"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="imageButtonClicked"
+                style="?android:attr/buttonBarButtonStyle"
+                android:id="@+id/btn_domain"
+                android:src="@drawable/ic_domain"
+                android:scaleType="centerInside"
+                android:layout_width="@dimen/image_button_size_large"
+                android:layout_height="@dimen/image_button_size_large" />
+            <TextView
+                android:textColor="@color/myWhite"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@string/quiz_domains"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
