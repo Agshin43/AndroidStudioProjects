@@ -11,11 +11,14 @@ import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.plus.Plus;
 
 
 public class QuizActivity extends Activity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
+    QuizManager quizManager;
 
     private static final String TAG = "QuizActivity";
 
@@ -43,6 +46,10 @@ public class QuizActivity extends Activity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_quiz);
+        quizManager = new QuizManager(getApplicationContext());
+
         if (savedInstanceState != null) {
             mIsInResolution = savedInstanceState.getBoolean(KEY_IN_RESOLUTION, false);
         }
@@ -61,6 +68,8 @@ public class QuizActivity extends Activity implements
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     // Optionally, add additional APIs and scopes if required.
+                    .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
+                    .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
@@ -160,4 +169,23 @@ public class QuizActivity extends Activity implements
             retryConnecting();
         }
     }
+
+
+
+/*
+                _/_/       _/    _/       _/_/_/       _/_/_/_/_/
+             _/    _/     _/    _/         _/               _/
+            _/  _/_/     _/    _/         _/             _/
+           _/    _/     _/    _/         _/           _/
+            _/_/  _/     _/_/         _/_/_/       _/_/_/_/_/
+                   _/
+*/
+
+
+
+
+
+
+
+
 }

@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
         {
             case R.id.btn_flag:
             {
-                getApplicationContext().startActivity(new Intent(getApplicationContext(), QuizActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                getApplicationContext().startActivity(new Intent(getApplicationContext(), TestQuizActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
             case R.id.btn_coat_of_arms:
             {
