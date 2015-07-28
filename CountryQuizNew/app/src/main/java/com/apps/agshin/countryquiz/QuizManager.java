@@ -14,8 +14,11 @@ import java.util.Random;
 public class QuizManager {
     ArrayList<Country> countries;
     ArrayList<City> allCities;
+    ArrayList<Question> questions;
     Context context;
 
+    private int currentQuestionId;
+    private int correctAnswers;
 
     public QuizManager(Context context)
     {
@@ -54,7 +57,7 @@ public class QuizManager {
             City city = new City(cities[i], country.name, country.level);
             allCities.add(city);
             country.bigCities.add(cities[i]);
-            Log.i("CITY", city.name);
+//            Log.i("CITY", city.name);
         }
 
         City city = new City(country.capital, country.name, country.level);
@@ -201,10 +204,10 @@ public class QuizManager {
         return ret;
     }
 
-    public ArrayList<Country> getQuestionsCountries(Achievement achieve, Question.Type type, Question.Source source, int questionCount)
+    private ArrayList<Country> countriesByAchievement(Achievement achievement)
     {
         ArrayList<Country> cList = null;
-        switch (achieve)
+        switch (achievement)
         {
             case achievement_well_done:
             {
@@ -238,6 +241,13 @@ public class QuizManager {
             }
         }
 
+        return cList;
+
+    }
+    private ArrayList<Country> getRandomQuestionsCountries(Achievement achieve, int questionCount)
+    {
+        ArrayList<Country> cList = countriesByAchievement(achieve);
+
         ArrayList<Country> returnList = new ArrayList<Country>();
         int cnt = 0;
         Random rb = new Random();
@@ -251,11 +261,11 @@ public class QuizManager {
                     {
                         cList.get(i).selected = true;
                         returnList.add(cList.get(i));
-                        Log.i("QUESTION MEMBER",">>>>>  "+cList.get(i).name);
+//                        Log.i("QUESTION MEMBER",">>>>>  "+cList.get(i).name);
                         ++cnt;
                     }
 
-                    if( cnt == (questionCount*4) )
+                    if( cnt == ( questionCount * 4 ) )
                     {
                         break;
                     }
@@ -264,7 +274,76 @@ public class QuizManager {
 
         }
 
-
         return returnList;
+    }
+
+    public void generateQuestions( int count,Achievement achieve, Question.Type type, Question.Source source)
+    {
+//        if(count % 4 != 0)
+//        {
+//            Log.w("WARNUNG","Question count must be devidable by 4");
+//            return null;
+//        }
+        ArrayList<Country> countries = getRandomQuestionsCountries(achieve, count);
+        this.questions = new ArrayList<Question>();
+
+        for( int i = 0; i < countries.size(); i += 4 )
+        {
+            Question question = new Question();
+            Random r = new Random();
+            switch (source)
+            {
+                case flags:
+                {
+                    if(type == Question.Type.textQuestion)
+                    {
+
+                        int z = Math.abs(r.nextInt() % 4);
+                        question.questionC= countries.get(i + z);
+
+                        Log.i("", "----------------------");
+                        Log.i("", question.questionC.name+"?");
+
+                        question.answersC = new ArrayList<Country>();
+                        for( int k = 0; k < 4; k++ )
+                        {
+                            question.answersC.add(countries.get(i + k));
+                            Log.i("", countries.get(i + k).domain+"_c.png");
+                        }
+
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    break;
+                }
+                case coatOfArms:
+                {
+                    break;
+                }
+                case capitals:
+                {
+                    break;
+                }
+                case currencies:
+                {
+                    break;
+                }
+                case areas:
+                {
+                    break;
+                }
+                case domains:
+                {
+                    break;
+                }
+            }
+            this.questions.add(question);
+        }
+
+
     }
 }

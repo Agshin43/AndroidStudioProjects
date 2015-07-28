@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Burcler</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_uygunluq">Uyğunluq</string>
+    <string name="str_qoroskop">Qoroskop</string>
+    <string name="str_burcler">Bürclər</string>
+    <string name="str_ne_ise">Nə isə</string>
+
+    <string name="str_qoc">Qoç</string>
+     <string name="str_buga">Buğa</string>
+     <string name="str_ekizler">Əkizlər</string>
+     <string name="str_xerceng">Xərçəng</string>
+     <string name="str_sir">Şir</string>
+     <string name="str_qiz">Qız</string>
+     <string name="str_terezi">Tərəzi</string>
+     <string name="str_eqreb">Əqrəb</string>
+     <string name="str_oxatan">Oxatan</string>
+     <string name="str_oglaq">Oğlaq</string>
+     <string name="str_dolca">Dolça</string>
+     <string name="str_baliqlar">Balıqlar</string>
+
+    <string name="str_c0">Qoç</string>
+     <string name="str_c1">Buğa</string>
+     <string name="str_c2">Əkizlər</string>
+     <string name="str_c3">Xərçəng</string>
+     <string name="str_c4">Şir</string>
+     <string name="str_c5">Qız</string>
+     <string name="str_c6">Tərəzi</string>
+     <string name="str_c7">Əqrəb</string>
+     <string name="str_c8">Oxatan</string>
+     <string name="str_c9">Oğlaq</string>
+     <string name="str_c10">Dolça</string>
+     <string name="str_c11">Balıqlar</string>
+
+</resources>

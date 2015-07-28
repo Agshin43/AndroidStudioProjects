@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--FFA8A4-->
-    <item name="myColor1" type="color">#ffaa00</item>
-    <item name="myColor1Dark" type="color">#FFDF8884</item>
-    <item name="myColor2" type="color">#FF4DD7FA</item>
-    <item name="myAnimCircleColor" type="color">#BBf1d30e</item>
-    <item name="myColor2Dark" type="color">#FF2DB7DA</item>
+    <item name="colorButtonDragging" type="color">#FFEE7AE9</item>
+    <item name="colorButtonPressed" type="color">#FFDF8884</item>
+    <item name="colorButton" type="color">#FF7B68EE</item>
+    <item name="colorBackgroundUygunluq" type="color">#225588</item>
+    <item name="colorButtonText" type="color">#FFFFFFDA</item>
     <item name="myWhite" type="color">#FFFFFFFF</item>
     <item name="myDarkGreen" type="color">#FF338844</item>
     <item name="myGrey" type="color">#FFEAEAEA</item>

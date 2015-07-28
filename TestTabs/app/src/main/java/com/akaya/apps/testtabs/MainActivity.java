@@ -1,28 +1,40 @@
-package com.apps.agshin.countryquiz;
+package com.akaya.apps.testtabs;
 
-import android.content.Intent;
+import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class TestQuizActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
-    QuizManager quizManager;
+
+    private FragmentTabHost mTabHost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_quiz);
+        setContentView(R.layout.activity_main);
+
+        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+
+        mTabHost.addTab(
+                mTabHost.newTabSpec("tab1").setIndicator("Tab 1", null),
+                FragmentTab.class, null);
+        mTabHost.addTab(
+                mTabHost.newTabSpec("tab2").setIndicator("Tab 2", null),
+                FragmentTab.class, null);
+        mTabHost.addTab(
+                mTabHost.newTabSpec("tab3").setIndicator("Tab 3", null),
+                FragmentTab.class, null);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        quizManager = new QuizManager(getApplicationContext());
-        quizManager.getQuestionsCountries(QuizManager.Achievement.achievement_well_done, Question.Type.textQuestion, Question.Source.capitals, 10);
-        getMenuInflater().inflate(R.menu.menu_test_quiz, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -39,27 +51,5 @@ public class TestQuizActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void answerSelected(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.btn_answer1:
-            {
-            }
-            case R.id.btn_answer2:
-            {
-
-            }
-            case R.id.btn_answer3:
-            {
-
-            }
-            case R.id.btn_answer4:
-            {
-
-            }
-        }
     }
 }

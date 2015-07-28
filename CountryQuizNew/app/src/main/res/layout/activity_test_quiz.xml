@@ -22,7 +22,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/tv_question_string"
+            android:id="@+id/tv_question_text"
             android:textAppearance="@android:style/TextAppearance.Medium"
             android:background="@color/myColor1Dark"
             android:text="Which country's coat of arms is this?"
@@ -38,6 +38,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/lay_image_answers"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
@@ -133,6 +134,101 @@
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ua_c"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lay_text_answers"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/image_button_margin_large"
+                    android:layout_height="fill_parent">
+
+                    <Button
+                        android:id="@+id/btn_text_answer1"
+                        android:onClick="answerSelected"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/image_button_margin_large"
+                    android:layout_height="fill_parent">
+
+                    <Button
+                        android:id="@+id/btn_text_answer2"
+                        android:onClick="answerSelected"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/image_button_margin_large"
+                    android:layout_height="fill_parent">
+
+                    <Button
+                        android:id="@+id/btn_text_answer3"
+                        android:onClick="answerSelected"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/image_button_margin_large"
+                    android:layout_height="fill_parent">
+
+                    <Button
+                        android:id="@+id/btn_text_answer4"
+                        android:onClick="answerSelected"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
                         android:layout_width="fill_parent"
                         android:layout_gravity="center" />
                 </LinearLayout>

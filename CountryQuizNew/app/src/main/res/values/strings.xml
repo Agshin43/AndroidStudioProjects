@@ -24,4 +24,8 @@
     <string name="achievement_professional">CgkIiLGRhI8UEAIQBA</string>
     <string name="achievement_genius">CgkIiLGRhI8UEAIQBQ</string>
 
+    <!-- Question texts-->
+    <string name="question_area_largest">Which country is largest?</string>
+    <string name="question_area_smallest">Which country is smallest?</string>
+
 </resources>

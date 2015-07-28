@@ -25,9 +25,7 @@ public class Question {
 
     public Type type;
     public Source source;
-    public String questionS;
-    public ArrayList<String> answersS;
-    public Drawable questionD;
-    public ArrayList<Drawable> answersD;
+    public Country questionC;
+    public ArrayList<Country> answersC;
 
 }
