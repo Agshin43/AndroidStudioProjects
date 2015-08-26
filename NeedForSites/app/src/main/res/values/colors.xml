@@ -2,7 +2,7 @@
 <resources>
     <!--FFA8A4-->
     <item name="myColor1" type="color">#ffaa00</item>
-    <item name="myColor1Dark" type="color">#FFDF8884</item>
+    <item name="myColor1Dark" type="color">#FF008884</item>
     <item name="myColor2" type="color">#FF4DD7FA</item>
     <item name="myAnimCircleColor" type="color">#BBf1d30e</item>
     <item name="myColor2Dark" type="color">#FF2DB7DA</item>

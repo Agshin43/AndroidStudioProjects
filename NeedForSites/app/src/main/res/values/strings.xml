@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name">Millions Of Sites</string>
+    <string name="app_name">Saytlar</string>
 
     <string name="hello_world">.com,.org,.net,.ru,.info,.de,sex,porn,video,movie,site,blog</string>
-    <string name="action_settings">Settings</string>
-    <string name="random_site">Random</string>
-    <string name="delete_from_favorites">Item deleted</string>
-    <string name="favorites">Favorites</string>
-    <string name="go_site">Go</string>
-    <string name="search">Search</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="random_site">Təsdüfi</string>
+    <string name="delete_from_favorites">Silindi</string>
+    <string name="favorites">Qeydlər</string>
+    <string name="go_site">Sayta get</string>
+    <string name="search">Axtar</string>
     <string name="banner_id">ca-app-pub-2478601698211605/6068626170</string>
-    <string name="searching">Searching ...</string>
-    <string name="added_to_favorites">Added to favorites</string>
-    <string name="favorite_list_is_empty">Favorite list is empty</string>
-    <string name="copying_files">Please wait while copying file for the first time.</string>
-    <string name="press_again">Press back again to quit application</string>
+    <string name="searching">Axtarır ...</string>
+    <string name="added_to_favorites">Qeydlərə əlavə edildi</string>
+    <string name="favorite_list_is_empty">Qeydlər siyahısı boşdur</string>
+    <string name="copying_files">Fayllar yüklənir, zəhmət olmasa gözləyin. Fayllar yalnız proqram ilk dəfə açıldıqda yüklənir.</string>
+    <string name="press_again">Çıxmaq üçün düyməni bir daha basın</string>
     <string name="title_activity_copying_data_base">CopyingDataBase</string>
 </resources>

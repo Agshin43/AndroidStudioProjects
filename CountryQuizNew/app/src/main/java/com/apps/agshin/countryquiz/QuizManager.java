@@ -2,6 +2,7 @@ package com.apps.agshin.countryquiz;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -17,13 +18,53 @@ public class QuizManager {
     ArrayList<Question> questions;
     Context context;
 
-    private int currentQuestionId;
+
+
+    public int currentQuestionId = 0;
     private int correctAnswers;
 
     public QuizManager(Context context)
     {
         this.context = context;
         loadCountries("countries");
+    }
+
+    public Question nextQuestion(){
+
+        if(currentQuestionId < (questions.size() - 2)) {
+            currentQuestionId++;
+        }
+        Log.i("","NEXT "+questions.get(currentQuestionId).answer);
+        return questions.get(currentQuestionId);
+    }
+
+    public Question prevQuestion(){
+
+        if(currentQuestionId > 0) {
+            currentQuestionId--;
+        }
+        return questions.get(currentQuestionId);
+    }
+
+    public Question getQuestion(int index){
+        if(index < (questions.size() - 1) && index > 0){
+            return questions.get(index);
+        } else {
+            return null;
+        }
+    }
+
+    public void answer(int questionId, int answerId){
+        if(questions.get(questionId).answer == Question.Answer.notAnswered){
+
+            if(questions.get(questionId).correctAnswerId == answerId){
+                questions.get(questionId).answer = Question.Answer.correct;
+                Toast.makeText(context,"Correct",Toast.LENGTH_SHORT).show();
+            } else {
+                questions.get(questionId).answer = Question.Answer.incorrect;
+                Toast.makeText(context,"Wrong",Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 
@@ -36,11 +77,10 @@ public class QuizManager {
         achievement_genius
     }
 
+
+
     private Country generateCountry(String line)
     {
-        //   0      1      2        3             4          5  6  7
-        //                                  (0     1   2)
-        //Europe#Austria#83,858#8,169,929#Vienna+Graz+Linz#Euro#at#1
         String[] columns = line.split("#");
         String[] cities = columns[4].split("!");
 
@@ -261,7 +301,7 @@ public class QuizManager {
                     {
                         cList.get(i).selected = true;
                         returnList.add(cList.get(i));
-//                        Log.i("QUESTION MEMBER",">>>>>  "+cList.get(i).name);
+//                        Log.i("RANDOM",">>>>>  "+cList.get(i).name);
                         ++cnt;
                     }
 
@@ -279,11 +319,6 @@ public class QuizManager {
 
     public void generateQuestions( int count,Achievement achieve, Question.Type type, Question.Source source)
     {
-//        if(count % 4 != 0)
-//        {
-//            Log.w("WARNUNG","Question count must be devidable by 4");
-//            return null;
-//        }
         ArrayList<Country> countries = getRandomQuestionsCountries(achieve, count);
         this.questions = new ArrayList<Question>();
 
@@ -295,11 +330,15 @@ public class QuizManager {
             {
                 case flags:
                 {
-                    if(type == Question.Type.textQuestion)
+                    if(type == Question.Type.textToImages || type == Question.Type.textToTexts)
                     {
 
                         int z = Math.abs(r.nextInt() % 4);
-                        question.questionC= countries.get(i + z);
+                        question.questionC = countries.get(i + z);
+                        question.correctAnswerId  = z;
+                        question.answer = Question.Answer.notAnswered;
+                        question.type = type;
+                        question.source = source;
 
                         Log.i("", "----------------------");
                         Log.i("", question.questionC.name+"?");

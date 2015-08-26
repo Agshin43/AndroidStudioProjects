@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,16 +25,22 @@ public class MainActivity extends AppCompatActivity {
         String burcler = getApplicationContext().getResources().getString(R.string.str_burcler);
         String uygunluq = getApplicationContext().getResources().getString(R.string.str_uygunluq);
         String qoroskop = getApplicationContext().getResources().getString(R.string.str_qoroskop);
+        String test = getApplicationContext().getResources().getString(R.string.str_test);
 
-        mTabHost.addTab(
-                mTabHost.newTabSpec(burcler).setIndicator(burcler, null),
-                TabBurcler.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec(uygunluq).setIndicator(uygunluq, null),
                 TabUygunluq.class, null);
         mTabHost.addTab(
-                mTabHost.newTabSpec(qoroskop).setIndicator(qoroskop, null),
+                mTabHost.newTabSpec(burcler).setIndicator(burcler, null),
                 TabBurcler.class, null);
+        mTabHost.addTab(
+                mTabHost.newTabSpec(qoroskop).setIndicator(test, null),
+                TabTest.class, null);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        com.google.android.gms.ads.AdRequest adRequest = new com.google.android.gms.ads.AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
     @Override
@@ -42,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -49,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

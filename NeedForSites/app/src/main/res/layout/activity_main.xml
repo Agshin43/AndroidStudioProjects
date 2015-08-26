@@ -21,9 +21,10 @@
 
 
 <RelativeLayout
-    android:layout_below="@id/toolbarv7main"
+    android:layout_below="@id/adView"
     android:layout_width="match_parent"
     android:id="@+id/lay_touch_view"
+
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/lay_buttons"

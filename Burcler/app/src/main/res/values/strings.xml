@@ -1,12 +1,15 @@
 <resources>
-    <string name="app_name">Burcler</string>
+    <string name="app_name">Bürclər və Nikah</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="str_uygunluq">Uyğunluq</string>
     <string name="str_qoroskop">Qoroskop</string>
+    <string name="str_test">Ad uyğunluğu</string>
     <string name="str_burcler">Bürclər</string>
     <string name="str_ne_ise">Nə isə</string>
+    <string name="str_share">Paylaş</string>
+    <string name="str_close">Bağla</string>
 
     <string name="str_qoc">Qoç</string>
      <string name="str_buga">Buğa</string>
@@ -21,6 +24,20 @@
      <string name="str_dolca">Dolça</string>
      <string name="str_baliqlar">Balıqlar</string>
 
+    <string name="str_d0">( 21 mart – 20 aprel )</string>
+    <string name="str_d1">( 21 aprel – 20 may )</string>
+    <string name="str_d2">( 21 may – 20 iyun )</string>
+    <string name="str_d3">( 21 iyun – 21 iyul )</string>
+    <string name="str_d4">( 22 iyul – 22 avqust)</string>
+    <string name="str_d5">( 23 avqust – 22 sentyabr )</string>
+    <string name="str_d6">( 23 sentyabr – 22 oktyabr )</string>
+    <string name="str_d7">( 23 oktyabr – 21 noyabr )</string>
+    <string name="str_d8">( 22 noyabr – 21 dekabr )</string>
+    <string name="str_d9">( 22 dekabr – 20 yanvar )</string>
+    <string name="str_d10">( 21 yanvar  – 19 fevral )</string>
+    <string name="str_d11">( 20 fevral  – 20 mart )</string>
+
+
     <string name="str_c0">Qoç</string>
      <string name="str_c1">Buğa</string>
      <string name="str_c2">Əkizlər</string>
@@ -33,5 +50,9 @@
      <string name="str_c9">Oğlaq</string>
      <string name="str_c10">Dolça</string>
      <string name="str_c11">Balıqlar</string>
+
+     <string name="banner_id">ca-app-pub-2478601698211605/2048504975</string>
+
+
 
 </resources>

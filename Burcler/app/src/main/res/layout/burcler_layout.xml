@@ -3,15 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:background="#eaecee">
+    android:orientation="horizontal"
+    android:background="@color/colorBackgroundBurcler">
 
-    <TextView
-        android:id="@+id/text"
+    <LinearLayout
+        android:id="@+id/lay_constellations"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/hello_world"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:orientation="vertical">
+
+
+
+        <ListView
+            android:id="@+id/lv_constellations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+        </ListView>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/hello_world"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

@@ -27,5 +27,7 @@
     <!-- Question texts-->
     <string name="question_area_largest">Which country is largest?</string>
     <string name="question_area_smallest">Which country is smallest?</string>
+    <string name="question_i2t_flags">Which is flag of </string>
+    <string name="question_i2t_coa">Which is coat of arms of </string>
 
 </resources>

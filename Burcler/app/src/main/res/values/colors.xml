@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--FFA8A4-->
-    <item name="colorButtonDragging" type="color">#FFEE7AE9</item>
+    <item name="colorButtonDragging" type="color">#EE8833</item>
     <item name="colorButtonPressed" type="color">#FFDF8884</item>
-    <item name="colorButton" type="color">#FF7B68EE</item>
-    <item name="colorBackgroundUygunluq" type="color">#225588</item>
-    <item name="colorButtonText" type="color">#FFFFFFDA</item>
+    <item name="colorButton" type="color">#FF3366AA</item>
+
+    <item name="colorBackgroundUygunluq" type="color">#004411</item>
+    <item name="colorBackgroundUygunluq1" type="color">#550033</item>
+    <item name="colorBackgroundUygunluq2" type="color">#001111</item>
+    <item name="colorBackgroundUygunluq3" type="color">#ff55034d</item>
+    <item name="colorBackgroundUygunluq4" type="color">#113300</item>
+    <item name="colorBackgroundUygunluq5" type="color">#003355</item>
+    <item name="colorBackgroundUygunluq6" type="color">#330055</item>
+
+    <item name="colorBackgroundBurcler" type="color">#FF3366AA</item>
+    <item name="colorButtonText" type="color">#FFFFFFFF</item>
     <item name="myWhite" type="color">#FFFFFFFF</item>
     <item name="myDarkGreen" type="color">#FF338844</item>
     <item name="myGrey" type="color">#FFEAEAEA</item>
@@ -15,5 +24,6 @@
     <item name="myTransparent" type="color">#00000000</item>
     <item name="mySemiTransparent" type="color">#88000000</item>
     <item name="mediumSlateBlue" type="color">#FF7B68EE</item>
+    <item name="mediumSlateRed" type="color">#ffd7366b</item>
 
 </resources>

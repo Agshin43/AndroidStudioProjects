@@ -9,8 +9,10 @@ import java.util.ArrayList;
  */
 public class Question {
     public enum Type{
-        imageQuestion,
-        textQuestion
+        imageToImages,
+        imageToTexts,
+        textToImages,
+        textToTexts
     }
 
     public enum Source{
@@ -23,6 +25,14 @@ public class Question {
         domains
     }
 
+    public enum Answer{
+        notAnswered,
+        correct,
+        incorrect
+    }
+
+    public Answer answer;
+    public int correctAnswerId;
     public Type type;
     public Source source;
     public Country questionC;

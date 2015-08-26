@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/mediumSlateRed"
+    tools:context=".MainActivity" >
+
+
+    <LinearLayout
+        android:id="@+id/lay_ad"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true" >
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:layout_height="200dp">
+
+        <Button
+            android:id="@+id/mayak"
+            android:layout_width="0dp"
+            android:layout_centerInParent="true"
+            android:layout_height="0dp" />
+        <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@id/mayak"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_name1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="sən"
+                android:textColor="#FFFFFFFF"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapSentences" >
+
+                <requestFocus />
+            </EditText>
+
+            <LinearLayout
+                android:id="@+id/lay_res1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/mayak"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/et_name2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#FFFFFFFF"
+                android:hint="o"
+                android:imeOptions="actionDone"
+                android:inputType="textCapSentences|textPersonName"
+                />
+            <LinearLayout
+                android:id="@+id/lay_res2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sil"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textColor="@color/myWhite"/>
+        <Button
+            android:id="@+id/btn_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yoxla"
+            android:textColor="@color/myWhite"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_main_res"
+        android:layout_width="wrap_content"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_res1"
+        android:layout_centerHorizontal="true"
+        android:text="..."
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/myWhite" />
+
+</LinearLayout>

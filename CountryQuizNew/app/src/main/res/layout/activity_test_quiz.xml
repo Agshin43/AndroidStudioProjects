@@ -8,6 +8,7 @@
     android:background="@color/myDarkBlue"
     tools:context="com.apps.agshin.countryquiz.TestQuizActivity">
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -15,6 +16,23 @@
         android:background="@color/myAnimCircleColor"
         android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_prev"
+                android:onClick="prevQuestion"
+                android:text="Prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_next"
+                android:onClick="nextQuestion"
+                android:text="Next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
         <TextView
             android:id="@+id/tv_question_description"
             android:text="About Question"
@@ -41,8 +59,8 @@
         android:id="@+id/lay_image_answers"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@color/mediumSlateBlue"
         android:orientation="vertical">
-
 
         <LinearLayout
             android:orientation="vertical"
@@ -143,6 +161,7 @@
     <LinearLayout
         android:id="@+id/lay_text_answers"
         android:layout_width="fill_parent"
+        android:background="@color/myWhite"
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
@@ -235,5 +254,7 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+
 
 </LinearLayout>
