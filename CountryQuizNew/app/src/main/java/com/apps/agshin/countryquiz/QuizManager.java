@@ -351,16 +351,34 @@ public class QuizManager {
                         }
 
                     }
-                    else
-                    {
-
-                    }
 
 
                     break;
                 }
                 case coatOfArms:
                 {
+
+                    if(type == Question.Type.textToImages || type == Question.Type.textToTexts)
+                    {
+
+                        int z = Math.abs(r.nextInt() % 4);
+                        question.questionC = countries.get(i + z);
+                        question.correctAnswerId  = z;
+                        question.answer = Question.Answer.notAnswered;
+                        question.type = type;
+                        question.source = source;
+
+                        Log.i("", "----------------------");
+                        Log.i("", question.questionC.name+"?");
+
+                        question.answersC = new ArrayList<Country>();
+                        for( int k = 0; k < 4; k++ )
+                        {
+                            question.answersC.add(countries.get(i + k));
+                            Log.i("", countries.get(i + k).domain+"_c.png");
+                        }
+
+                    }
                     break;
                 }
                 case capitals:

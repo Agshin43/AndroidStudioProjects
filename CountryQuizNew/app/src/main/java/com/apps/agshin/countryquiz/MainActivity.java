@@ -39,33 +39,49 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    private void startQuiz(int button){
+        Intent quizIntent = new Intent(getApplicationContext(), TestQuizActivity.class);
+//        quizIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("source", button);
+
+        quizIntent.putExtras(bundle);
+
+        startActivity(quizIntent);
+    }
     public void imageButtonClicked(View v)
     {
         switch (v.getId())
         {
             case R.id.btn_flag:
             {
-                getApplicationContext().startActivity(new Intent(getApplicationContext(), TestQuizActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+//                getApplicationContext().startActivity(new Intent(getApplicationContext(), TestQuizActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                startQuiz(Question.Source.flags.ordinal());
+
+                break;
             }
             case R.id.btn_coat_of_arms:
             {
-
+                startQuiz(Question.Source.coatOfArms.ordinal());
+                break;
             }
             case R.id.btn_capital:
             {
-
+                break;
             }
             case R.id.btn_area:
             {
-
+                break;
             }
             case R.id.btn_currency:
             {
-
+                break;
             }
             case R.id.btn_domain:
             {
-
+                break;
             }
         }
     }

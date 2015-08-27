@@ -52,9 +52,11 @@ public class TestQuizActivity extends ActionBarActivity  {
         tvQuestionText = (TextView) findViewById(R.id.tv_question_text);
         ivQuestionImage = (ImageView) findViewById(R.id.iv_question_image);
 
+        Bundle b = getIntent().getExtras();
+        int sc = b.getInt("source");
 
-        achievement = QuizManager.Achievement.achievement_cool;
-        source = Question.Source.flags;
+        achievement = QuizManager.Achievement.achievement_honorable;
+        source = Question.Source.values()[sc];
         type = Question.Type.textToImages;
         generateQuestions(10);
 
@@ -96,13 +98,11 @@ public class TestQuizActivity extends ActionBarActivity  {
     public void answerSelected(View v)
     {
 
-        Toast.makeText(getApplicationContext(), "Answer selected", Toast.LENGTH_SHORT).show();
         switch (v.getId())
         {
             case R.id.btn_answer1:
             {
                 quizManager.answer(quizManager.currentQuestionId, 0);
-                Log.i("","1");
                 break;
             }
             case R.id.btn_answer2:
@@ -131,10 +131,10 @@ public class TestQuizActivity extends ActionBarActivity  {
 
     public int flagResIdByDomain(String domain){
         Log.i("", "Flag "+domain+"_c");
-        return getResources().getIdentifier(domain+"_c", "drawable", mPackageName); // + "_c" ***
+        return getResources().getIdentifier(domain, "drawable", mPackageName);
     }
     public int coaResIdByDomain(String domain){
-        return getResources().getIdentifier(domain+"_c", "drawable", mPackageName);
+        return getResources().getIdentifier(domain+"_ce", "drawable", mPackageName);
     }
 
     private void showQuestion(Question question){
@@ -176,13 +176,24 @@ public class TestQuizActivity extends ActionBarActivity  {
                 switch (question.source){
                     case flags:
 
-                        tvQuestionText.setText(getResources().getString(R.string.question_i2t_flags) + " "+question.questionC.name);
+                        tvQuestionText.setText(getResources().getString(R.string.question_i2t_flags) + " "+question.questionC.name+"?");
 
 
                         btnAnswer1.setImageResource(flagResIdByDomain(question.answersC.get(0).domain));
                         btnAnswer2.setImageResource(flagResIdByDomain(question.answersC.get(1).domain));
                         btnAnswer3.setImageResource(flagResIdByDomain(question.answersC.get(2).domain));
                         btnAnswer4.setImageResource(flagResIdByDomain(question.answersC.get(3).domain));
+
+                        break;
+                    case coatOfArms:
+
+                        tvQuestionText.setText(getResources().getString(R.string.question_i2t_coa) + " "+question.questionC.name+"?");
+
+
+                        btnAnswer1.setImageResource(coaResIdByDomain(question.answersC.get(0).domain));
+                        btnAnswer2.setImageResource(coaResIdByDomain(question.answersC.get(1).domain));
+                        btnAnswer3.setImageResource(coaResIdByDomain(question.answersC.get(2).domain));
+                        btnAnswer4.setImageResource(coaResIdByDomain(question.answersC.get(3).domain));
 
                         break;
 

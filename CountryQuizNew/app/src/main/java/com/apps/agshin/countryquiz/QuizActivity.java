@@ -49,7 +49,6 @@ public class QuizActivity extends Activity implements
 
         setContentView(R.layout.activity_quiz);
         quizManager = new QuizManager(getApplicationContext());
-
         if (savedInstanceState != null) {
             mIsInResolution = savedInstanceState.getBoolean(KEY_IN_RESOLUTION, false);
         }
