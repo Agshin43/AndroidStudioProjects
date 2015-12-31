@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Bright Police Lights</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="restore_defaults">Restore defaults</string>
+    <string name="add_spl">Add sample police car lights</string>
+    <string name="add_sfl">Add sample fire car lights</string>
+    <string name="police_lights">Police lights</string>
+    <string name="fire_car_lights">Fire car lights</string>
+    <string name="title_activity_lights">Lights</string>
+    <string name="clear_pattern">Clear pattern</string>
+    <string name="element_limit">More than 100 elements not supported.</string>
+    <string name="enter_a_title">Enter a title.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="remove_last_warning">Warning! At least one element must be in pattern</string>
+    <string name="add_new">Add new</string>
+    <string name="pause">Pause</string>
+    <string name="banner_id">ca-app-pub-2478601698211605/1255182579</string>
+    <string name="nothing_to_delete">Nothing to delete.</string>
+    <string name="flash">Flash</string>
+    <string name="pattern_added">Pattern added</string>
+    <string name="choose_a_color">Choose a color.</string>
+    <string name="there_is_no_any_pattern">There is no any pattern.</string>
+    <string name="m_select_a_siren">Choose a siren.</string>
+    <string name="m_select_a_pattern">Choose a pattern.</string>
+
+
+    <string-array name="sirens_array">
+        <item>No siren</item>
+        <item>Normal</item>
+        <item>Fast</item>
+        <item>Long</item>
+        <item>Super fast</item>
+        <item>High temp</item>
+        <item>Mixed</item>
+        <item>High freq.</item>
+
+    </string-array>
+
+
+</resources>

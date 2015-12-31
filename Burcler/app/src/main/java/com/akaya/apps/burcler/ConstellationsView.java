@@ -238,7 +238,7 @@ public class ConstellationsView extends View{
         float minDist = 5000;
         int minId = -1;
         boolean male = false;
-        for(int i = 0; i < 12; i++){
+        for(int i = 0; i < boxesM.size(); i++){
             float dm = dist(boxesM.get(i).center.x, y, x, boxesM.get(i).center.y);
             if( dm <= radius && dm < minDist )
             {
@@ -343,7 +343,7 @@ public class ConstellationsView extends View{
                 compMid = -1;
             }
         } else {
-            for(int i = 0; i < 12; i++){
+            for(int i = 0; i < boxesF.size(); i++){
 
                 if(i == minId)
                 {
@@ -385,7 +385,7 @@ public class ConstellationsView extends View{
         compFid = -1;
         compMid = -1;
 
-        for(int i = 0; i < 12; i++) {
+        for(int i = 0; i < boxesF.size(); i++) {
             boxesF.get(i).angle = 0;
             boxesM.get(i).angle = 0;
         }
@@ -569,7 +569,7 @@ public class ConstellationsView extends View{
             femaleConstellations.add(new Constellation());
         }
 
-        for(int i = 0; i < 12; i++)
+        for(int i = 0; i < femaleConstellations.size(); i++)
         {
             for(int j = 0; j < 12; j++)
             {

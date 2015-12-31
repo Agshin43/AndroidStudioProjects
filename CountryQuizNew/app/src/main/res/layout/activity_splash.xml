@@ -5,12 +5,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/myBlack"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".Splash">
 
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:src="@drawable/ic_launcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <TextView
-        android:text="@string/app_name"
+        android:layout_marginTop="16dp"
+        android:id="@+id/tvAppName"
+        android:textSize="16sp"
+        android:text="Country Quiz"
         android:gravity="center"
+        android:textColor="@color/myColor2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/tvAppVersion"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="version 1.2"
+        android:textColor="@color/myColor2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

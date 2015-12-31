@@ -1,243 +1,243 @@
-Europe#Albania#28748#2831741#Tirana!Durres!Elbasan#Lek#al#2
-Europe#Andorra#68#68403#Andorra la Vella!Escaldes-Engordany!Encamp#Euro#ad#2
-Europe#Armenia#29800#3229900#Yerevan!Gyumri!Vanadzor#Dram#am#3
-Europe#Austria#83858#8169929#Vienna!Graz!Linz#Euro#at#1
-Europe#Azerbaijan#86600#9165000#Baku!Ganja!Sumqayit#Manat#az#2
-Europe#Belarus#207560#9458000#Minsk!Barysaw!Salihorsk#Belorussian ruble#by#1
-Europe#Belgium#30528#11007000#Brussels!Antwerp!Ghent#Euro#be#1
-Europe#Bosnia and Herzogavina#51129#3843126#Sarajevo!Banja Luka!Tuzla#Marka#ba#2
-Europe#Bulgaria#110910#7621337#Sofia!Plovdiv!Varna#Lev#bg#2
-Europe#Croatia#56542#4437460#Zagreb!Split!Rijeka#Kuna#hr#2
-Europe#Cyprus#9251#788457#Nicosia!Limassol!Paphos#Cyprus pound#cy#3
-Europe#Czech Republic#78866#10256760#Prague!Brno!Ostrava#Koruna#cz#3
-Europe#Denmark#3094#5564219#Copenhagen!Aarhus!Odense#Krone#dk#2
-Europe#Estonia#5226#1340194#Tallinn!Tartu!Narva#Kroon#ee#1
+Europe#Albania#28748#2831741#Tirana!Durres!Elbasan#Lek#al#7
+Europe#Andorra#68#68403#Andorra la Vella!Escaldes-Engordany!Encamp#Euro#ad#5
+Europe#Armenia#29800#3229900#Yerevan!Gyumri!Vanadzor#Dram#am#10
+Europe#Austria#83858#8169929#Vienna!Graz!Linz#Euro#at#6
+Europe#Azerbaijan#86600#9165000#Baku!Ganja!Sumqayit#Manat#az#5
+Europe#Belarus#207560#9458000#Minsk!Barysaw!Salihorsk#Belorussian ruble#by#4
+Europe#Belgium#30528#11007000#Brussels!Antwerp!Ghent#Euro#be#3
+Europe#Bosnia and Herzogavina#51129#3843126#Sarajevo!Banja Luka!Tuzla#Marka#ba#4
+Europe#Bulgaria#110910#7621337#Sofia!Plovdiv!Varna#Lev#bg#5
+Europe#Croatia#56542#4437460#Zagreb!Split!Rijeka#Kuna#hr#4
+Europe#Cyprus#9251#788457#Nicosia!Limassol!Paphos#Cyprus pound#cy#4
+Europe#Czech Republic#78866#10256760#Prague!Brno!Ostrava#Koruna#cz#6
+Europe#Denmark#3094#5564219#Copenhagen!Aarhus!Odense#Krone#dk#4
+Europe#Estonia#5226#1340194#Tallinn!Tartu!Narva#Kroon#ee#2
 Europe#Finland#336593#5157537#Helsinki!Espoo!Tampere#Euro#fi#1
 Europe#France#547030#63182000#Paris!Marseille!Lyon#Euro#fr#1
 Europe#Georgia#69700#4661473#Tbilisi!Kutaisi!Batumi#Lari#ge#1
+Europe#Great Britain#244820#61100835#London!Birmingham!Leeds#Pound sterling#gb#1
 Europe#Germany#357021#83251851#Berlin!Hamburg!München#Euro#de#1
 Europe#Greece#131957#11123034#Athens!Thessaloniki!Piraeus#Euro#gr#1
 Europe#Hungary#93030#10075034#Budapest!Debrecen!Miskolc#Forint#hu#1
 Europe#Iceland#103000#307261#Reykjavík!Kopavogur!Hafnarfjordur#Icelandic króna#is#2
 Europe#Ireland#70280#4234925#Dublin!Cork!Limerick#Euro#ie#2
 Europe#Italy#301230#59530464#Rome!Milan!Naples#Euro#it#1
-Europe#Latvia#64589#2067900#Riga!Daugavpils!Liepaja#Lats#lv#3
-Europe#Liechtenstein#160#32842#Vaduz!Bendern!Blanken#Swiss franc#li#3
-Europe#Lithuania#65200#2988400#Vilnius!Kaunas!Klaipėda#Euro#lt#2
-Europe#Luxembourg#2586#48569#Luxembourg!Dudelange!Vianden#Euro#lu#3
-Europe#Macedonia#25713#2054800#Skopje!Berovo!Delčevol#Denar#mk#3
-Europe#Malta#316#397499#Valletta!Birkirkara!Mdina#Euro#mt#2
-Europe#Moldova#33843#4434547#Chișinău!Bălți!Tighina#Leu#md#2
-Europe#Monaco#1.95#31987#Monaco!Monte Carlo!La Condamine#Euro#mc#2
-Europe#Montenegro#13812#616258#Podgorica!Cetinje!Podgorica#Euro#me#3
-Europe#Netherlands#1526#16318199#Amsterdam!Aagtdorp!Aartswoud#Euro#nl#2
+Europe#Latvia#64589#2067900#Riga!Daugavpils!Liepaja#Lats#lv#5
+Europe#Liechtenstein#160#32842#Vaduz!Bendern!Blanken#Swiss franc#li#6
+Europe#Lithuania#65200#2988400#Vilnius!Kaunas!Klaipėda#Euro#lt#7
+Europe#Luxembourg#2586#48569#Luxembourg!Dudelange!Vianden#Euro#lu#8
+Europe#Macedonia#25713#2054800#Skopje!Berovo!Delčevol#Denar#mk#6
+Europe#Malta#316#397499#Valletta!Birkirkara!Mdina#Euro#mt#8
+Europe#Moldova#33843#4434547#Chișinău!Bălți!Tighina#Leu#md#5
+Europe#Monaco#1.95#31987#Monaco!Monte Carlo!La Condamine#Euro#mc#4
+Europe#Montenegro#13812#616258#Podgorica!Cetinje!Nikšić#Euro#me#9
+Europe#Netherlands#1526#16318199#Amsterdam!Aagtdorp!Aartswoud#Euro#nl#4
 Europe#Norway#385178#5018836#Oslo!Arendal!Bergen#Norwegian krone#no#1
-Europe#Poland#312685#38625478#Warsaw!Bialystok!Gdansk#Zloty#pl#2
+Europe#Poland#312685#38625478#Warsaw!Bialystok!Gdansk#Zloty#pl#1
 Europe#Portugal#91568#10409995#Lisbon!Abrantes!Águeda#Euro#pt#2
-Europe#Romania#238391#21698181#Bucharest!Alba Iulia!Arad#Leu#ro#3
-Europe#Russia#17075400#142200000#Moscow!Saint Petersburg!Novosibirsk#Ruble#ru#2
-Europe#San Marino#61#27730#San Marino!Serravalle!Borgo Maggiore#Euro#sm#3
-Europe#Serbia#88361#7120666#Belgrade!Niš!Zemun#Yugoslav new dinar/euro#rs#2
-Europe#Slovakia#8845#5422366#Bratislava!Košice!Prešov#Koruna#sk#3
+Europe#Romania#238391#21698181#Bucharest!Alba Iulia!Arad#Leu#ro#2
+Europe#Russia#17075400#142200000#Moscow!Saint Petersburg!Novosibirsk#Ruble#ru#3
+Europe#San Marino#61#27730#San Marino!Serravalle!Borgo Maggiore#Euro#sm#4
+Europe#Serbia#88361#7120666#Belgrade!Niš!Zemun#Yugoslav new dinar/euro#rs#8
+Europe#Slovakia#8845#5422366#Bratislava!Košice!Prešov#Koruna#sk#6
 Europe#Slovenia#20273#2050189#Ljubljana!Maribor!Celje#Euro#si#3
-Europe#Spain#504851#7059533#Madrid!Barcelona!Valencia#Euro#es#1
-Europe#Sweden#49964#9090113#Stockholm!Gothenburg!Malmo#Krona#se#1
-Europe#Switzerland#1290#7507000#Bern!Zurich!Geneva#Swiss franc#ch#3
+Europe#Spain#504851#7059533#Madrid!Barcelona!Valencia#Euro#es#2
+Europe#Sweden#49964#9090113#Stockholm!Gothenburg!Malmo#Krona#se#3
+Europe#Switzerland#1290#7507000#Bern!Zurich!Geneva#Swiss franc#ch#1
 Europe#Turkey#783562#75627384#Ankara!İstanbul!İzmir#Turkish lira#tr#2
-Europe#Ukraine#603700#8396470#Kiev!Kharkiv!Dnipropetrovsk#Hryvna#ua#1
-Europe#United Kingdom#244820#61100835#London!Birmingham!Leeds#Pound sterling#uk#1
-Europe#Vatican City#0.44#900#Vatican City!Anzio!Bomarzo#Euro#va#3
-South America#Argentina#2766890#40482000#Buenos Aires!Córdoba!Rosario#Peso#ar#2
-South America#Bolivia#1098580#9863000#La Paz and Sucre!Santa Cruz!Cochabamba#Boliviano#bo#1
-South America#Brazil#8514877#191241714#Brasília!São Paulo!Rio de Janeiro#Real#br#1
-South America#Chile#756950#16928873#Santiago!Puente Alto!Antofagasta#Chilean Peso#cl#2
-South America#Colombia#1138910#45928970#Bogotá!Vancouver!Victoria#Colombian Peso#co#2
-South America#Ecuador#283560#14573101#Quito!Guayaquil!Cuenca#U.S. dollar#ec#2
-South America#Falkland Islands (United Kingdom)#12173#3140#Port Stanley!Goose Green Settlement!Port Howard#-#fk#3
-South America#French Guiana (France)#91000#221500#Cayenne (Préfecture)!Matoury!Saint-Laurent-du-Maroni#-#gf#3
-South America#Guyana#214999#772298#Georgetown!Linden!Linden#Guyanese dollar#gy#3
-South America#Paraguay#406750#6831306#Asunción!Ciudad del Este!San Lorenzo#Guaraní#py#2
+Europe#Ukraine#603700#8396470#Kiev!Kharkiv!Dnipropetrovsk#Hryvna#ua#4
+Europe#Vatican City#0.44#900#Vatican City!Anzio!Bomarzo#Euro#va#4
+South America#Argentina#2766890#40482000#Buenos Aires!Córdoba!Rosario#Peso#ar#3
+South America#Bolivia#1098580#9863000#La Paz and Sucre!Santa Cruz!Cochabamba#Boliviano#bo#8
+South America#Brazil#8514877#191241714#Brasília!São Paulo!Rio de Janeiro#Real#br#3
+South America#Chile#756950#16928873#Santiago!Puente Alto!Antofagasta#Chilean Peso#cl#5
+South America#Colombia#1138910#45928970#Bogotá!Vancouver!Victoria#Colombian Peso#co#3
+South America#Ecuador#283560#14573101#Quito!Guayaquil!Cuenca#U.S. dollar#ec#3
+South America#Falkland Islands (United Kingdom)#12173#3140#Port Stanley!Goose Green Settlement!Port Howard#-#fk#10
+South America#French Guiana (France)#91000#221500#Cayenne (Préfecture)!Matoury!Saint-Laurent-du-Maroni#-#gf#9
+South America#Guyana#214999#772298#Georgetown!Linden!New Amsterdam!Anna Regina#Guyanese dollar#gy#10
+South America#Paraguay#406750#6831306#Asunción!Ciudad del Este!San Lorenzo#Guaraní#py#8
 South America#Peru#1285220#29132013#Lima!Arequipa!Callao#Nuevo sol#pe#2
-South America#South Georgia and South Sandwich Islands (UK)#3093#20#King Edward Point!Grytviken!#-#gs#3
-South America#Suriname#163270#472000#Paramaribo!Lelydorp!Brokopondo#Surinamese dollar#sr#2
-South America#Uruguay#176220#3477780#Montevideo!Salto!Paysandú#Uruguay peso#uy#2
-South America#Venezuela#916445#31648930#Caracas!Maracaibo!Maracay#Bolivar#ve#1
-North America#Bermuda (UK)#54#65000#Hamilton!Camden!Bethaven#-#bm#2
-North America#Canada#9984670#33573000#Ottawa!Toronto!Montreal#Canadian dollar#ca#1
-North America#Greenland (Den.)#2166086#57000#Nuuk (Godthåb)!Sisimiut!Ilulissat#-#gl#3
-North America#Mexico#1964375#112322757#Mexico City!Acapulco!Angahuan#Mexican peso#mx#2
-North America#Saint Pierre and Miquelon (France)#242#6000#Saint-Pierre#-#-#3 >>
-North America#United States#9629091#311630000#Washington, D.C.!New-York!Alaska#U.S dollar#us#2
-North America#Anguilla (UK)#91#15000#The Valley!Port Inini!Tonnegrande#-#ai#3
-North America#Antigua and Barbuda#442#88000#St. John's!All Saints!Piggotts#East Caribbean dollar#ag#2
-North America#Aruba#180#107000#Oranjestad!Babijn!Angochi#-#aw#2
-North America#Bahamas, The#13943#342000#Nassau!Lucaya!Freeport#Bahamian dollar#bs#2
-North America#Barbados#430#256000#Bridgetown!Speightstown!Oistins#Barbados dollar#bb#3
-North America#Bonaire (Netherland)#294#12093#Kralendijk!Dorp Antriol!Upper Hell's Gate#-#-#3 >>
-North America#British Virgin Islands (UK)#151#23000#Road Town!Tortola#-#vg#3
-North America#Cayman Islands (UK)#264#56000#George Town!West Bay!Bodden Town#-#ky#3
-North America#Cuba#109886#11204000#Havana!Santiago de Cuba!Camagüey#Cuban Peso#cu#1
-North America#Curaçao#444#140794#Willemstad!Sint Michiel Liber!Barber#-#-#2 >>
-North America#Dominica#751#67000#Roseau!Portsmouth!Marigot#East Caribbean dollar#dm#2
-North America#Dominican Republic#48671#10090000#Santo Domingo!Santiago de los Caballeros!Santo Domingo Oeste#Dominican Peso#do#3
-North America#Grenada#344#104000#St. George's!Gouyave!Grenville#East Caribbean dollar#gd#2
-North America#Guadeloupe (France)#1628#401784#Basse-Terre#-#gp#2
-North America#Haiti#27750#10033000#Port-au-Prince!Carrefour!Delmas 73#Gourde#ht#2
-North America#Jamaica#10991#2719000#Kingston!New Kingston!Spanish Town#Jamaican dollar#jm#1
-North America#Martinique (France)#1128#397693#Fort-de-France!Le Lamentin!Le Robert#-#mq#2
-North America#Montserrat (UK)#102#6000#Plymouth! Brades!Cork Hill#-#ms#2
-North America#Puerto Rico (US)#8870#3982000#San Juan!Bayamón!Carolina#-#pr#3
-North America#Saba (Netherland)#13#1537#The Bottom#-#-#2 >>
-North America#Saint Barthélemy (France)#21#7448#Gustavia#-#-#3 >>
-North America#Saint Kitts and Nevis#261#52000#Basseterre!Fig Tree!Market Shop#-#kn#2
-North America#Saint Lucia#539#172000#Castries!Bisée!Vieux Fort#-#lc#2
-North America#Saint Martin (France)#54#29820#Marigot#-#-#3 >>
-North America#Saint Vincent and the Grenadines#389#109000#Kingstown!Kingstown Park!Georgetown#-#vc#2
-North America#Sint Eustatius (Netherland)#21#2739#Oranjestad#-#-#3 >>
-North America#Sint Maarten#34#40009#Philipsburg#-#-#2 >>
-North America#Trinidad and Tobago#5130#1339000#Port of Spain!Chaguanas!Mon Repos#Trinidad and Tobago dollar#tt#3
-North America#Turks and Caicos Islands (UK)#948#33000#Cockburn Town!Cockburn Harbour#-#tc#3
-North America#United States Virgin Islands (US)#347#110000#Charlotte Amalie!St Croix!Cruz Bay#-#vi#3
-North America#Belize#22966#307000#Belmopan!San Ignacio!Belize City#Belize dollar#bz#3
-North America#Costa Rica#51100#4579000#San José!Puerto Limón!San Francisco#Colón#cr#2
-North America#El Salvador#21041#6163000#San Salvador!Soyapango!Santa Ana#Colón; U.S. dollar#sv#2
-North America#Guatemala#108889#14027000#Guatemala City!Mixco!Villa Nueva#Quetzal#gt#1
-North America#Honduras#112492#7466000#Tegucigalpa!San Pedro Sula!Choloma#Lempira#hn#1
-North America#Nicaragua#130373#5743000#Managua!León!Masaya#Gold cordoba#ni#1
-North America#Panama#75417#3454000#Panama City!San Miguelito!Tocumen#-#pa#1
-Oceania#Australia#7686850#23034879#Canberra!Sydney!Melbourne#Australian dollar#au#1
-Oceania#Christmas Island(Australia)#135#1493#Flying Fish Cove#-#cx#3
-Oceania#Cocos (Keeling) Islands (Australia)#14#628#West Island!Bantam Village#-#cc#3
-Oceania#Coral Sea Islands (Australia)#10#4#-#-#-#3 >>
-Oceania#New Zealand#268680#4465900#Wellington!Auckland!Christchurch#New Zealand dollar#nz#1
-Oceania#Norfolk Island (Australia)#35#2302#Kingston#-#nf#2
-Oceania#Fiji#18270#856346#Suva!Lautoka!Nadi#Fiji dollar#fj#2
-Oceania#New Caledonia (France)#19060#240390#Nouméa!Mont-Dore!Dumbéa#-#nc#3
-Oceania#Papua (Indonesia)#319036#3486432#Jayapura!Lae!Port Moresby#Kina#pg#3
-Oceania#West Papua (Indonesia)#140375#760855#Manokwari#Kina#pg#3
-Oceania#Papua New Guinea#462840#5172033#Port Moresby!Lae!Arawa#Kina#pg#3
-Oceania#Solomon Islands#28450#494786#Honiara!Auki!Gizo#Solomon Islands dollar#sb#2
-Oceania#Vanuatu#12200#240000#Port Vila!Luganville!Norsup#Vatu#vu#2
-Oceania#Federated States of Micronesia#702#135869#Palikir!Berard!Berado#-#-#2 >>
-Oceania#Guam (United States)#549#160796#Hagåtña!Yigo Village!Dededo Village#-#gu#3
-Oceania#Kiribati#811#96335#South Tarawa!Bikenibeu!Tarawa#Australian dollar#ki#3
-Oceania#Marshall Islands#181#73630#Majuro!Ebaye!Arno#-#mh#1
-Oceania#Nauru#21#12329#Yaren!Arijejen!Baiti#Australian dollar#nr#3
-Oceania#Northern Mariana Islands (United States)#477#77311#Saipan!San Jose!Carolinas Heights#-#mp#2
-Oceania#Palau#458#19409#Melekeok!Koror!Koror Town#U.S. dollar#pw#3
-Oceania#Wake Island (United States)#2#12#Wake Island!Ajeltake!Rairok#-#-#3 >>
-Oceania#American Samoa (United States)#199#68688#Pago Pago, Fagatogo!Tāfuna!Leone#Tala#as#3
-Oceania#Cook Islands (New Zealand)#240#20811#Avarua!Amuri!Omoka#-#ck#3
-Oceania#Easter Island (Chile)#164#5761#Hanga Roa#-#-#3 >>
-Oceania#French Polynesia (France)#4167#257847#Papeete!Faaa!Punaauia#-#pf#2
-Oceania#Hawaii (United States)#16636#1360301#Honolulu!Pearl City, Manana!Hilo#-#-#1 >>
-Oceania#Niue (New Zealand)#260#2134#Alofi!Hakupu!Avatele#-#nu#2
-Oceania#Pitcairn Islands (United Kingdom)#5#47#Adamstown#-#pn#2
-Oceania#Samoa#2944#179000#Apia!Asau!Mulifanua#-#ws#3
-Oceania#Tokelau (New Zealand)#10#1431#Nukunonu#-#tk#3
-Oceania#Tonga#748#106137#Nukuʻalofa!Neiafu!Haveluloto#Pa'anga#to#2
-Oceania#Tuvalu#26#11146#Funafuti!Alapi Village!Fakaifou Village#Australian dollar#tv#2
-Oceania#Wallis and Futuna (France)#274#15585#Mata-Utu!Liku!Alele#-#wf#3
-Africa#Algeria#2381740#34178188#Algiers!Boumerdas!Oran#Dinar#dz#3
-Africa#Egypt#1001450#82868000#Cairo!Alexandria!Giza#Egyptian pound#eg#1
+South America#South Georgia and South Sandwich Islands (UK)#3093#20#King Edward Point!Grytviken!#-#gs#10
+South America#Suriname#163270#472000#Paramaribo!Lelydorp!Brokopondo#Surinamese dollar#sr#7
+South America#Uruguay#176220#3477780#Montevideo!Salto!Paysandú#Uruguay peso#uy#7
+South America#Venezuela#916445#31648930#Caracas!Maracaibo!Maracay#Bolivar#ve#2
+North America#Bermuda (UK)#54#65000#Hamilton!Camden!Bethaven#-#bm#10
+North America#Canada#9984670#33573000#Ottawa!Toronto!Montreal#Canadian dollar#ca#3
+North America#Greenland (Den.)#2166086#57000#Nuuk (Godthåb)!Sisimiut!Ilulissat#-#gl#8
+North America#Mexico#1964375#112322757#Mexico City!Acapulco!Angahuan#Mexican peso#mx#1
+North America#Saint Pierre and Miquelon (France)#242#6000#Saint-Pierre#-#-#9 >>
+North America#United States#9629091#311630000#Washington!New-York!Alaska#U.S dollar#us#1
+North America#Anguilla (UK)#91#15000#The Valley!Port Inini!Tonnegrande#-#ai#9
+North America#Antigua and Barbuda#442#88000#St. John's!All Saints!Piggotts#East Caribbean dollar#ag#9
+North America#Aruba#180#107000#Oranjestad!Babijn!Angochi#-#aw#9
+North America#Bahamas, The#13943#342000#Nassau!Lucaya!Freeport#Bahamian dollar#bs#6
+North America#Barbados#430#256000#Bridgetown!Speightstown!Oistins#Barbados dollar#bb#8
+North America#Bonaire (Netherland)#294#12093#Kralendijk!Dorp Antriol!Upper Hell's Gate#-#-#8 >>
+North America#British Virgin Islands (UK)#151#23000#Road Town!Tortola#-#vg#10
+North America#Cayman Islands (UK)#264#56000#George Town!West Bay!Bodden Town#-#ky#10
+North America#Cuba#109886#11204000#Havana!Santiago de Cuba!Camagüey#Cuban Peso#cu#3
+North America#Curaçao#444#140794#Willemstad!Sint Michiel Liber!Barber#-#-#7 >>
+North America#Dominica#751#67000#Roseau!Portsmouth!Marigot#East Caribbean dollar#dm#8
+North America#Dominican Republic#48671#10090000#Santo Domingo!Santiago de los Caballeros!Santo Domingo Oeste#Dominican Peso#do#4
+North America#Grenada#344#104000#St. George's!Gouyave!Grenville#East Caribbean dollar#gd#6
+North America#Guadeloupe (France)#1628#401784#Basse-Terre#-#gp#10
+North America#Haiti#27750#10033000#Port-au-Prince!Carrefour!Delmas 73#Gourde#ht#8
+North America#Jamaica#10991#2719000#Kingston!New Kingston!Spanish Town#Jamaican dollar#jm#4
+North America#Martinique (France)#1128#397693#Fort-de-France!Le Lamentin!Le Robert#-#mq#9
+North America#Montserrat (UK)#102#6000#Plymouth! Brades!Cork Hill#-#ms#10
+North America#Puerto Rico (US)#8870#3982000#San Juan!Bayamón!Carolina#-#pr#10
+North America#Saba (Netherland)#13#1537#The Bottom#-#-#9 >>
+North America#Saint Barthélemy (France)#21#7448#Gustavia#-#-#9 >>
+North America#Saint Kitts and Nevis#261#52000#Basseterre!Fig Tree!Market Shop#-#kn#9
+North America#Saint Lucia#539#172000#Castries!Bisée!Vieux Fort#-#lc#9
+North America#Saint Martin (France)#54#29820#Marigot#-#-#10>>
+North America#Saint Vincent and the Grenadines#389#109000#Kingstown!Kingstown Park!Georgetown#-#vc#10
+North America#Sint Eustatius (Netherland)#21#2739#Oranjestad#-#-#10 >>
+North America#Sint Maarten#34#40009#Philipsburg#-#-#10 >>
+North America#Trinidad and Tobago#5130#1339000#Port of Spain!Chaguanas!Mon Repos#Trinidad and Tobago dollar#tt#9
+North America#Turks and Caicos Islands (UK)#948#33000#Cockburn Town!Cockburn Harbour#-#tc#9
+North America#United States Virgin Islands (US)#347#110000#Charlotte Amalie!St Croix!Cruz Bay#-#vi#10
+North America#Belize#22966#307000#Belmopan!San Ignacio!Belize City#Belize dollar#bz#9
+North America#Costa Rica#51100#4579000#San José!Puerto Limón!San Francisco#Colón#cr#7
+North America#El Salvador#21041#6163000#San Salvador!Soyapango!Santa Ana#Colón; U.S. dollar#sv#8
+North America#Guatemala#108889#14027000#Guatemala City!Mixco!Villa Nueva#Quetzal#gt#4
+North America#Honduras#112492#7466000#Tegucigalpa!San Pedro Sula!Choloma#Lempira#hn#5
+North America#Nicaragua#130373#5743000#Managua!León!Masaya#Gold cordoba#ni#4
+North America#Panama#75417#3454000#Panama City!San Miguelito!Tocumen#-#pa#5
+Oceania#Australia#7686850#23034879#Canberra!Sydney!Melbourne#Australian dollar#au#3
+Oceania#Christmas Island(Australia)#135#1493#Flying Fish Cove#-#cx#9
+Oceania#Cocos (Keeling) Islands (Australia)#14#628#West Island!Bantam Village#-#cc#9
+Oceania#Coral Sea Islands (Australia)#10#4#-#-#-#9 >>
+Oceania#New Zealand#268680#4465900#Wellington!Auckland!Christchurch#New Zealand dollar#nz#3
+Oceania#Norfolk Island (Australia)#35#2302#Kingston#-#nf#9
+Oceania#Fiji#18270#856346#Suva!Lautoka!Nadi#Fiji dollar#fj#5
+Oceania#New Caledonia (France)#19060#240390#Nouméa!Mont-Dore!Dumbéa#-#nc#10
+Oceania#Papua (Indonesia)#319036#3486432#Jayapura!Lae!Port Moresby#Kina#pg#10
+Oceania#West Papua (Indonesia)#140375#760855#Manokwari#Kina#pg#8 >>
+Oceania#Papua New Guinea#462840#5172033#Port Moresby!Lae!Arawa#Kina#pg#9
+Oceania#Solomon Islands#28450#494786#Honiara!Auki!Gizo#Solomon Islands dollar#sb#9
+Oceania#Vanuatu#12200#240000#Port Vila!Luganville!Norsup#Vatu#vu#9
+Oceania#Federated States of Micronesia#702#135869#Palikir!Berard!Berado#-#-#9 >>
+Oceania#Guam (United States)#549#160796#Hagåtña!Yigo Village!Dededo Village#-#gu#10
+Oceania#Kiribati#811#96335#South Tarawa!Bikenibeu!Tarawa#Australian dollar#ki#9
+Oceania#Marshall Islands#181#73630#Majuro!Ebaye!Arno#-#mh#9
+Oceania#Nauru#21#12329#Yaren!Arijejen!Baiti#Australian dollar#nr#7
+Oceania#Northern Mariana Islands (United States)#477#77311#Saipan!San Jose!Carolinas Heights#-#mp#9
+Oceania#Palau#458#19409#Melekeok!Koror!Koror Town#U.S. dollar#pw#10
+Oceania#Wake Island (United States)#2#12#Wake Island!Ajeltake!Rairok#-#-#6 >>
+Oceania#American Samoa (United States)#199#68688#Pago Pago, Fagatogo!Tāfuna!Leone#Tala#as#10
+Oceania#Cook Islands (New Zealand)#240#20811#Avarua!Amuri!Omoka#-#ck#9
+Oceania#Easter Island (Chile)#164#5761#Hanga Roa#-#-#9 >>
+Oceania#French Polynesia (France)#4167#257847#Papeete!Faaa!Punaauia#-#pf#10
+Oceania#Hawaii (United States)#16636#1360301#Honolulu!Pearl City, Manana!Hilo#-#-#3 >>
+Oceania#Niue (New Zealand)#260#2134#Alofi!Hakupu!Avatele#-#nu#10
+Oceania#Pitcairn Islands (United Kingdom)#5#47#Adamstown#-#pn#9
+Oceania#Samoa#2944#179000#Apia!Asau!Mulifanua#-#ws#7
+Oceania#Tokelau (New Zealand)#10#1431#Nukunonu#-#tk#9
+Oceania#Tonga#748#106137#Nukuʻalofa!Neiafu!Haveluloto#Pa'anga#to#6
+Oceania#Tuvalu#26#11146#Funafuti!Alapi Village!Fakaifou Village#Australian dollar#tv#8
+Oceania#Wallis and Futuna (France)#274#15585#Mata-Utu!Liku!Alele#-#wf#10
+Africa#Algeria#2381740#34178188#Algiers!Boumerdas!Oran#Dinar#dz#8
+Africa#Egypt#1001450#82868000#Cairo!Alexandria!Giza#Egyptian pound#eg#2
 Africa#Libya#1759540#6310434#Tripoli!Benghazi!Misratah#Libyan dinar#ly#3
-Africa#Madeira (Portugal)#797#245000#Funchal!Santa Cruz!Câmara de Lobos#Euro#-#3 >>
-Africa#Morocco#446550#34859364#Rabat!Casablanca!Fes#Dirham#ma#2
-Africa#Sudan#1861484#30894000#Khartoum!Omdurman!Port Sudan#Dinar#sd#2
-Africa#Tunisia#163610#10486339#Tunis!Sfax!Sousse#Tunisian dinar#tn#1
-Africa#Djibouti#23000#623891#Djibouti!Ḏânan!Ali Sabih#Djibouti franc#dj#1
-Africa#Eritrea#121320#5647168#Asmara!Keren!Massawa#Nakfa#er#3
-Africa#Ethiopia#1127127#84320987#Addis Ababa!Dire Dawa!Mek’elē#Birr#et#3
-Africa#Somalia#637657#9832017#Mogadishu!Hargeysa!Berbera#Somali shilling#so#2
-Africa#Burundi#27830#8988091#Bujumbura!Muyinga!Ruyigi#Burundi franc#bi#3
-Africa#British Indian Ocean Territory - Chagos Archipelago(United Kingdom)#56.13#3000#Diego Garcia#-#-#2 >>
-Africa#Comoros#2170#752438#Moroni!Moutsamoudou!Fomboni#Franc#km#3
+Africa#Madeira (Portugal)#797#245000#Funchal!Santa Cruz!Câmara de Lobos#Euro#-#9 >>
+Africa#Morocco#446550#34859364#Rabat!Casablanca!Fes#Dirham#ma#5
+Africa#Sudan#1861484#30894000#Khartoum!Omdurman!Port Sudan#Dinar#sd#7
+Africa#Tunisia#163610#10486339#Tunis!Sfax!Sousse#Tunisian dinar#tn#2
+Africa#Djibouti#23000#623891#Djibouti!Ḏânan!Ali Sabih#Djibouti franc#dj#3
+Africa#Eritrea#121320#5647168#Asmara!Keren!Massawa#Nakfa#er#8
+Africa#Ethiopia#1127127#84320987#Addis Ababa!Dire Dawa!Mek’elē#Birr#et#7
+Africa#Somalia#637657#9832017#Mogadishu!Hargeysa!Berbera#Somali shilling#so#7
+Africa#Burundi#27830#8988091#Bujumbura!Muyinga!Ruyigi#Burundi franc#bi#5
+Africa#British Indian Ocean Territory - Chagos Archipelago(United Kingdom)#56.13#3000#Diego Garcia#-#-#7 >>
+Africa#Comoros#2170#752438#Moroni!Moutsamoudou!Fomboni#Franc#km#7
 Africa#Kenya#582650#39002772#Nairobi!Mombasa!Nakuru#Kenya shilling#ke#2
-Africa#Madagascar#587040#20653556#Antananarivo!Toamasina!Antsirabe#Malagasy franc#mg#1
-Africa#Malawi#118480#14268711#Lilongwe!Blantyre!Mzuzu#Kwacha#mw#3
-Africa#Mauritius#2040#1284264#Port Louis!Vacoas!Curepipe#Mauritian rupee#mu#3
-Africa#Mayotte (France)#374#223765#Mamoudzou!Koungou!Dzaoudzi#-#yt#3
-Africa#Mozambique#801590#21669278#Maputo!Matola!Beira#Metical#mz#2
-Africa#Réunion (France)#2512#743981#Saint-Denis!Saint-Paul!Saint-Pierre#-#re#3
-Africa#Rwanda#26338#10473282#Kigali!Butare!Gitarama#Rwanda franc#rw#3
-Africa#Seychelles#455#87476#Victoria!Anse Boileau!Bel Ombre#Seychelles rupee#sc#2
-Africa#South Sudan#619745#8260490#Juba!Malakal!Wau#-#ss#3
-Africa#Tanzania#945087#44929002#Dodoma!Mwanza!Mwanza#Tanzanian shilling#tz#3
-Africa#Uganda#236040#32369558#Kampala!Gulu!Lira#Ugandan new shilling#ug#2
+Africa#Madagascar#587040#20653556#Antananarivo!Toamasina!Antsirabe#Malagasy franc#mg#2
+Africa#Malawi#118480#14268711#Lilongwe!Blantyre!Mzuzu#Kwacha#mw#6
+Africa#Mauritius#2040#1284264#Port Louis!Vacoas!Curepipe#Mauritian rupee#mu#7
+Africa#Mayotte (France)#374#223765#Mamoudzou!Koungou!Dzaoudzi#-#yt#9
+Africa#Mozambique#801590#21669278#Maputo!Matola!Beira#Metical#mz#8
+Africa#Réunion (France)#2512#743981#Saint-Denis!Saint-Paul!Saint-Pierre#-#re#10
+Africa#Rwanda#26338#10473282#Kigali!Butare!Gitarama#Rwanda franc#rw#10
+Africa#Seychelles#455#87476#Victoria!Anse Boileau!Bel Ombre#Seychelles rupee#sc#9
+Africa#South Sudan#619745#8260490#Juba!Malakal!Wau#-#ss#7
+Africa#Tanzania#945087#44929002#Dodoma!Mwanza!Mwanza#Tanzanian shilling#tz#8
+Africa#Uganda#236040#32369558#Kampala!Gulu!Lira#Ugandan new shilling#ug#7
 Africa#Zambia#752614#11862740#Lusaka!Kitwe!Ndola#Kwacha#zm#2
-Africa#Zimbabwe#390580#11392629#Harare!Bulawayo!Chitungwiza#Zimbabwean dollar#zw#2
-Africa#Angola#1246700#12799293#Luanda!N'dalatando!Huambo#New Kwanza#ao#1
-Africa#Cameroon#475440#18879301#Yaoundé!Douala!Garoua#CFA Franc#cm#3
-Africa#Central African Republic#622984#4511488#Bangui!Bimbo!Mbaïki#CFA Franc#cf#2
-Africa#Chad#1284000#10329208#N'Djamena!Moundou!Sarh#CFA Franc#td#3
-Africa#Republic of the Congo#342000#4012809#Brazzaville!Pointe-Noire!Dolisie#CFA Franc#cg#2
-Africa#Democratic Republic of the Congo#2345410#69575000#Kinshasa!Lubumbashi!Mbuji-Mayi#franc#cd#2
-Africa#Equatorial Guinea#28051#633441#Malabo!Bata!Ebebiyin#CFA Franc#gq#2
-Africa#Gabon#267667#1514993#Libreville!Port-Gentil!Franceville#CFA Franc#ga#2
-Africa#São Tomé and Príncipe#1001#212679#São Tomé!Santo António#Dobra#st#3
-Africa#Botswana#600370#1990876#Gaborone!Francistown!Molepolole#Pula#bw#1
-Africa#Lesotho#30355#2130819#Maseru!Mafeteng!Hlotse#Maluti#ls#2
-Africa#Namibia#825418#2108665#Windhoek!Rundu!Walvis Bay#Namibian dollar#na#2
-Africa#South Africa#1219912#51770560#Bloemfontein, Cape Town, Pretoria!Johannesburg!Durban#Rand#za#2
-Africa#Swaziland#17363#1123913#Mbabane!Abercorn Point!Abercorn#Swazi lilangeni#sz#3
-Africa#Benin#112620#8791832#Porto-Novo!Abomey-Calavi!Cotonou#CFA Franc#bj#3
-Africa#Burkina Faso#274200#15746232#Ouagadougou!Bobo-Dioulasso!Koudougou#CFA Franc#bf#3
-Africa#Cape Verde#4033#429474#Praia!Mindelo!Santa Maria#Cape Verdean escudo#cv#3
-Africa#Gambia#11300#1782893#Banjul!Bakau!Brikama#Dalasi#gm#2
-Africa#Ghana#239460#23832495#Accra!Kumasi!Tamale#Cedi#gh#2
-Africa#Guinea#245857#10057975#Conakry!Camayenne!Nzérékoré#Guinean franc#gn#2
-Africa#Guinea-Bissau#36120#1533964#Bissau!Bafatá!Gabú#CFA Franc#gw#2
-Africa#Ivory Coast#322460#20617068#Abidjan,Yamoussoukro!Abobo!Bouaké#-#-#3 >>
-Africa#Liberia#111370#3441790#Monrovia!Gbarnga!Kakata#Liberian dollar#lr#1
-Africa#Mali#1240000#12666987#Bamako!Sikasso!Mopti#CFA Franc#ml#1
-Africa#Mauritania#1030700#3129486#Nouakchott!Hodh Ech Chargui!Hodh El Gharbi#Ouguiya#mr#2
-Africa#Niger#1267000#15306252#Niamey!Zinder!Maradi#CFA Franc#ne#1
-Africa#Nigeria#923768#166629000#Abuja!Kano!Lagos#Naira#ng#1
-Africa#Saint Helena, Ascension and Tristan da Cunha (United Kingdom)#420#7728#Amestown!Apple Cottage!Bates Branch#-#sh#2
-Africa#Senegal#196190#13711597#Dakar!Grand Dakar!Pikine#CFA Franc#sn#1
-Africa#Sierra Leone#71740#6440053#Freetown!Bo!Kenema#Leone#sl#3
-Africa#Togo#56785#6019877#Lomé!Sokodé!Kara#CFA Franc#tg#2
-﻿Asia#Afghanistan#647500#30419928#Kabul!Kandahar!Mazari Sharif#Afghani#af#3
-Asia#Bahrain#760#1248348#Manama!Al Muharraq!Ar Rifā#Bahrain dinar#bh#3
-Asia#Bangladesh#147570#150039000#Dhaka!Chittagong!Khulna#Taka#bd#3
-Asia#Bhutan#38394#716896#Thimphu!Punakha!Tsirang#Ngultrum#bt#3
-Asia#Brunei#5765#408786#Bandar Seri Begawan!Kuala Belait!Seria#Brunei dollar#bn#3
-Asia#Burma (Myanmar)#676578#54584650#Naypyidaw!Yangon!Mandalay#Burmese kyat#mm#3
-Asia#Cambodia#181035#14952665#Phnom Penh!Takeo!Kampong Saom#Riel#kh#3
-Asia#China#9596961#1343239923#Beijing!Shanghai!Guangzhou#Yuan/Renminbi#cn#1
-Asia#East Timor#14874#1143667#Dili!Same!Maliana#U.S. dollar#tp#3
-Asia#India#3287263#1210193422#New Delhi!Najafgarh!Narela#Rupee#in#2
-Asia#Indonesia#1904569#248645008#Jakarta!Surabaya!Medan#Rupiah#id#2
-Asia#Iran#1648195#78868711#Tehran!Isfahan!Isfahan#Rial#ir#2
-Asia#Iraq#438317#31129225#Baghdad!Basra!Al Mawşil al Jadīdah#U.S. dollar#iq#2
-Asia#Israel#20770#7590758#Jerusalem!West Jerusalem!Haifa#Shekel#il#3
+Africa#Zimbabwe#390580#11392629#Harare!Bulawayo!Chitungwiza#Zimbabwean dollar#zw#6
+Africa#Angola#1246700#12799293#Luanda!N'dalatando!Huambo#New Kwanza#ao#3
+Africa#Cameroon#475440#18879301#Yaoundé!Douala!Garoua#CFA Franc#cm#4
+Africa#Central African Republic#622984#4511488#Bangui!Bimbo!Mbaïki#CFA Franc#cf#5
+Africa#Chad#1284000#10329208#N'Djamena!Moundou!Sarh#CFA Franc#td#6
+Africa#Republic of the Congo#342000#4012809#Brazzaville!Pointe-Noire!Dolisie#CFA Franc#cg#6
+Africa#Democratic Rep. of the Congo#2345410#69575000#Kinshasa!Lubumbashi!Mbuji-Mayi#franc#cd#6
+Africa#Equatorial Guinea#28051#633441#Malabo!Bata!Ebebiyin#CFA Franc#gq#10
+Africa#Gabon#267667#1514993#Libreville!Port-Gentil!Franceville#CFA Franc#ga#7
+Africa#São Tomé and Príncipe#1001#212679#São Tomé!Santo António#Dobra#st#10
+Africa#Botswana#600370#1990876#Gaborone!Francistown!Molepolole#Pula#bw#9
+Africa#Lesotho#30355#2130819#Maseru!Mafeteng!Hlotse#Maluti#ls#9
+Africa#Namibia#825418#2108665#Windhoek!Rundu!Walvis Bay#Namibian dollar#na#6
+Africa#South Africa#1219912#51770560#Bloemfontein, Cape Town, Pretoria!Johannesburg!Durban#Rand#za#5
+Africa#Swaziland#17363#1123913#Mbabane!Abercorn Point!Abercorn#Swazi lilangeni#sz#4
+Africa#Benin#112620#8791832#Porto-Novo!Abomey-Calavi!Cotonou#CFA Franc#bj#10
+Africa#Burkina Faso#274200#15746232#Ouagadougou!Bobo-Dioulasso!Koudougou#CFA Franc#bf#9
+Africa#Cape Verde#4033#429474#Praia!Mindelo!Santa Maria#Cape Verdean escudo#cv#9
+Africa#Gambia#11300#1782893#Banjul!Bakau!Brikama#Dalasi#gm#10
+Africa#Ghana#239460#23832495#Accra!Kumasi!Tamale#Cedi#gh#8
+Africa#Guinea#245857#10057975#Conakry!Camayenne!Nzérékoré#Guinean franc#gn#8
+Africa#Guinea-Bissau#36120#1533964#Bissau!Bafatá!Gabú#CFA Franc#gw#8
+Africa#Ivory Coast#322460#20617068#Abidjan,Yamoussoukro!Abobo!Bouaké#-#ci#8
+Africa#Liberia#111370#3441790#Monrovia!Gbarnga!Kakata#Liberian dollar#lr#7
+Africa#Mali#1240000#12666987#Bamako!Sikasso!Mopti#CFA Franc#ml#5
+Africa#Mauritania#1030700#3129486#Nouakchott!Hodh Ech Chargui!Hodh El Gharbi#Ouguiya#mr#6
+Africa#Niger#1267000#15306252#Niamey!Zinder!Maradi#CFA Franc#ne#8
+Africa#Nigeria#923768#166629000#Abuja!Kano!Lagos#Naira#ng#5
+Africa#Saint Helena, Ascension and Tristan da Cunha (United Kingdom)#420#7728#Amestown!Apple Cottage!Bates Branch#-#sh#10
+Africa#Senegal#196190#13711597#Dakar!Grand Dakar!Pikine#CFA Franc#sn#5
+Africa#Sierra Leone#71740#6440053#Freetown!Bo!Kenema#Leone#sl#6
+Africa#Togo#56785#6019877#Lomé!Sokodé!Kara#CFA Franc#tg#7
+﻿Asia#Afghanistan#647500#30419928#Kabul!Kandahar!Mazari Sharif#Afghani#af#7
+Asia#Bahrain#760#1248348#Manama!Al Muharraq!Ar Rifā#Bahrain dinar#bh#4
+Asia#Bangladesh#147570#150039000#Dhaka!Chittagong!Khulna#Taka#bd#7
+Asia#Bhutan#38394#716896#Thimphu!Punakha!Tsirang#Ngultrum#bt#8
+Asia#Brunei#5765#408786#Bandar Seri Begawan!Kuala Belait!Seria#Brunei dollar#bn#8
+Asia#Burma (Myanmar)#676578#54584650#Naypyidaw!Yangon!Mandalay#Burmese kyat#mm#8
+Asia#Cambodia#181035#14952665#Phnom Penh!Takeo!Kampong Saom#Riel#kh#8
+Asia#China#9596961#1343239923#Beijing!Shanghai!Guangzhou#Yuan/Renminbi#cn#2
+Asia#East Timor#14874#1143667#Dili!Same!Maliana#U.S. dollar#tp#4
+Asia#India#3287263#1210193422#New Delhi!Najafgarh!Narela#Rupee#in#5
+Asia#Indonesia#1904569#248645008#Jakarta!Surabaya!Medan#Rupiah#id#6
+Asia#Iran#1648195#78868711#Tehran!Isfahan!Isfahan#Rial#ir#6
+Asia#Iraq#438317#31129225#Baghdad!Basra!Al Mawşil al Jadīdah#U.S. dollar#iq#5
+Asia#Israel#20770#7590758#Jerusalem!West Jerusalem!Haifa#Shekel#il#4
 Asia#Japan#377915#127368088#Tokyo!Yokohama!Osaka#Yen#jp#1
-Asia#Jordan#89342#6508887#Amman!Zarqa!Irbid#Jordanian dinar#jo#2
-Asia#Kazakhstan#2724900#15217711#Astana!Aktau!Almaty#Tenge#kz#3
-Asia#Kuwait#17818#2646314#Kuwait City!Al Ahmadi!As Sālimīyah#Kuwaiti dinar#kw#3
-Asia#Kyrgyzstan#199951#5496737#Bishkek!Osh!Jalal-Abad#Som#kg#2
-Asia#Laos#236800#6586266#Vientiane!Pakxe!Savannakhét#New Kip#la#2
-Asia#Lebanon#10400#4140289#Beirut!Ra’s Bayrūt!Tripoli#Lebanese pound#lb#3
-Asia#Malaysia#329847#29179952#Kuala Lumpur!Johor Bahru!Ipoh#Ringgit#my#2
-Asia#Maldives#298#394451#Malé!Fuvahmulah!Hithadhoo#Rufiya#mv#2
-Asia#Mongolia#1564116#3179997#Ulaanbaatar!Erdenet!Darhan#Tugrik#mn#2
-Asia#Nepal#147181#29890686#Kathmandu!Pokhara!Patan#Nepalese rupee#np#2
-Asia#North Korea#120538#24589122#Pyongyang!Hamhung!Namp’o#North Won#kp#2
-Asia#Oman#309500#3090150#Muscat!As Sīb al Jadīdah!Salalah#Omani rial#om#2
-Asia#Pakistan#796095#190291129#Islamabad!Karachi!Lahore#Pakistan rupee#pk#2
-Asia#Palestine#6220#4279699#Gaza/Ramallah!Gaza!Khan Yunis#New Israeli shekels/ Jordanian dinars/U.S. dollars#ps#1
+Asia#Jordan#89342#6508887#Amman!Zarqa!Irbid#Jordanian dinar#jo#5
+Asia#Kazakhstan#2724900#15217711#Astana!Aktau!Almaty#Tenge#kz#6
+Asia#Kuwait#17818#2646314#Kuwait City!Al Ahmadi!As Sālimīyah#Kuwaiti dinar#kw#8
+Asia#Kyrgyzstan#199951#5496737#Bishkek!Osh!Jalal-Abad#Som#kg#4
+Asia#Laos#236800#6586266#Vientiane!Pakxe!Savannakhét#New Kip#la#5
+Asia#Lebanon#10400#4140289#Beirut!Ra’s Bayrūt!Tripoli#Lebanese pound#lb#2
+Asia#Malaysia#329847#29179952#Kuala Lumpur!Johor Bahru!Ipoh#Ringgit#my#5
+Asia#Maldives#298#394451#Malé!Fuvahmulah!Hithadhoo#Rufiya#mv#9
+Asia#Mongolia#1564116#3179997#Ulaanbaatar!Erdenet!Darhan#Tugrik#mn#9
+Asia#Nepal#147181#29890686#Kathmandu!Pokhara!Patan#Nepalese rupee#np#8
+Asia#North Korea#120538#24589122#Pyongyang!Hamhung!Namp’o#North Won#kp#5
+Asia#Oman#309500#3090150#Muscat!As Sīb al Jadīdah!Salalah#Omani rial#om#9
+Asia#Pakistan#796095#190291129#Islamabad!Karachi!Lahore#Pakistan rupee#pk#5
+Asia#Palestine#6220#4279699#Gaza/Ramallah!Gaza!Khan Yunis#New Israeli shekels/ Jordanian dinars/U.S. dollars#ps#3
 Asia#Philippines#300000#100687500#Manila!Quezon City!Budta#Peso#ph#3
-Asia#Qatar#11586#1951591#Doha!Al Rayyan!Umm Şalāl Muḩammad#Qatari riyal#qa#2
+Asia#Qatar#11586#1951591#Doha!Al Rayyan!Umm Şalāl Muḩammad#Qatari riyal#qa#6
 Asia#Saudi Arabia#2149690#26534504#Riyadh!Jeddah!Mecca#Riyal#sa#1
-Asia#Singapore#697#5353494#Singapore!Ah Soo Garden!Alexandra#-#sg#2
-Asia#Sri Lanka#65610#21481334#Colombo!Galkissa!Moratuwa#Sri Lanka rupee#lk#2
-Asia#South Korea#100210#50004441#Seoul!Busan!Incheon#South Won#kr#2
-Asia#Syria#185180#22530746#Damascus!Aleppo!Homs#Syrian pound#sy#1
-Asia#Taiwan (ROC)#36193#23261747#Taipei!Kaohsiung City!Taichung#Taiwan dollar#tw#2
-Asia#Tajikistan#143100#7768385#Dushanbe!Khujand!Kŭlob#somoni#tj#2
-Asia#Thailand#513120#67091089#Bangkok!Mueang Samut Prakan!Mueang Nonthaburi#baht#th#2
+Asia#Singapore#697#5353494#Singapore!Ah Soo Garden!Alexandra#-#sg#5
+Asia#Sri Lanka#65610#21481334#Colombo!Galkissa!Moratuwa#Sri Lanka rupee#lk#8
+Asia#South Korea#100210#50004441#Seoul!Busan!Incheon#South Won#kr#4
+Asia#Syria#185180#22530746#Damascus!Aleppo!Homs#Syrian pound#sy#2
+Asia#Taiwan#36193#23261747#Taipei!Kaohsiung City!Taichung#Taiwan dollar#tw#4
+Asia#Tajikistan#143100#7768385#Dushanbe!Khujand!Kŭlob#somoni#tj#4
+Asia#Thailand#513120#67091089#Bangkok!Mueang Samut Prakan!Mueang Nonthaburi#baht#th#8
 Asia#Turkmenistan#488100#5054828#Ashgabat!Turkmenabat!Daşoguz#Manat#tm#2
 Asia#United Arab Emirates#83600#5314317#Abu Dhabi!Dubai!Sharjah#U.A.E. dirham#ae#1
-Asia#Uzbekistan#447400#28394180#Tashkent!Namangan!Samarkand#Uzbekistani sum#uz#2
-Asia#Vietnam#331212#91519289#Hanoi!Cần Thơ!Đà Nẵng#Dong#vn#2
-Asia#Yemen#527968#24771809#Sana'a!Al Hudaydah!Ta‘izz#Rial#ye#3
+Asia#Uzbekistan#447400#28394180#Tashkent!Namangan!Samarkand#Uzbekistani sum#uz#9
+Asia#Vietnam#331212#91519289#Hanoi!Cần Thơ!Đà Nẵng#Dong#vn#7
+Asia#Yemen#527968#24771809#Sana'a!Al Hudaydah!Ta‘izz#Rial#ye#8

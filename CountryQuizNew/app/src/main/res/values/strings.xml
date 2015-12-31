@@ -11,23 +11,91 @@
     <string name="quiz_domains">Domains</string>
     <string name="quiz_currencies">Currencies</string>
     <string name="quiz_areas">Areas</string>
+    <string name="achievements">Achievements</string>
+    <string name="leaderboards">Leaderboards</string>
+    <string name="play">Play</string>
     <string name="title_activity_quiz">QuizActivity</string>
     <string name="title_activity_test_quiz">TestQuizActivity</string>
+    <string name="permission_accounts">Account permission is required to google plus sign in</string>
+    <string name="accounts_permission_was_granted">Accounts permission was granted.</string>
+    <string name="accounts_permission_was_denied">Accounts permission was denied.</string>
+    <string name="requesting_permission">Requesting permission.</string>
+    <string name="ok">OK</string>
+    <string name="enable_sounds">Enable sound effects</string>
     <!--<string name="action_settings">Settings</string>-->
 
 
     <string name="app_id">691229972616</string>
-    <string name="achievement_well_done">CgkIiLGRhI8UEAIQAA</string>
-    <string name="achievement_cool">CgkIiLGRhI8UEAIQAQ</string>
-    <string name="achievement_great">CgkIiLGRhI8UEAIQAg</string>
-    <string name="achievement_honorable">CgkIiLGRhI8UEAIQAw</string>
+    <string name="package_name">com.apps.agshin.countryquiz</string>
+    <string name="achievement_beginner">CgkIiLGRhI8UEAIQAA</string>
+    <string name="achievement_talented">CgkIiLGRhI8UEAIQAQ</string>
+    <string name="achievement_skilled">CgkIiLGRhI8UEAIQAg</string>
+    <string name="achievement_intermediate">CgkIiLGRhI8UEAIQAw</string>
     <string name="achievement_professional">CgkIiLGRhI8UEAIQBA</string>
-    <string name="achievement_genius">CgkIiLGRhI8UEAIQBQ</string>
+    <string name="achievement_seasoned">CgkIiLGRhI8UEAIQBQ</string>
+    <string name="achievement_proficient">CgkIiLGRhI8UEAIQCQ</string>
+    <string name="achievement_experienced">CgkIiLGRhI8UEAIQCg</string>
+    <string name="leaderboard_time_attack">CgkIiLGRhI8UEAIQBw</string>
+
+
+    <string name="leaderboard_timeattack">CgkIiLGRhI8UEAIQBw</string>
+    <string name="leaderboard_striker">CgkIiLGRhI8UEAIQCA</string>
+
+    <string name="leaderboard_timeattack_name">Time attack</string>
+    <string name="leaderboard_striker_name">Striker</string>
+
+    <string name="choose_leaderboard">Choose leaderboard to show.</string>
+    <string name="tap_again_to_end_game">Tap again to end game</string>
+    <string name="scores_submitted">Scores submitted.</string>
+    <string name="scores_not_submitted">Your scores not submitted.</string>
+    <string name="show">SHOW</string>
+    <string name="banner_id">ca-app-pub-2478601698211605/7751345375</string>
 
     <!-- Question texts-->
-    <string name="question_area_largest">Which country is largest?</string>
-    <string name="question_area_smallest">Which country is smallest?</string>
+    <string name="question_area_largest">Which country is the largest?</string>
+    <string name="question_area_smallest">Which country is the smallest?</string>
+    <string name="question_capital">Which city is the capital of</string>
     <string name="question_i2t_flags">Which is flag of </string>
     <string name="question_i2t_coa">Which is coat of arms of </string>
+    <string name="title_activity_start">Start</string>
+
+    <string name="submit">Submit result</string>
+    <string name="progress">Progress</string>
+
+
+
+
+
+
+
+
+
+
+
+    <string name="signing_in">Signing in with Google</string>
+    <string name="signing_out">Signing out</string>
+    <string name="sign_in_explanation">Sign with Google to send and receive gifts!</string>
+    <string name="you_are_signed_in">You are signed in with Google.</string>
+    <string name="sign_out">Sign out</string>
+    <string name="click_me">Click me!</string>
+    <string name="victory">Victory</string>
+    <string name="you_won">OK! You won!</string>
+    <string name="open_inbox">Open Inbox</string>
+    <string name="send_gift">Send Gift</string>
+    <string name="send_gift_description">A Generous Gift</string>
+    <string name="send_request">Send Request</string>
+    <string name="send_request_description">A Generous Gift</string>
+    <string name="gift_toast">Gifts Received: %d</string>
+    <string name="new_gift_received">New Gift Received</string>
+    <string name="new_request_received">New Request Received</string>
+    <string name="inbox_counts">Incoming Gifts/Requests</string>
+    <string name="loading_ellipsis">&#8230;</string>
+    <string name="gift_icon_description">Gift Icon</string>
+    <string name="request_icon_description">Request Icon</string>
+    <string name="gift_count">Incoming: %d</string>
+    <string name="request_count">Incoming: %d</string>
+    <string name="signin_other_error">There was an issue with sign in. Please try again later.</string>
+    <string name="title_activity_settings">Settings</string>
+
 
 </resources>

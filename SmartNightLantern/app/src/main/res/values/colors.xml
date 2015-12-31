@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--FFA8A4-->
+    <item name="colorButtonDragging" type="color">#EE8833</item>
+    <item name="colorButtonPressed" type="color">#FFDF8884</item>
+    <item name="colorButton" type="color">#FF3366AA</item>
+
+
+    <item name="colorPrimaryColor" type="color">#3f11aa</item>
+    <item name="colorSecondaryColor" type="color">#aba8ae</item>
+    <item name="colorButtonText" type="color">#FF663388</item>
+    <item name="myWhite" type="color">#FFFFFF</item>
+    <item name="white" type="color">#FFFFFF</item>
+    <item name="myDarkGreen" type="color">#FF338844</item>
+    <item name="myGrey" type="color">#FFEAEAEA</item>
+    <item name="myDarkBlue" type="color">#FF002244</item>
+    <item name="myBColorYellow" type="color">#f1d30e</item>
+    <item name="myBlack" type="color">#FF000000</item>
+    <item name="myTransparent" type="color">#00000000</item>
+    <item name="mySemiTransparent" type="color">#88000000</item>
+    <item name="mediumSlateBlue" type="color">#FF7B68EE</item>
+    <item name="mediumSlateRed" type="color">#ffd7366b</item>
+
+</resources>

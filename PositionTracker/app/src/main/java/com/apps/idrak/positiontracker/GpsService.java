@@ -2,61 +2,61 @@ package com.apps.idrak.positiontracker;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
-import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.Vibrator;
-import android.provider.Settings;
-import android.support.v4.app.NotificationCompat;
+import android.os.PowerManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
-import java.net.URI;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GpsService extends Service implements LocationListener{
-    final static int DATA_SEND_INTERVAL  = 1000 * 30;
+public class GpsService extends Service implements LocationListener {
+    final static int DATA_SEND_INTERVAL = 1000 * 30;
     final static int STATUS_GET_INTERVAL = 1000 * 20;
-
-    final static int NOTIFICATION_ID_GPS = 9;
-    final static int NOTIFICATION_ID_INTERNET = 1;
 
     boolean locationChanged = false;
     boolean providerEnabledNet = false;
     boolean providerEnabledGps = false;
 
-    boolean isShownInternetNotification = false;
+    final static long MIN_TIME_BW_UPDATES = 10000,  MIN_DISTANCE_CHANGE_FOR_UPDATES = 5;
 
+    private boolean wifiEnabledByMe = false;
+    private boolean mobDataEnabledByMe = false;
+    private boolean gpsStateChangedByMe = false;
+
+    private LocationManager mLocationManager;
+    private Location location;
 
     Timer mTimer;
     TimerTask mTimerTask;
+
+    ArrayList<LocationWithTS> locations;
 
     int statusGotTime = 0;
     int dataSentTime = 0;
 
     int myRegistrationStatus;
-    boolean isTracking;
+    boolean isTracking = false;
 
     private String myDeviceId;
     private String myServerUrl;
@@ -64,93 +64,83 @@ public class GpsService extends Service implements LocationListener{
     double currentLatitude;
     double currentLongitude;
 
-    Notification barNotif;
-
-
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
-    public void onCreate()
-    {
+
+    public void onCreate() {
     }
 
-    public boolean isGpsAvailableViaNetwork()
-    {
+    public GpsService() {
+        super();
+    }
+
+    public boolean isGpsAvailableViaNetwork() {
         LocationManager locationManagerNetwork = (LocationManager) getSystemService(LOCATION_SERVICE);
-        locationManagerNetwork.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000L,1.0f, this);
+        locationManagerNetwork.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000L, 1.0f, this);
 
-        return locationManagerNetwork.isProviderEnabled (LocationManager.NETWORK_PROVIDER);
+        return locationManagerNetwork.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
 
-    public boolean isGpsAvailable()
-    {
+    public boolean isGpsAvailable() {
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000L, 1.0f, this);
 
-        return locationManager.isProviderEnabled (LocationManager.GPS_PROVIDER);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
 
-
-    private String getUserName()
-    {
+    private String getUserName() {
         String mn = wimn();
         String ret = mn;
         AccountManager manager = AccountManager.get(this);
         Account[] accounts = manager.getAccountsByType("com.google");
         List<String> possibleEmails = new LinkedList<String>();
 
-        for(Account account : accounts)
-        {
+        for (Account account : accounts) {
             possibleEmails.add(account.name);
         }
 
-        if(!possibleEmails.isEmpty() && possibleEmails.get(0) != null)
-        {
+        if (!possibleEmails.isEmpty() && possibleEmails.get(0) != null) {
             String email = possibleEmails.get(0);
             String[] parts = email.split("@");
 
-            if(parts.length > 0)
-            {
-                ret = parts[0]+"'s "+wimn();
+            if (parts.length > 0) {
+                ret = parts[0] + "'s " + wimn();
             }
         }
         return ret;
     }
 
-    private String wimn()
-    {
-        return Build.MANUFACTURER+" "+Build.MODEL;
+    private String wimn() {
+        return Build.MANUFACTURER + " " + Build.MODEL;
     }
-    private String getMyId()
-    {
-        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(getApplicationContext().TELEPHONY_SERVICE);
-//        Toast.makeText(getApplicationContext(), "Manufacturer : "+Build.MANUFACTURER, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(getApplicationContext(), "Manuf + Model : "+Build.MANUFACTURER+""+Build.MODEL, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), "Subs id : "+telephonyManager.getSubscriberId(), Toast.LENGTH_SHORT).show();
+
+    private String getMyId() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(getApplicationContext().TELEPHONY_SERVICE);
+        Toast.makeText(getApplicationContext(), "Subs id : " + telephonyManager.getSubscriberId(), Toast.LENGTH_SHORT).show();
         return telephonyManager.getDeviceId();
     }
 
-    private String getMyServerUrl()
-    {
+    private String getMyServerUrl() {
         return getResources().getString(R.string.server_url);
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
-        if(!isGpsAvailable())
-        {
-
-//            Toast.makeText(getApplicationContext(), "Gps is available on your device", Toast.LENGTH_LONG).show();
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i("", "onStart service *****");
+        if (!isGpsAvailableViaNetwork()) {
+            Toast.makeText(getApplicationContext(), " Gps is available on your device via network", Toast.LENGTH_LONG).show();
         }
+
         myDeviceId = getMyId();
         myServerUrl = getMyServerUrl();
 
-        myRegistrationStatus = getMyRegistrationStatus();
-        if(myRegistrationStatus == -1)
-        {
-            HttpFunctions.registerMe(myDeviceId +","+getUserName(), myServerUrl);
+        locations = new ArrayList<LocationWithTS>();
+
+        myRegistrationStatus = getMyRegistrationStatus(); //test comment
+        if (myRegistrationStatus == -1) {
+            HttpFunctions.registerMe(myDeviceId +","+getUserName(), myServerUrl);// test comment
         }
 
         mTimer = new Timer();
@@ -161,56 +151,46 @@ public class GpsService extends Service implements LocationListener{
             }
         };
         mTimer.scheduleAtFixedRate(mTimerTask, 100, 1000);
+
+        getLocation();
+
         return Service.START_STICKY;
     }
 
-    private int getMyRegistrationStatus()
-    {
+    private int getMyRegistrationStatus() {
         return HttpFunctions.getRegistrationStatus(myDeviceId, myServerUrl);
     }
 
     @Override
-    public void onDestroy()
-    {
-        super.onDestroy();
-//        HttpFunctions.setMyConnection(myDeviceId+","+"false",myServerUrl);
-//        Toast.makeText(getApplicationContext(),"on Destroy",Toast.LENGTH_LONG);
-    }
-    @Override
-    public void onTaskRemoved(Intent rootIntent)
-    {
+    public void onTaskRemoved(Intent rootIntent) {
         super.onTaskRemoved(rootIntent);
-        HttpFunctions.setMyConnection(myDeviceId+","+"false",myServerUrl);
-        Toast.makeText(getApplicationContext(),"on Task removed",Toast.LENGTH_LONG);
     }
 
     public final boolean isInternetOn() {
-        ConnectivityManager connec =
-                (ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+        ConnectivityManager connection =
+                (ConnectivityManager) getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
 
-        if ( connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
-                connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING ||
-                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING ||
-                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED ) {
+        if (connection.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
+                connection.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING ||
+                connection.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING ||
+                connection.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED) {
 
             return true;
 
         } else if (
-                connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
-                        connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED  ) {
+                connection.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
+                        connection.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED) {
             return false;
         }
         return false;
     }
 
-    private void reGettingRegStatAndRegstration()
-    {
-        if( myRegistrationStatus  == -1)
-        {
+    private void reGettingRegStatAndRegistration() {
+        if (myRegistrationStatus == -1) {
 
-            HttpFunctions.registerMe(myDeviceId +","+getUserName(), myServerUrl);
+            HttpFunctions.registerMe(myDeviceId + "," + getUserName(), myServerUrl);
             myRegistrationStatus = HttpFunctions.getRegistrationStatus(myDeviceId, myServerUrl);
-            Log.i("", "reGettingRegStatAngRegstration()");
+//            Log.i("", "reGettingRegStatAngRegstration()");
 //            Toast.makeText(getApplicationContext(), "reGettingRegStatAngRegstration() ", Toast.LENGTH_SHORT).show();
 //            myRegistrationStatus = getMyRegistrationStatus();
 //            if(myRegistrationStatus != -1)
@@ -220,90 +200,219 @@ public class GpsService extends Service implements LocationListener{
         }
     }
 
-    private boolean canGetLocation()
-    {
+    private boolean canGetLocation() {
         return (providerEnabledGps || providerEnabledNet);
     }
 
-    private Handler handler = new Handler()
-    {
+    private Handler handler = new Handler() {
         @Override
-        public void handleMessage(Message msg)
-        {
-            switch (msg.what)
-            {
-                case 0:
-                {
-                    if(!canGetLocation() && myRegistrationStatus != -1)
-                    {
-//                        Toast.makeText(getApplicationContext(), " cant get location", Toast.LENGTH_SHORT).show();
-                        HttpFunctions.setMyConnection(myDeviceId+","+false,myServerUrl);
-                        break;
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0: {
+                    if(wifiEnabledByMe){
+                        setWifiEnabled(false,false);
+                        wifiEnabledByMe = false;
                     }
-                    if(!isInternetOn())
-                    {
-                        Intent callMobileDataSettingIntent = new Intent(GpsService.this,ActivityTurnInternet.class);
-                        callMobileDataSettingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                        if(!isShownInternetNotification)
-                        {
-                            createNotification(callMobileDataSettingIntent,getResources().getString(R.string.warning),getResources().getString(R.string.internet_is_off_md),NOTIFICATION_ID_INTERNET, R.drawable.ic_internet_off);
-
-                            isShownInternetNotification = true;
+                    if(mobDataEnabledByMe){
+                        try {
+                            setMobileDataEnabled(getApplicationContext(), false, false);
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (NoSuchFieldException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
                         }
+                        mobDataEnabledByMe = false;
                     }
-                    else
-                    {
-                        cancelNotification(NOTIFICATION_ID_INTERNET);
-                        isShownInternetNotification = false;
-                    }
-                    reGettingRegStatAndRegstration();
 
-                    if(!isInternetOn() || !locationChanged)
-                    {
+
+                    reGettingRegStatAndRegistration();
+                    if(myRegistrationStatus == -1){
                         break;
                     }
-
                     statusGotTime += 1000;
                     if(statusGotTime >= STATUS_GET_INTERVAL)
                     {
                         statusGotTime = 0;
                         isTracking = HttpFunctions.isTracking(myDeviceId, myServerUrl);
+                        Toast.makeText(GpsService.this, "Tracking "+isTracking+" , Locs count = "+locations.size(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    if(!isInternetOn() && locations.size() > 2){
+                        if(!setWifiEnabled(true, true)){
+                            try {
+                                setMobileDataEnabled(GpsService.this, true, true);
+                            } catch (ClassNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (NoSuchFieldException e) {
+                                e.printStackTrace();
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (NoSuchMethodException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException e) {
+                                e.printStackTrace();
+                            } finally {
+                                mobDataEnabledByMe = true;
+                            }
+                        } else {
+                            wifiEnabledByMe = true;
+                        }
+                        break;
                     }
 
                     if(isTracking)
                     {
-                        dataSentTime+=1000;
+                        Iterator<LocationWithTS> locIterator = locations.iterator();
+                        Log.i("", "Locations size = " + locations.size());
+                        while(locIterator.hasNext()){
+                            LocationWithTS loc = locIterator.next();
+//                            if(
+                                    HttpFunctions.postPosition(
+                                        myDeviceId,
+                                        loc.latitude,
+                                        loc.longitude,
+                                        loc.timeStamp,
+                                        myServerUrl) ;//{
 
-                        if(dataSentTime >= DATA_SEND_INTERVAL)
-                        {
-                            dataSentTime = 0;
-                            HttpFunctions.postPosition(
-                                    myDeviceId,
-                                    currentLatitude,
-                                    currentLongitude,
-                                    String.valueOf(System.currentTimeMillis()),
-                                    myServerUrl
-                            );
-                            locationChanged = false;
-//                            Toast.makeText(getApplicationContext(), "Position sent", Toast.LENGTH_LONG).show();
+                                locIterator.remove();
+//                            } else {
+//                                Toast.makeText(getApplicationContext(), "Cant send location", Toast.LENGTH_SHORT).show();
+//                            }
                         }
-                    }
-                    else
-                    {
                     }
                     break;
                 }
+                default:break;
             }
         }
     };
+//    private Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+////            Toast.makeText(getApplicationContext(), " Handler", Toast.LENGTH_SHORT).show();
+////            Log.i("LOCATION VIA NETWORK",currentLatitude+","+currentLongitude);
+////            Toast.makeText(getApplicationContext(), currentLatitude+","+currentLongitude, Toast.LENGTH_SHORT).show();
+//            switch (msg.what) {
+//                case 0: {
+////                    Log.i("", "TASK LOOP 1");
+//                    if (canGetLocation()) {
+////                        Toast.makeText(getApplicationContext(), "Lon "+currentLongitude+" Lat "+currentLatitude, Toast.LENGTH_SHORT).show();
+//
+////                        Log.i("LOCATION VIA NETWORK",currentLatitude+","+currentLongitude);
+////                        HttpFunctions.setMyConnection(myDeviceId+","+false,myServerUrl); test commented
+//                    } else {
+//                        Log.i("", "CANT GET LOCATION");
+//                    }
+//                    break;
+///*
+//                    if(!canGetLocation() && myRegistrationStatus != -1)
+//                    {
+////                        Toast.makeText(getApplicationContext(), " cant get location", Toast.LENGTH_SHORT).show();
+//                        HttpFunctions.setMyConnection(myDeviceId+","+false,myServerUrl);
+//                        break;
+//                    }
+//                    reGettingRegStatAndRegistration();
+//
+//                    if(!isInternetOn() || !locationChanged)
+//                    {
+//                        break;
+//                    }
+//
+//                    statusGotTime += 1000;
+//                    if(statusGotTime >= STATUS_GET_INTERVAL)
+//                    {
+//                        statusGotTime = 0;
+//                        isTracking = HttpFunctions.isTracking(myDeviceId, myServerUrl);
+//                    }
+//
+//                    if(isTracking)
+//                    {
+//                        dataSentTime+=1000;
+//                        if(dataSentTime >= DATA_SEND_INTERVAL)
+//                        {
+//                            dataSentTime = 0;
+//                            HttpFunctions.postPosition(
+//                                    myDeviceId,
+//                                    currentLatitude,
+//                                    currentLongitude,
+//                                    String.valueOf(System.currentTimeMillis()),
+//                                    myServerUrl
+//                            );
+//                            locationChanged = false;
+////                            Toast.makeText(getApplicationContext(), "Position sent", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                    else
+//                    {
+//                    }
+//                    break;*/
+//                }
+//            }
+//        }
+//    };
 
+    public Location getLocation() {
+        try {
+            mLocationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+
+            // getting GPS status
+            providerEnabledGps = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+            // getting network status
+            providerEnabledNet = mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+            if (!providerEnabledGps && !providerEnabledNet) {
+                // no network provider is enabled
+            } else {
+                // First get location from Network Provider
+                if (providerEnabledNet) {
+                    mLocationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER,  MIN_TIME_BW_UPDATES,  MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                    Log.d("Network", "Network");
+                    if (mLocationManager != null) {
+                        location = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                        if (location != null) {
+                            currentLatitude = location.getLatitude();
+                            currentLongitude = location.getLongitude();
+                        }
+                    }
+                }
+                //get the location by gps
+                if (providerEnabledGps) {
+                    if (location == null) {
+                        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                        Log.d("GPS Enabled", "GPS Enabled");
+                        if (mLocationManager != null) {location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            if (location != null) {
+                                currentLatitude = location.getLatitude();
+                                currentLongitude = location.getLongitude();
+                            }
+                        }
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return location;
+    }
     @Override
     public void onLocationChanged(Location location) {
-//        Toast.makeText(getApplicationContext(), "Location "+location.getLatitude()+", "+location.getLongitude(),Toast.LENGTH_LONG).show();
         currentLatitude = location.getLatitude();
         currentLongitude = location.getLongitude();
 
+        if( locations.size() < 200){
+            locations.add(new LocationWithTS(currentLatitude, currentLongitude, String.valueOf(System.currentTimeMillis())));
+            Toast.makeText(getApplicationContext(), "Location added" + location.getLatitude() + ", " + location.getLongitude(), Toast.LENGTH_LONG).show();
+
+        }
         locationChanged = true;
     }
 
@@ -314,27 +423,22 @@ public class GpsService extends Service implements LocationListener{
 
     @Override
     public void onProviderEnabled(String provider) {
-//        Toast.makeText(getApplicationContext(), "Provider enabled", Toast.LENGTH_SHORT).show();
-//        HttpFunctions.setMyConnection(myDeviceId+","+"true", myServerUrl);
+//        Toast.makeText(getApplicationContext(), "GPS provider = " + provider, Toast.LENGTH_LONG).show();
+////        Toast.makeText(getApplicationContext(), "Provider enabled", Toast.LENGTH_SHORT).show();
+////        HttpFunctions.setMyConnection(myDeviceId+","+"true", myServerUrl);
+//
+//        Toast.makeText(getApplicationContext(), "Provider enabled : " + provider, Toast.LENGTH_SHORT).show();
+//
+//        if (provider.equals(LocationManager.NETWORK_PROVIDER)) {
+//            providerEnabledNet = true;
+////            Toast.makeText(getApplicationContext(), (providerEnabledGps?"G: true - ":"G: false - ")+(providerEnabledNet?"N: true":"N: false"), Toast.LENGTH_SHORT).show();
+//        }
+//        if (provider.equals(LocationManager.GPS_PROVIDER)) {
+//            providerEnabledGps = true;
+////            Toast.makeText(getApplicationContext(), (providerEnabledGps?"G: true - ":"G: false - ")+(providerEnabledNet?"N: true":"N: false"), Toast.LENGTH_SHORT).show();
+//        }
 
-//        Toast.makeText(getApplicationContext(), "Provider enabled : "+ provider, Toast.LENGTH_SHORT).show();
-
-        if( provider.equals(LocationManager.NETWORK_PROVIDER) )
-        {
-            providerEnabledNet = true;
-//            Toast.makeText(getApplicationContext(), (providerEnabledGps?"G: true - ":"G: false - ")+(providerEnabledNet?"N: true":"N: false"), Toast.LENGTH_SHORT).show();
-        }
-        if( provider.equals(LocationManager.GPS_PROVIDER) )
-        {
-            providerEnabledGps = true;
-//            Toast.makeText(getApplicationContext(), (providerEnabledGps?"G: true - ":"G: false - ")+(providerEnabledNet?"N: true":"N: false"), Toast.LENGTH_SHORT).show();
-        }
-
-
-        if(canGetLocation())
-        {
-            cancelNotification( NOTIFICATION_ID_GPS );
-        }
+        getLocation();
     }
 
     @Override
@@ -343,69 +447,75 @@ public class GpsService extends Service implements LocationListener{
 //        HttpFunctions.setMyConnection(myDeviceId+","+"false", myServerUrl);
 //        Toast.makeText(getApplicationContext(), "Provider disabled : "+ provider, Toast.LENGTH_SHORT).show();
 
-        if( provider.equals(LocationManager.NETWORK_PROVIDER) )
-        {
+        if (provider.equals(LocationManager.NETWORK_PROVIDER)) {
             providerEnabledNet = false;
         }
-        if( provider.equals(LocationManager.GPS_PROVIDER) )
-        {
+        if (provider.equals(LocationManager.GPS_PROVIDER)) {
             providerEnabledGps = false;
         }
-
-        if( ! canGetLocation() )
-        {
-            Intent callGPSSettingIntent = new Intent(
-                    android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            callGPSSettingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            createNotification(callGPSSettingIntent,getResources().getString(R.string.warning),getResources().getString(R.string.gps_is_off),NOTIFICATION_ID_GPS, R.drawable.ic_gps_off);
-        }
-
-//        showNotification(getResources().getString(R.string.warning), getResources().getString(R.string.gps_is_off), callGPSSettingIntent, NOTIFICATION_ID_GPS);
-
-
-//        askForEnableGps();
     }
 
 
     /* other functions */
-    private void cancelNotification(int id)
-    {
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        mNotificationManager.cancel(id);
+
+    private boolean setWifiEnabled(boolean enabled, boolean considerScreen) {
+        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        wifiManager.setWifiEnabled(enabled);
+
+        if(!considerScreen){
+            return wifiManager.setWifiEnabled(enabled);
+        } else {
+            if(!isScreenOn() ){
+                return wifiManager.setWifiEnabled(enabled);
+            }
+        }
+        return false;
+
     }
 
+    private void setMobileDataEnabled(Context context, boolean enabled, boolean considerScreen) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        final ConnectivityManager conman = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        final Class conmanClass = Class.forName(conman.getClass().getName());
+        final Field connectivityManagerField = conmanClass.getDeclaredField("mService");
+        connectivityManagerField.setAccessible(true);
+        final Object connectivityManager = connectivityManagerField.get(conman);
+        final Class connectivityManagerClass = Class.forName(connectivityManager.getClass().getName());
+        final Method setMobileDataEnabledMethod = connectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+        setMobileDataEnabledMethod.setAccessible(true);
 
-    public void createNotification(Intent intent, String title, String message, int id, int drawable) {
-        Vibrator v = (Vibrator) getApplicationContext().getSystemService(GpsService.VIBRATOR_SERVICE);
-//        long[] pattern = new long[]{500L, 400L, 500L, 400L};
-
-        try {
-            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-            r.play();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(!considerScreen){
+            setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
+        } else {
+            if(!isScreenOn()){
+                setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
+            }
         }
+    }
 
-        v.vibrate(800);
-
-        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        // Build notification
-        // Actions are just fake
-        Notification noti = new Notification.Builder(this)
-                .setContentTitle(title)
-                .setContentText(message).setSmallIcon(drawable)
-                .setContentIntent(pIntent)
-                .build();
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        // hide the notification after its selected
-//        noti.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        notificationManager.notify(id, noti);
-
+    private boolean isScreenOn(){
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        return pm.isScreenOn();
     }
 
     /* other functions */
+    private class LocationWithTS {
+        public double latitude;
+        public double longitude;
+        public String timeStamp;
+        public boolean sent;
+
+        public String toString() {
+            return "" + longitude + "," + latitude + "," + timeStamp;
+        }
+
+        public LocationWithTS(double latitude, double longitude, String timeStamp) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.timeStamp = timeStamp;
+
+            sent = false;
+        }
+    }
+
+
 }

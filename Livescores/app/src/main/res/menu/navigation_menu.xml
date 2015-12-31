@@ -1,0 +1,97 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_group_top"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_item_live_scores"
+            android:checked="false"
+            android:checkable="true"
+            android:title="@string/ms1_live_scores" />
+        <item
+            android:id="@+id/nav_item_today_scores"
+            android:checked="false"
+            android:checkable="true"
+            android:title="@string/ms1_today_scores" />
+        <item
+            android:id="@+id/nav_item_yesterday_scores"
+            android:checked="false"
+            android:checkable="true"
+            android:title="@string/ms1_yesterday_scores" />
+        <item
+            android:id="@+id/nav_item_not_started_scores"
+            android:checked="false"
+            android:checkable="true"
+            android:title="@string/ms1_not_started_scores" />
+        <item
+            android:id="@+id/nav_item_finished_scores"
+            android:checked="false"
+            android:checkable="true"
+            android:title="@string/ms1_finished_scores" />
+        <item
+            android:id="@+id/nav_item_tomorrow_scores"
+            android:checked="false"
+            android:checkable="true"
+            android:title="@string/ms1_tomorrow_scores" />
+    </group>
+
+    <group
+        android:id="@+id/menu_group_top_middle"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/nav_item_leagues"
+            android:title="@string/ms1.5_leagues"/>
+        <item
+            android:id="@+id/nav_item_tables"
+            android:title="@string/ms1.5_tables"/>
+
+    </group>
+
+
+    <group
+        android:id="@+id/menu_group_middle"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/nav_item_livescore_calendar_new"
+            android:title="@string/ms2_livescore_calendar_new" />
+        <item
+            android:id="@+id/nav_item_soccer_predictions"
+            android:title="@string/ms2_soccer_predictions" />
+        <item
+            android:id="@+id/nav_item_football_news"
+            android:title="@string/ms2_football_news" />
+        <item
+            android:id="@+id/nav_item_soccer_forum"
+            android:title="@string/ms2_soccer_forum" />
+        <item
+            android:id="@+id/nav_item_football_tables"
+            android:title="@string/ms2_football_tables" />
+    </group>
+
+    <group
+        android:id="@+id/menu_group_bottom"
+        android:checkableBehavior="none">
+
+
+        <item
+            android:id="@+id/nav_item_search"
+            android:title="@string/ms3_search" />
+        <item
+            android:id="@+id/nav_item_settings"
+            android:title="@string/ms3_settings" />
+    </group>
+
+    <!--<item android:title="@string/nav_sub_menu">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:icon="@drawable/ic_emoticon"-->
+                <!--android:title="@string/nav_sub_menu_item01" />-->
+            <!--<item-->
+                <!--android:icon="@drawable/ic_emoticon"-->
+                <!--android:title="@string/nav_sub_menu_item02" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>

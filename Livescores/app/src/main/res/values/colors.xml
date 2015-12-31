@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="m_primary">#47a847</color>
+    <color name="m_primary_dark">#378435</color>
+    <color name="m_primary_light">#bdd6bc</color>
+    <color name="m_accent">#fefefe</color>
+    <color name="m_red_card">#e72c3b</color>
+    <color name="m_yellow_card">#f1c019</color>
+    <color name="m_background">#dddddd</color>
+    <color name="m_gray_text">#c4c3c3</color>
+    <color name="m_black">#000000</color>
+    <color name="m_white">#FFFFFF</color>
+    <color name="m_pred_blue">#5cb9d8</color>
+    <color name="m_navi_bg_primary">#23272b</color>
+    <color name="m_navi_bg_secondary">#2f3339</color>
+    <color name="m_navi_item_selected">#434a53</color>
+    <color name="m_item_separator"> #efefef</color>
+    <color name="m_item_separator_old">#d1d1d8</color>
+    <color name="m_navi_item_separator">#23272b</color>
+    <color name="m_h2h">#f67333</color>
+    <color name="m_match_time">#e93a3e</color>
+    <color name="m_match_lost">#e93a3e</color>
+    <color name="m_match_won">#2ec704</color>
+    <color name="m_match_draw">#ecb70a</color>
+
+
+</resources>

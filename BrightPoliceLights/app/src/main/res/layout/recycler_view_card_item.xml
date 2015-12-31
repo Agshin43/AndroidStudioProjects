@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="@color/edge"
+        card_view:cardCornerRadius="3dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        card_view:cardElevation="0.01dp"
+        android:layout_marginBottom="0dp">
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/lay_base"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:weightSum="8"
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <CheckBox
+                            android:id="@+id/cbIsFlash"
+                            android:onClick="cbClicked"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp" />
+                        <Button
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:id="@+id/btnColor"
+                            android:background="#FF0000"
+                            android:layout_weight="6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent" />
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_gravity="right|top"
+                            android:layout_height="match_parent">
+                            <ImageButton
+                                android:id="@+id/btnDelete"
+                                android:layout_gravity="right|top"
+                                style="?android:attr/buttonBarButtonStyle"
+                                android:src="@drawable/ic_close_outline"
+                                android:scaleType="centerInside"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.agshin.brightpolicelights.comboseekbar.ComboSeekBar
+                        android:id="@+id/csTime"
+                        card_view:textSize="10sp"
+                        android:max="23"
+                        android:thumb="@drawable/bg_seekbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnNewElement"
+                android:text="@string/add_new"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="80dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>

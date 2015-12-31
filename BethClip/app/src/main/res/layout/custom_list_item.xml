@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:padding="16dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/card_selector"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_itemType"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <RelativeLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/ColorWhite"
+                android:id="@+id/tv_type"
+                android:text="Link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/ColorWhite"
+                android:id="@+id/tv_date"
+                android:text="15/04/2015 22:06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_below="@id/tv_type"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/ColorGrey"
+                android:id="@+id/tv_text"
+                android:text="AlarmManager﹕ waitForAlarm result :2
+10-22 21:02:58.698    2034-2280/? W/AlarmManager﹕ FACTORY_ON= 0
+10-22 21:02:59.998    2034-2089/? V/AlarmManager﹕"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_dev_name"
+                android:textColor="@color/ColorWhite"
+                android:layout_below="@id/tv_text"
+                android:layout_marginTop="10dp"
+                android:text="Samsung Note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </LinearLayout>
+

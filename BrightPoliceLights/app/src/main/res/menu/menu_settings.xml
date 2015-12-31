@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Settings">
+    <item android:id="@+id/action_add_spl"
+        android:title="@string/add_spl"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_police_car"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_add_sfl"
+        android:title="@string/add_sfl"
+        android:icon="@drawable/ic_fire_car"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+
+
+</menu>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:background="@color/myColor2Dark"
+                android:text="Theme"
+                android:padding="5dp"
+                android:textColor="@color/myWhite"
+                android:textSize="22sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioGroup
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:drawablePadding="20dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme1"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp">
+                    </RadioButton>
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme2"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" />
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme3"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" />
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme4"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" />
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme5"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" />
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme6"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" />
+                <RadioButton
+                    android:layout_marginTop="16dp"
+                    android:button="@android:color/transparent"
+                    android:drawableRight="@drawable/radio_selector"
+                    android:drawableLeft="@drawable/bg_theme7"
+                    android:layout_width="300dp"
+                    android:layout_height="100dp" />
+            </RadioGroup>
+            <TextView
+                android:background="@color/myColor2Dark"
+                android:text="Sounds"
+                android:padding="5dp"
+                android:textColor="@color/myWhite"
+                android:textSize="22sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/cbSoundEffects"
+                android:layout_marginTop="16dp"
+                android:text="Enable sound effects in game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/cbEnableMusic"
+                android:layout_marginTop="16dp"
+                android:text="Enable music in game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        
+    </ScrollView>
+
+    
+</LinearLayout>

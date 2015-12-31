@@ -6,7 +6,7 @@
     <string name="registered">You are already registered</string>
     <string name="register">Register</string>
 
-    <string name="server_url">http://172.16.6.117:8080/WebApplication1</string>
+    <string name="server_url">http://172.16.6.90:8080/WebApplication1</string>
 
     <string name="title_activity_activty_turn_gps">ActivtyTurnGps</string>
     <string name="turn_gps_on">Turn on GPS</string>
@@ -21,5 +21,6 @@
     <string name="internet_is_off_md">Your internet connection is off.\n Go mobile data settings</string>
     <string name="internet_is_off">Your internet connection is off.\n</string>
     <string name="title_activity_activity_turn_internet">ActivityTurnInternet</string>
+    <string name="title_activity_main">MainActivity</string>
     <!--<string name="server_url">http://172.20.10.4:8080/WebApplication1</string>-->
 </resources>

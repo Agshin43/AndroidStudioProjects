@@ -2,5 +2,44 @@
     <string name="app_name">Smart Night Lantern</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="brightness">Brightness</string>
+    <string name="color_clock">Color clock or select color</string>
+    <string name="sleep">Sleep</string>
+    <string name="tim_eout">Time-out</string>
+    <string name="digital_clock">Digital clock</string>
+    <string name="sms">Sms</string>
+    <string name="missed_calls">Missed calls</string>
+    <string name="battery">Battery</string>
+    <string name="awake_screen_via_motion">Awake screen via motion</string>
+    <string name="awake_screen_via_sound">Awake screen via sound</string>
+    <string name="settings_bg_color_confirm">Confirm color</string>
+    <string name="settings_default_color_confirm">Confirm default color</string>
+    <string name="settings_bg_color_dialog">Color dialog</string>
+    <string name="restore">Restore defaults</string>
+    <string name="start">Start</string>
+    <string name="hours">hours</string>
+    <string name="hour">hour</string>
+    <string name="minutes">minutes</string>
+    <string name="minute">minute</string>
+    <string name="screen_color">Screen color</string>
+    <string name="show">Show</string>
+    <string name="awake_sound_level">Sound level to awake</string>
+    <string name="permission_sms_explanation">Sms access is required to display unread sms count.</string>
+    <string name="permission_call_log_explanation">Call log access is required to display unread missed calls count.</string>
+    <string name="requesting_permission">Requesting permission.</string>
+    <string name="sms_permission_was_granted">Sms permission was granted.</string>
+    <string name="sms_permission_was_denied">Sms permission was denied.</string>
+
+    <string name="call_log_permission_was_granted">Call log permission was granted.</string>
+    <string name="call_log_permission_was_denied">Call log permission was denied.</string>
+
+    <string name="ok">OK</string>
+
+
     <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+     <string name="banner_id">ca-app-pub-2478601698211605/2572343372</string>
+
+
 </resources>

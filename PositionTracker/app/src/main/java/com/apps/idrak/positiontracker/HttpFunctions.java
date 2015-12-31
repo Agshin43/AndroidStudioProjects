@@ -2,7 +2,6 @@ package com.apps.idrak.positiontracker;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -202,8 +201,9 @@ public class HttpFunctions {
         }
     }
 
-    public static void postPosition(String devId, double latitude, double longitude, String date, String serverUrl)
+    public static boolean postPosition(String devId, double latitude, double longitude, String date, String serverUrl)
     {
+        final boolean[] retr = {false};
         JSONObject jsonObject= new JSONObject();
         String jString = "";
         try {
@@ -228,7 +228,10 @@ public class HttpFunctions {
                     request.setEntity(param);
                     HttpResponse response = httpClient.execute(request);
                     ret = response.toString();
+                    retr[0] = true;
                 }catch (Exception ex) {
+
+                    retr[0] = false;
                     Log.e("res", ex.getMessage());
                 } finally {
                     httpClient.getConnectionManager().shutdown();
@@ -241,6 +244,7 @@ public class HttpFunctions {
 //                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, serverUrl, jString);
+        return retr[0];
     }
 }
 

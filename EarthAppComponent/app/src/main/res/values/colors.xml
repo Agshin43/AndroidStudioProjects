@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--FFA8A4-->
+    <item name="colorButtonPressed" type="color">#ff8bff0c</item>
+    <item name="colorButtonDisabled" type="color">#ffdddddd</item>
+    <item name="colorButton" type="color">#fff5c209</item>
+    <item name="bgColor" type="color">#ffffffff</item>
+    <!--<item name="colorButtonText" type="color">#ffffffff</item>-->
+
+
+
+    <item name="colorButtonText" type="color">#FFFFFFFF</item>
+    <item name="colorSliderLine" type="color">#FFDD3322</item>
+    <item name="colorSliderCircle" type="color">#CC3322DD</item>
+    <item name="myWhite" type="color">#FFFFFFFF</item>
+    <item name="myDarkGreen" type="color">#FF338844</item>
+    <item name="myGrey" type="color">#FFEAEAEA</item>
+    <item name="myDarkBlue" type="color">#FF002244</item>
+    <item name="myBColorYellow" type="color">#f1d30e</item>
+    <item name="myBlack" type="color">#FF000000</item>
+    <item name="myTransparent" type="color">#00000000</item>
+    <item name="mySemiTransparentBlack" type="color">#77000000</item>
+    <item name="mySemiTransparentBlue" type="color">#993333CC</item>
+    <item name="mediumSlateBlue" type="color">#FF7B68EE</item>
+    <item name="mediumSlateRed" type="color">#ffd7366b</item>
+
+</resources>
