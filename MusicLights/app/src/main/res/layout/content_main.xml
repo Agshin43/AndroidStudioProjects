@@ -17,30 +17,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     <LinearLayout
+        android:id="@+id/lay"
+        android:gravity="right"
         android:weightSum="3"
         android:orientation="vertical"
-        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:layout_marginBottom="20dp"
             android:id="@+id/red"
             android:background="#000"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:layout_width="30dp"
             android:layout_height="0dp" />
         <TextView
-            android:layout_marginBottom="20dp"
             android:id="@+id/green"
             android:layout_weight="1"
             android:background="#000"
-            android:layout_width="match_parent"
+            android:layout_width="30dp"
             android:layout_height="0dp" />
         <TextView
             android:id="@+id/blue"
             android:layout_weight="1"
             android:background="#000"
-            android:layout_width="match_parent"
+            android:layout_width="30dp"
             android:layout_height="0dp" />
     </LinearLayout>
 

@@ -1,6 +1,12 @@
 package livescores.biz.livescores;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -38,6 +44,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -79,7 +86,11 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<MatchesHelper> matchesHelpers;
 
     private NavigationView mNavView;
-    final  static String[] CATEGORIES = {"Live", "Today", "Yesterday", "Not Started", "Finished"};
+    final  static String[] CATEGORIES = {"Live", "Today", "Yesterday", "Not Started", "Finished","Tomorrow"};
+
+    final static int PERMISSION_REQUEST_READ_PHONE_STATE = 1;
+
+    private boolean readPhoneStatePermissionGranted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +105,7 @@ public class MainActivity extends AppCompatActivity{
         matchesHelpers = new ArrayList<>();
 
         mAppId = myAppId();
+
 
         http = new HTTPFunctions();
         parse = new JParse();
@@ -180,6 +192,14 @@ public class MainActivity extends AppCompatActivity{
                         }
                         break;
                     }
+                    case  R.id.nav_item_tomorrow_scores: {
+                        mViewPager.setCurrentItem(5, true);
+                        break;
+                    }
+                    case  R.id.nav_item_settings: {
+                        MainActivity.this.startActivity(new Intent(MainActivity.this, Settings.class));
+                        break;
+                    }
                     default:
                         break;
                 }
@@ -203,7 +223,7 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void onPageSelected(int position) {
-                if(position < 5){
+                if (position < CATEGORIES.length) {
                     mNavView.getMenu().getItem(position).setChecked(true);
                 }
                 setCloseButtonVisibility(position);
@@ -262,7 +282,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void setCloseButtonVisibility(int position){
-        if(position > 4){
+        if(position >= CATEGORIES.length){
             btnCloseTab.setVisibility(View.VISIBLE);
         } else {
             btnCloseTab.setVisibility(View.INVISIBLE);
@@ -285,7 +305,8 @@ public class MainActivity extends AppCompatActivity{
         try {
             matchesArray = parse.getSeparatedMatches(ss);
 
-            if(matchesHelpers.size()<5){
+            if(matchesHelpers.size()<CATEGORIES.length){
+                Log.i("Load matches", "MA size"+matchesArray.size());
                 for(int i = 0; i < matchesArray.size(); i++){
                     matchesHelpers.add(new MatchesHelper(matchesArray.get(i),1, "", CATEGORIES[i], false, true));
                 }
@@ -670,7 +691,7 @@ public class MainActivity extends AppCompatActivity{
 
         String cn = "<font color='black'>"+getResources().getString(R.string.m_cancel)+"</font>";
         builderSingle.setNegativeButton(
-                Html.fromHtml(cn),
+                getResources().getString(R.string.m_cancel),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -865,6 +886,18 @@ public class MainActivity extends AppCompatActivity{
 
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem search = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) search.getActionView();
+
+        int searchImgId = android.support.v7.appcompat.R.id.search_button;//getResources().getIdentifier("android:id/search_button", null, null);
+        ImageView v = (ImageView) searchView.findViewById(searchImgId);
+        v.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        v.setImageResource(R.mipmap.ic_search_m);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -879,6 +912,7 @@ public class MainActivity extends AppCompatActivity{
         });
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
+
         SearchView searchView = null;
         if (searchItem != null) {
             searchView = (SearchView) searchItem.getActionView();
@@ -894,7 +928,7 @@ public class MainActivity extends AppCompatActivity{
 
                 @Override
                 public boolean onQueryTextChange(String s) {
-
+                    Log.i("onQueryTextChange",s);
                     search(s);
                     return false;
                 }
@@ -920,10 +954,14 @@ public class MainActivity extends AppCompatActivity{
         if(c >= fragmentAdapters.size()){
             return false;
         }
-        fragmentAdapters.get(c).search(query);
-        fragmentAdapters.get(c).notifyDataSetChanged();
-        mPagerAdapter.notifyDataSetChanged();
+        if(fragmentAdapters.get(c) != null){
+            fragmentAdapters.get(c).search(query);
+            fragmentAdapters.get(c).notifyDataSetChanged();
+            mPagerAdapter.notifyDataSetChanged();
+        } else {
+            Log.i("Search", "Search did not anything");
 
+        }
         return false;
     }
 
@@ -970,7 +1008,7 @@ public class MainActivity extends AppCompatActivity{
 
         public MFragment( int tabPosition, int type) {
             this.tabPosition = tabPosition;
-            this.needRefresh = type>1;
+            this.needRefresh = true;
 
             timer = new Timer();
             timerTask = new TimerTask() {
@@ -1037,6 +1075,7 @@ public class MainActivity extends AppCompatActivity{
                             }
                         }
 
+                        Log.i("NEED REFRESH", "TAB POSITION "+tabPosition);
                         if(tabPosition <= (fragmentAdapters.size() - 1)){
                             fragmentAdapters.set(tabPosition, (RecyclerAdapter) recyclerView.getAdapter());
                             Log.i(">>>>"," *** *** ADAPTER CHANGED");
@@ -1147,4 +1186,5 @@ public class MainActivity extends AppCompatActivity{
 
         return telephonyManager.getDeviceId()+"_"+Math.abs(r.nextInt()%100);
     }
+
 }

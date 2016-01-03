@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="center"
     android:orientation="vertical"
     android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatButton
+
+        android:layout_margin="5dp"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/m_cancel"
+        android:id="@+id/cancel"
+        android:textColor="@color/m_cancel_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <android.support.v7.widget.RecyclerView
-        android:backgroundTint="@color/m_background"
-        android:background="@drawable/bg_recv_h2h"
+        android:background="@color/m_white"
+        android:layout_above="@id/cancel"
         android:layout_gravity="center"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

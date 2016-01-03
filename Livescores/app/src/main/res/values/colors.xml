@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="m_primary">#47a847</color>
+    <color name="m_cancel_color">#0b8a79</color>
     <color name="m_primary_dark">#378435</color>
     <color name="m_primary_light">#bdd6bc</color>
     <color name="m_accent">#fefefe</color>
@@ -22,6 +23,8 @@
     <color name="m_match_lost">#e93a3e</color>
     <color name="m_match_won">#2ec704</color>
     <color name="m_match_draw">#ecb70a</color>
+
+
 
 
 </resources>

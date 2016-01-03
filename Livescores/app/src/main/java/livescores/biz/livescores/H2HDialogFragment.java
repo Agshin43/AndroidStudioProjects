@@ -1,10 +1,14 @@
 package livescores.biz.livescores;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +47,27 @@ public class H2HDialogFragment extends DialogFragment {
     }
 
 
+//    @NonNull
+//    @Override
+//    public Dialog onCreateDialog(Bundle savedInstanceState) {
+//        AlertDialog.Builder b=  new  AlertDialog.Builder(getActivity())
+//                .setTitle("Enter Players")
+//                .setPositiveButton("OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                // do something...
+//                            }
+//                        }
+//                )
+//                .setNegativeButton("Cancel",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                dialog.dismiss();
+//                            }
+//                        }
+//                );
+//        return b.create();
+//    }
 
     @Override
     public void onStart() {
@@ -58,8 +83,8 @@ public class H2HDialogFragment extends DialogFragment {
 
         Log.i("XXXXXXXXXX", "SIZE " + matches.size());
 
-        float px1 = convertDpToPixel(94, getActivity());
-        float px2 = convertDpToPixel(70, getActivity());
+        float px1 = convertDpToPixel(105, getActivity());
+        float px2 = convertDpToPixel(105, getActivity());
 
         getDialog().getWindow().setLayout((int) ((float) size.x * 0.98f), (int)(px1 + Math.min(matches.size() * px2, (int) (size.y * 0.8))));
 
@@ -67,6 +92,8 @@ public class H2HDialogFragment extends DialogFragment {
             String ssh = "<font color='blue' size ='2'>" + getActivity().getResources().getString(R.string.ms_h2h) + "</font>";
             getDialog().setTitle(Html.fromHtml(ssh));
         }
+
+        getDialog().setCancelable(true);
     }
 
     private void initAdapterMatches(){
@@ -81,12 +108,44 @@ public class H2HDialogFragment extends DialogFragment {
         return px;
     }
 
+//    @Override
+//    public Dialog onCreateDialog(Bundle savedInstanceState) {
+//
+//        return new AlertDialog.Builder(getActivity())
+//                .setTitle("Title")
+//                .setPositiveButton("OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                // DO SOMETHING
+//                            }
+//                        }
+//                )
+//                .setNegativeButton("Cancel",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                // DO SOMETHING
+//                            }
+//                        }
+//                )
+//                .create();
+//    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //inflate layout with recycler view
         View v = inflater.inflate(R.layout.h2h_fragment_dialog, container, false);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+
+
+        v.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);

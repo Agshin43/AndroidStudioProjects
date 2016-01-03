@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Settings"
+    tools:showIn="@layout/activity_settings">
+
+    <LinearLayout
+        android:padding="5dp"
+        android:background="@color/m_primary_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="sans-serif"
+            android:id="@+id/tvLanguage"
+            android:textColor="#313131"
+            android:gravity="left|center"
+            android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/m_language"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.AppCompatSpinner>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:background="@color/m_primary_light"
+        android:layout_marginTop="10dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="5dp"
+            android:fontFamily="sans-serif"
+            android:id="@+id/tvNotifications"
+            android:textColor="#313131"
+            android:gravity="left|center"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/m_notifications"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/swNotify"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spTimeout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.AppCompatSpinner>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

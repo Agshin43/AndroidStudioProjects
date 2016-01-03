@@ -120,12 +120,14 @@ public class JParse {
             long yesterday22_00 = customTime(-1,22,0,0);
 
 
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy  hh:mm:ss");
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy  kk:mm:ss");
 
-
+            Log.i("yesterdayFinish",dateFormat.format(yesterdayFinish));
+            Log.i("yesterdayStart",dateFormat.format(yesterdayStart));
+            Log.i("todayFinish",dateFormat.format(todayFinish));
             Log.i("Tomorrow 1 00",dateFormat.format(tomorrow01_00));
+            Log.i("tomorrow04_59_59",dateFormat.format(tomorrow04_59_59));
             Log.i("Yesterday 22 00",dateFormat.format(yesterday22_00));
-
 
 
 
@@ -133,8 +135,6 @@ public class JParse {
                 Match mt = new Match();
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-
 
                 mt.setId(jsonObject.optString("id").toString());
                 mt.setTeam1(jsonObject.optString("team1").toString());
@@ -152,8 +152,13 @@ public class JParse {
                 mt.setYellow2(jsonObject.optString("yellow2").toString());
                 mt.setUpdateTime(jsonObject.optString("update_time"));
 
+//                long curTime = customTime(0,)
 
-                boolean updated = (((Long.valueOf(mt.getUpdateTime()) + 360) * 1000)  > System.currentTimeMillis());
+                long cur = System.currentTimeMillis();
+                long update = ((Long.valueOf(mt.getUpdateTime()) + 360) * 1000);
+//                Log.i("XXX pp",cur + "");
+//                Log.i("XXX pp",update + "");
+                boolean updated = ( update > cur);
 
                 long lt = Long.valueOf(mt.getTime()) * 1000;
 
@@ -162,32 +167,47 @@ public class JParse {
 
                 if((part == 1) || (part == 2) || (part == 3) && updated){
                     liveMatches.add(mt);
-                    continue;
+//                    continue;
                 }
 
                 if(lt > yesterday22_00 && lt < tomorrow01_00)
                 {
                     todayMatches.add(mt);
-                    continue;
+//                    continue;
                 }
 
-                if((part == 4 || part == 5) && lt > yesterdayStart && lt < yesterdayFinish)
+                if((part == 4 || part == 5) && lt > yesterdayStart && lt <= yesterdayFinish)
                 {
                     yesterdayMatches.add(mt);
-                    continue;
+//                    continue;
                 }
 
                 if(lt < tomorrow04_59_59 && part == 0 && updated )
                 {
                     notStartedMatches.add(mt);
-                    continue;
+//                    continue;
                 }
 
                 if(lt < todayFinish && lt > yesterday22_00 && (part == 4 || part == 5) && updated)
                 {
-                    notStartedMatches.add(mt);
-                    continue;
+                    finishedLiveMatches.add(mt);
+//                    continue;
                 }
+
+                Log.i("++++ >>>> ", todayFinish + " * "+lt +" * "+ tomorrowFinish);
+                if(lt > todayFinish && lt < tomorrowFinish)
+                {
+                    tomorrowMatches.add(mt);
+//                    continue;
+                }
+
+
+
+//                TOMORROW:
+//                $start_time = mktime(23, 59, 59, date('m'), date('d'), date('Y'));
+//                $end_time = mktime(23, 59, 59, date('m'), date('d')+1, date('Y'));
+//                $mysql_where = " `time`> ".$start_time." AND `time`<".$end_time." ";
+
 
 
 
@@ -206,6 +226,7 @@ public class JParse {
         ret.add(todayMatches);
         ret.add(notStartedMatches);
         ret.add(finishedLiveMatches);
+        ret.add(tomorrowMatches);
 
         return ret;
     }
@@ -331,14 +352,16 @@ public class JParse {
         return cal2.getTimeInMillis() - cal1.getTimeInMillis();
     }
 
-    private long customTime(int dayDiff, int h1, int m1, int s1){
+    private long customTime(int dayDiff, int h, int m, int s){
         Calendar cal1 = Calendar.getInstance();
         cal1.add(Calendar.DAY_OF_MONTH, dayDiff);
-        cal1.set(Calendar.HOUR_OF_DAY, h1);
-        cal1.set(Calendar.MINUTE, m1);
-        cal1.set(Calendar.SECOND, s1);
 
-
+        cal1.add(Calendar.HOUR_OF_DAY, -cal1.get(Calendar.HOUR_OF_DAY)+h);
+        cal1.add(Calendar.MINUTE, -cal1.get(Calendar.MINUTE)+m);
+        cal1.add(Calendar.SECOND, -cal1.get(Calendar.SECOND)+s);
+//        cal1.set(Calendar.HOUR_OF_DAY, h1);
+//        cal1.set(Calendar.MINUTE, m1);
+//        cal1.set(Calendar.SECOND, s1);
 
         return cal1.getTimeInMillis();
     }

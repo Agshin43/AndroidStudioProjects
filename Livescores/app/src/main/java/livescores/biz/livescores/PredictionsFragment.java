@@ -27,6 +27,12 @@ public class PredictionsFragment extends DialogFragment {
         View v = inflater.inflate(R.layout.prediction, container, false);
 
 //        Log.i("Fragment", "Percent draw = "+prediction.getDraw());
+        v.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
 
         int p1 = Integer.valueOf(prediction.getTeam1Percent());
         int p2 = Integer.valueOf(prediction.getDraw());

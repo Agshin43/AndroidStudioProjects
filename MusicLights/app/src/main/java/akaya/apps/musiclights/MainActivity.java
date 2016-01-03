@@ -2,6 +2,9 @@ package akaya.apps.musiclights;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -35,6 +38,8 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -135,6 +140,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.lay).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvClicked();
+            }
+        });
         red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,17 +198,64 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        Log.i("999", "onDestroy");
         super.onDestroy();
         try{
             aa.recorder.stop();
             aa = null;
+            aaStarted = false;
+            playing = false;
+
         }catch (NullPointerException e){}
 
     }
 
-//    @Override
-//    public void onBackPressed() {
-//
+    @Override
+    public void onBackPressed() {
+        Log.i("999", "onBackPressed");
+        try{
+            aa.recorder.stop();
+            aa = null;
+            playing = false;
+            aaStarted = false;
+        }catch (NullPointerException e){}
+
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.i("999", "onStop");
+        super.onStop();
+        try{
+            aa.recorder.stop();
+            aa = null;
+            aaStarted = false;
+            playing = false;
+        }catch (NullPointerException e){}
+
+    }
+
+    @Override
+    protected void onResume() {
+//        restart(getApplicationContext(), 0);
+        super.onResume();
+
+    }
+
+//    public static void restart(Context context, int delay) {
+//        if (delay == 0) {
+//            delay = 1;
+//        }
+//        Log.e("", "restarting app");
+//        Intent restartIntent = context.getPackageManager()
+//                .getLaunchIntentForPackage(context.getPackageName() );
+//        PendingIntent intent = PendingIntent.getActivity(
+//                context, 0,
+//                restartIntent, FLAG_ACTIVITY_CLEAR_TOP);
+//        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//        manager.set(AlarmManager.RTC, System.currentTimeMillis() + delay, intent);
+//        System.exit(2);
 //    }
 
     @Override
@@ -255,9 +313,9 @@ public class MainActivity extends AppCompatActivity {
                 int a = (int) Math.max(0,(maxA * 255.f / surroundMaxAmplitude) - base);
 //                freqLights.setBackgroundColor(Color.argb(base + a, f , f, 255 - f + base ));
                 int[] ret = curColorS(f / 255.f);
-                red.setBackgroundColor(Color.argb(ret[0],ret[0],0,0));
-                green.setBackgroundColor(Color.argb(ret[1],0,ret[1],0));
-                blue.setBackgroundColor(Color.argb(ret[2],0,0,ret[2]));
+                red.setBackgroundColor(Color.argb(100,ret[0],0,0));
+                green.setBackgroundColor(Color.argb(100,0,ret[1],0));
+                blue.setBackgroundColor(Color.argb(100,0,0,ret[2]));
 //                freqLights.setBackgroundColor(curColor(f / 255.f));
 
 

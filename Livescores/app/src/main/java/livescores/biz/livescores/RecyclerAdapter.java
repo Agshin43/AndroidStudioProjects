@@ -74,25 +74,33 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         viewHolder.tvTeam1.setText(item.getTeam1());
         viewHolder.tvTeam2.setText(item.getTeam2());
 
+        int part = Integer.valueOf(item.getPart());
 
-        String minutes = "'";
-        try{
-            int t = Integer.valueOf(item.getMinutes_text());
-        } catch (Exception e){
-            minutes = "";
+
+
+        if(part == 1 || part == 3){
+//            Log.i("part","PART ---- -- -- - --- -- -- ----- -- ----- "+part+"  "+item.getTeam1() + " minutes -- "+item.getMinutes_text());
+            boolean bl = true;
+            try {
+                int m = Integer.valueOf(item.getMinutes_text());
+            } catch (Exception e){
+                bl = false;
+
+            }
+            if(bl || item.getMinutes_text().contains("+")){
+                viewHolder.tvMinute.setText(item.getMinutes_text() + "'");
+            }
+        } else if(part == 2){
+            viewHolder.tvMinute.setText("HT");
+        } else if(part == 4){
+            viewHolder.tvMinute.setText("FT");
         }
-        if(item.getMinutes_text().contains("+"));{
-            minutes = "'";
-        }
-        if(minutes.length() > 0){
+
+
+        if(part > 0 && part < 5){
             viewHolder.tvScore.setText(item.getScore1()+"-"+item.getScore2());
         } else {
             viewHolder.tvScore.setText("-:-");
-        }
-//        viewHolder.tvScore.setText(item.getScore1()+"-"+item.getScore2());
-
-        if(minutes.length()  > 0 || (item.getMinutes_text() == "FT")){
-            viewHolder.tvMinute.setText(item.getMinutes_text()+minutes);
         }
 
         final int yc1 = Integer.valueOf(item.getYellow1());
@@ -100,6 +108,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         final int rc1 = Integer.valueOf(item.getRed1());
         final int rc2 = Integer.valueOf(item.getRed2());
+
+//        Log.i("CARDS", " Y1 "+yc1+", R1 "+rc1+" | Y2 "+yc2+", R2 "+rc2+" >>> "+item.getTeam1());
 
         if(yc1 == 0){
             viewHolder.tvYellow1.setVisibility(View.GONE);

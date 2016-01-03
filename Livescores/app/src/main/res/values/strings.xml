@@ -20,6 +20,7 @@
     <string name="ms2_football_tables">Football Tables</string>
     <string name="ms3_search">Search</string>
     <string name="ms3_settings">Settings</string>
+    <string name="ms3_about">About</string>
     <string name="ms3_filter">Filter</string>
     <string name="ms3_calendar">Calendar</string>
     <string name="ms_loading">Loading</string>
@@ -36,6 +37,12 @@
     <string name="m_ok">ok</string>
     <string name="m_match_details">Match details</string>
     <string name="m_search">search</string>
+    <string name="requesting_permission">Requesting permission</string>
+    <string name="permission_read_phone_state_explanation">Read phone state is needed for get device id</string>
+    <string name="read_phone_state_permission_was_denied">"Read phone state" permission was denied</string>
+    <string name="read_phone_state_permission_was_granted">"Read phone state" permission was granted</string>
+    <string name="m_language">Language</string>
+    <string name="m_notifications">Notifications</string>
 
 
     <string name="m_api_info">info.php?id=</string>
@@ -48,6 +55,9 @@
     <string name="m_api_leagues">leagues/index.php</string>
     <string name="m_api_leagues_view">leagues/view.php?id=</string>
 
+    <string name="m_min">m</string>
+    <string name="m_sec">s</string>
+
     <string-array name="table_header">
         <item>team</item>
         <item>g</item>
@@ -57,5 +67,6 @@
         <item>p</item>
     </string-array>
     <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_settings">settings</string>
 
 </resources>

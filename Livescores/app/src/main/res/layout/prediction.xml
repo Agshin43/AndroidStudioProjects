@@ -116,4 +116,22 @@
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <LinearLayout
+        android:padding="5dp"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatButton
+
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/m_cancel"
+            android:id="@+id/cancel"
+            android:textColor="@color/m_cancel_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
 </LinearLayout>

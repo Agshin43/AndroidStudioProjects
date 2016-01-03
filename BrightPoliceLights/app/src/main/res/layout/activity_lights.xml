@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
 
+
     </LinearLayout>
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -22,5 +23,34 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_id">
     </com.google.android.gms.ads.AdView>
+    <LinearLayout
+        android:id="@+id/layMad"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvMad"
+            android:text="Music Lights. Try it now "
+            android:gravity="center"
+            android:textColor="@color/accent"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:id="@+id/btnMad"
+            style="?android:attr/buttonBarButtonStyle"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launch_music"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnHide"
+            android:text="Hide"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
 
 </RelativeLayout>

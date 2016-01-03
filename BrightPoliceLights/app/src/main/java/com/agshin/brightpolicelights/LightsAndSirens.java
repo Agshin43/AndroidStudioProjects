@@ -1,8 +1,10 @@
 package com.agshin.brightpolicelights;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +14,10 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdView;
@@ -70,6 +75,30 @@ public class LightsAndSirens extends AppCompatActivity {
         wl.acquire();
 
 
+        ///////////// MAD
+        TextView tvMad = (TextView) findViewById(R.id.tvMad);
+        tvMad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mad();
+            }
+        });
+        ImageButton btnMad = (ImageButton) findViewById(R.id.btnMad);
+        btnMad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mad();
+            }
+        });
+        findViewById(R.id.btnHide).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.layMad).setVisibility(View.INVISIBLE);
+            }
+        });
+        ///////////////
+
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_FULLSCREEN);
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.screenBrightness = 1.0f;
@@ -83,6 +112,15 @@ public class LightsAndSirens extends AppCompatActivity {
         com.google.android.gms.ads.AdRequest adRequest = new com.google.android.gms.ads.AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         ///////////////
+    }
+
+    private void mad(){
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "akaya.apps.musiclights")));
+        }
+        catch (android.content.ActivityNotFoundException anfe) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + "akaya.apps.musiclights")));
+        }
     }
 
     public int sirenResIdById(int sirenId){
