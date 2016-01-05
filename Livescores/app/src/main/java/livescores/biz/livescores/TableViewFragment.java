@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -39,18 +40,18 @@ public class TableViewFragment extends DialogFragment{
         View v = inflater.inflate(R.layout.table_view, container, false);
 
         TableLayout tl = (TableLayout) v.findViewById(R.id.table);
-        final FloatingActionButton close = (FloatingActionButton) v.findViewById(R.id.btnCloseTable);
+        final Button close = (Button) v.findViewById(R.id.cancel);
 
-        tl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(close.getVisibility() == View.VISIBLE){
-                    close.setVisibility(View.INVISIBLE);
-                } else {
-                    close.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+//        tl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(close.getVisibility() == View.VISIBLE){
+//                    close.setVisibility(View.INVISIBLE);
+//                } else {
+//                    close.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override

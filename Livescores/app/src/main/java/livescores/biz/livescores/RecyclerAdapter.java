@@ -24,9 +24,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private List<Match> mItems;
     private List<Match> filteredList;
-    private Activity context;
     private JParse parse;
     private HTTPFunctions httpFunctions;
+    private Activity context;
     private FragmentManager manager;
 
 
@@ -167,7 +167,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
                     @Override
                     protected void onPostExecute(String result) {
-                        H2HDialogFragment h2hf = new H2HDialogFragment(matchs, item.getId());
+                        H2HDialogFragment h2hf = new H2HDialogFragment(matchs, item.getId(), context, manager);
                         h2hf.show(manager, "");
                         dialog.dismiss();
                     }

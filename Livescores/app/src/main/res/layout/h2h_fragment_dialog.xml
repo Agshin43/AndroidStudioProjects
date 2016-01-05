@@ -20,8 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <android.support.v7.widget.RecyclerView
-        android:background="@color/m_white"
         android:layout_above="@id/cancel"
+        android:background="@color/m_background"
         android:layout_gravity="center"
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"

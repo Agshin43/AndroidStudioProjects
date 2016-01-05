@@ -341,6 +341,37 @@ public class JParse {
         return ret;
     }
 
+
+    public MatchDetails generateMatchDetails(String input, MatchH2H match){
+        MatchDetails d = new MatchDetails();
+
+
+        try{
+            JSONArray jArray = new JSONArray(input);
+
+            d.setTeam1(match.getTeam1());
+            d.setTeam2(match.getTeam2());
+            d.setScore1(match.getScore1());
+            d.setScore2(match.getScore2());
+            d.setDate(getDate(Long.valueOf(match.getDate())));
+//            d.setMinutes(match.getMinutes_text());
+            ArrayList<MatchDetails.Action> actions = new ArrayList<>();
+
+            for(int i = 0; i < jArray.length(); i++){
+                JSONObject obj = jArray.getJSONObject(i);
+
+                actions.add(d.new Action(obj.optString("action"), obj.optString("value1"), obj.optString("value2")));
+
+                Log.i("details", obj.optString("action") + " - " + obj.optString("value1") + " - " + obj.optString("value2"));
+            }
+
+            d.setActions(actions);
+
+        } catch (JSONException e) {e.printStackTrace();}
+        return d;
+    }
+
+
     public MatchDetails generateMatchDetails(String input, Match match){
         MatchDetails d = new MatchDetails();
 

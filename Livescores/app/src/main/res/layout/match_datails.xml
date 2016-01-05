@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <android.support.design.widget.CoordinatorLayout
+
+    <LinearLayout
+        android:padding="5dp"
+        android:id="@+id/layClose"
+        android:layout_alignParentBottom="true"
+        android:gravity="right"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatButton
+            android:layout_margin="5dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/m_cancel"
+            android:id="@+id/cancel"
+            android:textColor="@color/m_cancel_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
         <LinearLayout
+            android:layout_above="@id/layClose"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -47,42 +65,38 @@
 
             <LinearLayout
                 android:layout_marginTop="10dp"
-                android:background="@color/m_primary_dark"
                 android:orientation="horizontal"
                 android:weightSum="10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/tvTeam1"
-                    android:textColor="@color/m_white"
-                    android:textSize="20sp"
+                    android:textColor="#313131"
+                    android:textSize="12sp"
                     android:gravity="center"
                     android:layout_weight="4"
-                    android:text="KAA Gent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:id="@+id/tvScore"
-                    android:textColor="@color/m_white"
+                    android:textColor="#313131"
                     android:textSize="20sp"
                     android:gravity="center"
                     android:layout_weight="2"
-                    android:text="3-0"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
                 <TextView
                     android:id="@+id/tvTeam2"
-                    android:textColor="@color/m_white"
-                    android:textSize="20sp"
+                    android:textColor="#313131"
+                    android:textSize="12sp"
                     android:layout_weight="4"
                     android:gravity="center"
-                    android:text="Kortrijk Stats"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <TextView
                 android:id="@+id/tvMinutes"
-                android:textSize="20sp"
+                android:textSize="10sp"
                 android:padding="10dp"
                 android:gravity="right"
                 android:textColor="@color/m_match_time"
@@ -133,21 +147,5 @@
 
         </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btnCloseDetails"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:clickable="true"
-            app:borderWidth="0dp"
-            app:elevation="0dp"
-            app:fabSize="mini"
-            app:backgroundTint="#7f00"
-            android:padding="0dp"
-            android:src="@drawable/ic_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-
-    </android.support.design.widget.CoordinatorLayout>
-
-</LinearLayout>
+</RelativeLayout>

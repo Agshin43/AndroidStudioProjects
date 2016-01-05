@@ -1,4 +1,7 @@
 package livescores.biz.livescores;
+
+import android.util.LruCache;
+
 public class Match {
     private String id;
     private String team1;

@@ -1,7 +1,9 @@
 package livescores.biz.livescores;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -10,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -38,8 +41,13 @@ public class H2HDialogFragment extends DialogFragment {
     private HTTPFunctions httpFunctions;
     private String baseMatchId;
     private ArrayList<MatchH2H> matches;
+    private Activity activity;
+    private FragmentManager manager;
 
-    public H2HDialogFragment(ArrayList<MatchH2H> matches, String baseMatchId) {
+
+    public H2HDialogFragment(ArrayList<MatchH2H> matches, String baseMatchId, Activity activity, FragmentManager manager) {
+        this.activity = activity;
+        this.manager = manager;
         this.matches = matches;
         this.baseMatchId = baseMatchId;
         this.parser = new JParse();
@@ -96,11 +104,6 @@ public class H2HDialogFragment extends DialogFragment {
         getDialog().setCancelable(true);
     }
 
-    private void initAdapterMatches(){
-
-
-    }
-
     public static float convertDpToPixel(float dp, Context context){
         Resources resources = context.getResources();
         DisplayMetrics metrics = resources.getDisplayMetrics();
@@ -150,9 +153,6 @@ public class H2HDialogFragment extends DialogFragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setAdapter(new CustomAdapter());
-        initAdapterMatches();
-
-
 
 
         return v;
@@ -180,7 +180,7 @@ public class H2HDialogFragment extends DialogFragment {
 
         @Override
         public void onBindViewHolder(CustomAdapter.ViewHolder holder, int position) {
-            MatchH2H mhh = matches.get(position);
+            final MatchH2H mhh = matches.get(position);
 
             int sc1 = Integer.valueOf(mhh.getScore1());
             int sc2 = Integer.valueOf(mhh.getScore2());
@@ -191,6 +191,40 @@ public class H2HDialogFragment extends DialogFragment {
             holder.tvTeam2.setText(mhh.getTeam2());
             holder.tvScore.setText(mhh.getScore1() + ":" + mhh.getScore2());
             holder.tvLeague.setText(mhh.getLeague());
+
+            holder.tvScore.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AsyncTask task = new AsyncTask<String, String, String>() {
+                        MatchDetails details;
+                        ProgressDialog dialog;
+
+                        @Override
+                        protected void onPreExecute() {
+                            super.onPreExecute();
+                            dialog = new ProgressDialog(activity);
+                            dialog.setMessage(activity.getResources().getString(R.string.ms_loading));
+                            this.dialog.show();
+                        }
+
+                        @Override
+                        protected String doInBackground(String... urls) {
+//                adapter = new CustomAdapter(parser.H2HMatches(httpFunctions.getJson("h2h.php?id="+baseMatchId)));
+                            details = parser.generateMatchDetails(httpFunctions.getJson("details.php?id=" + mhh.getMatchId()), mhh);
+                            return "";
+                        }
+
+                        @Override
+                        protected void onPostExecute(String result) {
+                            MatchDetailsFragment mdf = new MatchDetailsFragment(details);
+                            mdf.show(manager,"");
+                            dialog.dismiss();
+                        }
+                    };
+
+                    task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+                }
+            });
 
             String res = mhh.getResult().replace("win","W").replace("lost","L").replace("draw","D").replace("0:0","-");
             holder.tvResult.setText(res);
