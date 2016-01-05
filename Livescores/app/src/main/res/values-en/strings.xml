@@ -28,6 +28,14 @@
     <string name="ms_h2h">Head to head</string>
     <string name="ms_prediction">Prediction</string>
 
+    <string name="live">Live</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="not_started">Not Started</string>
+    <string name="finished">Finished</string>
+    <string name="tomorrow">Tomorrow</string>
+
+
     <string name="m_open">Open</string>
     <string name="m_close">Close</string>
     <string name="m_select_a_league">Select a league</string>
@@ -46,26 +54,6 @@
     <string name="m_notifications">Notifications</string>
 
 
-    //        CATEGORIES = {"Live", "Today", "Yesterday", "Not Started", "Finished","Tomorrow"};
-
-
-    <string name="live">Live</string>
-    <string name="today">Today</string>
-    <string name="yesterday">Yesterday</string>
-    <string name="not_started">Not Started</string>
-    <string name="finished">Finished</string>
-    <string name="tomorrow">Tomorrow</string>
-
-    <string name="m_api_info" translatable="false">info.php?id=</string>
-    <string name="m_api_details" translatable="false">details.php?id=</string>
-    <string name="m_api_h2h" translatable="false">h2h.php?id=</string>
-    <string name="m_api_predict" translatable="false">predict.php?id=</string>
-    <string name="m_api_tables" translatable="false">tables/index.php</string>
-    <string name="m_api_tables_leagues" translatable="false">tables/leagues.php?id=</string>
-    <string name="m_api_tables_view" translatable="false">tables/view.php?id=</string>
-    <string name="m_api_leagues" translatable="false">leagues/index.php</string>
-    <string name="m_api_leagues_view" translatable="false">leagues/view.php?id=</string>
-
     <string name="m_min">m</string>
     <string name="m_sec">s</string>
 
@@ -77,7 +65,6 @@
         <item>l</item>
         <item>p</item>
     </string-array>
-    <string name="title_activity_splash" translatable="false">Splash</string>
     <string name="title_activity_settings">settings</string>
     <string name="m_autorefresh">Auto refresh</string>
 

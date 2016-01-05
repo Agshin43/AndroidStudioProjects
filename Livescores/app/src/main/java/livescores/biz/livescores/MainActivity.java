@@ -4,7 +4,9 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -56,6 +58,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -85,17 +88,31 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<League> leagues;
     private ArrayList<MatchesHelper> matchesHelpers;
 
-    private NavigationView mNavView;
-    final  static String[] CATEGORIES = {"Live", "Today", "Yesterday", "Not Started", "Finished","Tomorrow"};
 
-    final static int PERMISSION_REQUEST_READ_PHONE_STATE = 1;
+    int langId;
+    boolean notify;
+    boolean autoRefresh;
+    int timeOutId;
+
+    final static int REQUEST_CODE_SETTINGS = 0;
+
+    private NavigationView mNavView;
+    String[] CATEGORIES;//{"Live", "Today", "Yesterday", "Not Started", "Finished","Tomorrow"};
+    final  static int[] TIMEOUTS = {30,45,60,120,180,300,600,1800};
+
 
     private boolean readPhoneStatePermissionGranted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        loadSettings();
+        setLanguage();
         setContentView(R.layout.activity_main);
+
+        CATEGORIES = getCategories();
 
         fragmentAdapters = new ArrayList<>();
 
@@ -197,7 +214,8 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     }
                     case  R.id.nav_item_settings: {
-                        MainActivity.this.startActivity(new Intent(MainActivity.this, Settings.class));
+                        Intent i = new Intent(MainActivity.this, Settings.class);
+                        MainActivity.this.startActivityForResult(i, REQUEST_CODE_SETTINGS);
                         break;
                     }
                     default:
@@ -281,6 +299,39 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    public void setLanguage(){
+        String[] ls = {"en","ru","az","tr"};
+
+
+        Locale locale = new Locale(ls[langId]);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == REQUEST_CODE_SETTINGS){
+            if (resultCode == RESULT_OK) {
+                if(data.getBooleanExtra("finish", false)){
+                    this.finish();
+                }
+                notify = data.getBooleanExtra("notify",false);
+                autoRefresh = data.getBooleanExtra("autoRefresh", false);
+                timeOutId = data.getIntExtra("timeOutId", 0);
+                langId = data.getIntExtra("langId",0);
+
+
+//                setLanguage();
+            }
+        }
+    }
+
     private void setCloseButtonVisibility(int position){
         if(position >= CATEGORIES.length){
             btnCloseTab.setVisibility(View.VISIBLE);
@@ -332,7 +383,9 @@ public class MainActivity extends AppCompatActivity{
 
             if(force){
                 Log.i("getMatches", " 2");
-                new LoadDataTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "");
+                if(!matchesHelpers.get(tabPosition).isLoading() && matchesHelpers.get(tabPosition).isLoaded()){
+                    new LoadDataTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "");
+                }
             } else {
                 if(matchesHelpers.get(tabPosition).isLoading()){
                     Log.i("getMatches", " 3");
@@ -344,7 +397,9 @@ public class MainActivity extends AppCompatActivity{
             }
         } else if(type == 2){
             if(force){
-                new LoadLeagueTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,leagueId);
+                if(!matchesHelpers.get(tabPosition).isLoading() && matchesHelpers.get(tabPosition).isLoaded()){
+                    new LoadLeagueTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,leagueId);
+                }
             } else {
                 if(matchesHelpers.get(tabPosition).isLoading()){
                     ret = false;
@@ -360,7 +415,9 @@ public class MainActivity extends AppCompatActivity{
 
             Log.i("GET MATCHES", "TYPE = 3");
             if(force){
-                new LoadDayTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,leagueId);
+                if(!matchesHelpers.get(tabPosition).isLoading() && matchesHelpers.get(tabPosition).isLoaded()) {
+                    new LoadDayTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, leagueId);
+                }
             } else {
                 if(matchesHelpers.get(tabPosition).isLoading()){
                     ret = false;
@@ -985,10 +1042,12 @@ public class MainActivity extends AppCompatActivity{
         RecyclerView recyclerView;
         int type;
         boolean needRefresh = false;
+        boolean forceRefresh = false;
         private Timer timer;
         private TimerTask timerTask;
         public int tabPosition;
         private String mLigId;
+
 
         private boolean exist(){
             if(type == 1){
@@ -1006,9 +1065,13 @@ public class MainActivity extends AppCompatActivity{
             }
         }
 
+        public MFragment(){
+            super();
+        }
         public MFragment( int tabPosition, int type) {
             this.tabPosition = tabPosition;
             this.needRefresh = true;
+
 
             timer = new Timer();
             timerTask = new TimerTask() {
@@ -1030,11 +1093,27 @@ public class MainActivity extends AppCompatActivity{
                         timer.cancel();
                     }
 
+//                    if(tabPosition > )
+                    {
+                        if(autoRefresh && (tabPosition < matchesHelpers.size())){
+//                            Log.i("AUTOREFRESH","TIMEOUT = "+matchesHelpers.get(tabPosition).getRefreshedSecondsBefore());
+                            matchesHelpers.get(tabPosition).increaseRefreshedSecondsBefore(1);
+                            if(matchesHelpers.get(tabPosition).getRefreshedSecondsBefore() >= TIMEOUTS[timeOutId]){
+                                needRefresh = true;
+                                forceRefresh = true;
+                                matchesHelpers.get(tabPosition).setRefreshedSecondsBefore(0);
+                                mSwipeRefreshLayout.setRefreshing(true);
+                            } else {
+                                forceRefresh = false;
+                            }
+                        }
+                    }
+
                     if(needRefresh) {
                         if(type == 1){
-                            if(getMatches(type, "", false, tabPosition)) {
-                                Log.i("HANDLER ","POX = PUSUR 1");
+                            if(getMatches(type, "", forceRefresh, tabPosition)) {
                                 needRefresh = false;
+                                forceRefresh = false;
                                 if(recyclerView.getAdapter() != null){
                                     recyclerView.getAdapter().notifyDataSetChanged();
                                 } else {
@@ -1043,12 +1122,14 @@ public class MainActivity extends AppCompatActivity{
                                 }
                                 mSwipeRefreshLayout.setRefreshing(false);
 
+                            } else {
+                                forceRefresh = false;
                             }
                         } else if (type == 2 && (exist())){
 
-                            Log.i("HANDLER ","POX = PUSUR 2");
-                            if (getMatches(type, matchesHelpers.get(tabPosition).getLeagueId(), false, tabPosition)) {
+                            if(getMatches(type, matchesHelpers.get(tabPosition).getLeagueId(), forceRefresh, tabPosition)) {
                                 needRefresh = false;
+                                forceRefresh = false;
 
                                 mSwipeRefreshLayout.setRefreshing(false);
                                 if (recyclerView.getAdapter() != null) {
@@ -1058,11 +1139,13 @@ public class MainActivity extends AppCompatActivity{
                                 }
 
                                 mViewPager.getAdapter().notifyDataSetChanged();
+                            } else {
+                                forceRefresh = false;
                             }
                         } else if(type == 3 && (exist())){
-                            Log.i("HANDLER ","POX = PUSUR");
-                            if (getMatches(type, matchesHelpers.get(tabPosition).getLeagueId(), false, tabPosition)) {
+                            if(getMatches(type, matchesHelpers.get(tabPosition).getLeagueId(), forceRefresh, tabPosition)) {
                                 needRefresh = false;
+                                forceRefresh = false;
 
                                 mSwipeRefreshLayout.setRefreshing(false);
                                 if (recyclerView.getAdapter() != null) {
@@ -1072,6 +1155,8 @@ public class MainActivity extends AppCompatActivity{
                                 }
 
                                 mViewPager.getAdapter().notifyDataSetChanged();
+                            } else {
+                                forceRefresh = false;
                             }
                         }
 
@@ -1092,7 +1177,7 @@ public class MainActivity extends AppCompatActivity{
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View v =  inflater.inflate(R.layout.fragment_list_view2, container, false);
+            View v = inflater.inflate(R.layout.fragment_list_view2, container, false);
             recyclerView = (RecyclerView)v.findViewById(R.id.recyclerview);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             if(type == 1){
@@ -1143,6 +1228,7 @@ public class MainActivity extends AppCompatActivity{
                 @Override
                 public void onRefresh() {
                     needRefresh = true;
+                    forceRefresh = true;
                 }
             });
             return v;
@@ -1150,6 +1236,12 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    @Override
+    protected void onResume() {
+        Log.i("On resume ((((","∂∂∂∂∂∂∂∂∂∂∂km2ergkmwergkm˚˚˚∂¬¬¬∂¬µ´ƒ∆∫¬∫∆ø®∫¬ˆ∆");
+        loadSettings();
+        super.onResume();
+    }
 
     class MPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -1181,10 +1273,58 @@ public class MainActivity extends AppCompatActivity{
 
 
     private String myAppId(){
+        Log.i("CLASSSS","Class name "+getClass().getName());
         TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         Random r = new Random();
 
         return telephonyManager.getDeviceId()+"_"+Math.abs(r.nextInt()%100);
     }
+
+    private String[] getCategories(){
+//        CATEGORIES = {"Live", "Today", "Yesterday", "Not Started", "Finished","Tomorrow"};
+        String[] ret = {"","","","","",""};
+        ret[0] = getStringResourceByName("live");
+        ret[1] = getStringResourceByName("today");
+        ret[2] = getStringResourceByName("yesterday");
+        ret[3] = getStringResourceByName("not_started");
+        ret[4] = getStringResourceByName("finished");
+        ret[5] = getStringResourceByName("tomorrow");
+        return ret;
+    }
+
+
+    private String getStringResourceByName(String aString) {
+        String packageName = getPackageName();
+        int resId = getResources().getIdentifier(aString, "string", packageName);
+        return getString(resId);
+    }
+    private void loadSettings() {
+        SharedPreferences pref = getSharedPreferences("lscores", MODE_PRIVATE);
+        langId      = pref.getInt("langId", -1);
+        String[] ls = {"en","ru","az","tr"};
+        if (langId == -1){
+
+            String dl = Locale.getDefault().getLanguage();
+
+            for (int i = 0; i < ls.length; i++){
+                if(ls[i].equals(dl)){
+                    langId = i;
+                    saveDefaultLanguage();
+                    break;
+                }
+            }
+        }
+        notify      = pref.getBoolean("notify", false);
+        timeOutId   = pref.getInt("timeOutId", 0);
+        autoRefresh = pref.getBoolean("autoRefresh", true);
+    }
+
+    private void saveDefaultLanguage(){
+        SharedPreferences pref = getSharedPreferences("lscores", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("langId",langId);
+        editor.commit();
+    }
+
 
 }

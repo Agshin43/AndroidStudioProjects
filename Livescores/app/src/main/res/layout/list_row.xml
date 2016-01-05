@@ -141,6 +141,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
+                            android:visibility="gone"
                             android:fontFamily="sans-serif"
                             android:layout_alignParentLeft="true"
                             android:id="@+id/tvRed2"
@@ -151,6 +152,7 @@
                             android:layout_width="10dp"
                             android:layout_height="10dp" />
                         <TextView
+                            android:visibility="gone"
                             android:fontFamily="sans-serif"
                             android:id="@+id/tvYellow2"
                             android:layout_marginLeft="10dp"
@@ -171,6 +173,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
+                            android:visibility="gone"
                             android:fontFamily="sans-serif"
                             android:id="@+id/tvRed1"
                             android:background="@drawable/shape_red_car"
@@ -180,6 +183,7 @@
                             android:layout_width="10dp"
                             android:layout_height="10dp" />
                         <TextView
+                            android:visibility="gone"
                             android:fontFamily="sans-serif"
                             android:id="@+id/tvYellow1"
                             android:layout_marginLeft="10dp"

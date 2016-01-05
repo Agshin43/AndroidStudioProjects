@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Livescores</string>
+    <string name="about"></string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="m_autorefresh" translatable="false">Avtomatik yenilənmə</string>
+    <string name="m_cancel">İmtina</string>
+    <string name="m_close">Bağla</string>
+    <string name="m_language">Dil</string>
+    <string name="m_match_details">Oyunun detalları</string>
+    <string name="m_min">d</string>
+    <string name="m_no_data_to_display">Məlumat tapılmadı.</string>
+    <string name="m_notifications">Xəbərdarlıqlar</string>
+    <string name="m_ok">oldu</string>
+    <string name="m_open">Aç</string>
+    <string name="m_search">Axtarış</string>
+    <string name="m_sec">s</string>
+    <string name="m_select_a_league">Liqa seçin.</string>
+    <string name="m_select_day">Gün seçin</string>
+    <string name="m_today">Bu gün</string>
+    <string name="ms1.5_leagues">Liqalar</string>
+    <string name="ms1.5_tables">Cədvəllər</string>
+    <string name="ms1_finished_scores">Bitmiş oyunlar</string>
+    <string name="ms1_live_scores">Canlı oyunlar</string>
+    <string name="ms1_not_started_scores">Başlamamış oyunlar</string>
+    <string name="ms1_today_scores">Bu günkü oyunlar</string>
+    <string name="ms1_tomorrow_scores">Sabahkı oyunlar</string>
+    <string name="ms1_yesterday_scores">Dünənki oyunlar</string>
+    <string name="ms2_football_news">Futbol xəbərləri</string>
+    <string name="ms2_soccer_forum">Futbol forumu</string>
+    <string name="ms2_livescore_calendar_new">Livscores təqvim yeni</string>
+    <string name="ms2_football_tables">Futbol cədvəlləri</string>
+    <string name="ms2_soccer_predictions">Futbol proqnozu</string>
+    <string name="ms3_about">Haqqında</string>
+    <string name="ms3_calendar">Təqvim</string>
+    <string name="ms3_filter">Filter</string>
+    <string name="ms3_search">Axtarış</string>
+    <string name="ms3_settings">Ayarlar</string>
+    <string name="ms_h2h">Baş başa</string>
+    <string name="ms_loading">Yüklənir</string>
+    <string name="ms_prediction">Proqnoz</string>
+    <string name="permission_read_phone_state_explanation">Sizin qurğunuzu identifikasiya etmək üçün "Read phone state" icazəsi tələb olunur.</string>
+    <string name="read_phone_state_permission_was_denied">"Read phone state" icazəsi verilmədi.</string>
+    <string name="read_phone_state_permission_was_granted">"Read phone state" icazəsi verildi.</string>
+    <string name="requesting_permission">İcazə üçün sorğu göndərilir.</string>
+    <string name="title_activity_settings">ayarlar</string>
+    <string name="need_restart_for_language">Dilin dəyişilməsi üçün proqram restart olunmalıdır.</string>
+    <string name="not_started">Başlamamış</string>
+    <string name="today">Bu gün</string>
+    <string name="tomorrow">Sabah</string>
+    <string name="yesterday">Dünən</string>
+    <string name="finished">Bitmiş</string>
+    <string name="live">Canlı</string>
+</resources>

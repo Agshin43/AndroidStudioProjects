@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Settings"
@@ -11,7 +12,6 @@
 
     <LinearLayout
         android:padding="5dp"
-        android:background="@color/m_primary_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -29,7 +29,6 @@
 
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -45,8 +44,46 @@
 
 
     <LinearLayout
-        android:background="@color/m_primary_light"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="5dp"
+            android:fontFamily="sans-serif"
+            android:id="@+id/tvAutoRefresh"
+            android:textColor="#313131"
+            android:gravity="left|center"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/m_autorefresh"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/swAutoRefresh"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spTimeout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.AppCompatSpinner>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
         android:weightSum="4"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -70,20 +107,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
     </LinearLayout>
-    <LinearLayout
-        android:paddingTop="10dp"
-        android:orientation="horizontal"
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnAbout"
+        android:layout_marginTop="20dp"
+        android:text="@string/ms3_about"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spTimeout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.AppCompatSpinner>
-
-    </LinearLayout>
+        android:layout_height="wrap_content" />
 
 
 

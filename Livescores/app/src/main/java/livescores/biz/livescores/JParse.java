@@ -93,6 +93,9 @@ public class JParse {
 
     }
 
+
+    public static ArrayList<Match> allMatches = new ArrayList<>();
+
     public ArrayList<ArrayList<Match>> getSeparatedMatches(String in) throws JSONException {
 
 
@@ -122,36 +125,95 @@ public class JParse {
 
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy  kk:mm:ss");
 
-            Log.i("yesterdayFinish",dateFormat.format(yesterdayFinish));
-            Log.i("yesterdayStart",dateFormat.format(yesterdayStart));
-            Log.i("todayFinish",dateFormat.format(todayFinish));
-            Log.i("Tomorrow 1 00",dateFormat.format(tomorrow01_00));
-            Log.i("tomorrow04_59_59",dateFormat.format(tomorrow04_59_59));
-            Log.i("Yesterday 22 00",dateFormat.format(yesterday22_00));
+//            Log.i("yesterdayFinish",dateFormat.format(yesterdayFinish));
+//            Log.i("yesterdayStart",dateFormat.format(yesterdayStart));
+//            Log.i("todayFinish",dateFormat.format(todayFinish));
+//            Log.i("Tomorrow 1 00",dateFormat.format(tomorrow01_00));
+//            Log.i("tomorrow04_59_59",dateFormat.format(tomorrow04_59_59));
+//            Log.i("Yesterday 22 00",dateFormat.format(yesterday22_00));
 
 
 
-            for(int i=0; i < jsonArray.length(); i++){
-                Match mt = new Match();
+           // ArrayList<Match> newMatches = new ArrayList<>();
+
+            for(int i=0; i < jsonArray.length(); i++) {
+                Match mt = null;//new Match();
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                mt.setId(jsonObject.optString("id").toString());
-                mt.setTeam1(jsonObject.optString("team1").toString());
-                mt.setTeam2(jsonObject.optString("team2").toString());
-                mt.setPart(jsonObject.optString("part").toString());
-                mt.setMinutes_text(jsonObject.optString("minutes_text").toString());
-                mt.setTime(jsonObject.optString("time").toString());
-                mt.setScore1(jsonObject.optString("score1").toString());
-                mt.setScore2(jsonObject.optString("score2").toString());
-                mt.setHalf_score1(jsonObject.optString("half_score1").toString());
-                mt.setHalf_score2(jsonObject.optString("half_score2").toString());
-                mt.setRed1(jsonObject.optString("red1").toString());
-                mt.setRed2(jsonObject.optString("red2").toString());
-                mt.setYellow1(jsonObject.optString("yellow1").toString());
-                mt.setYellow2(jsonObject.optString("yellow2").toString());
-                mt.setUpdateTime(jsonObject.optString("update_time"));
+                String id = jsonObject.optString("id").toString();
 
+                boolean found = false;
+                for (int j = 0; j < allMatches.size(); j++){
+                    if(allMatches.get(j).getId().equals(id)){
+                        found = true;
+                        mt = allMatches.get(j);
+                        break;
+                    }
+                }
+
+                if(!found){
+                    mt = new Match();
+                    mt.setId(id);
+                    allMatches.add(mt);
+                }
+
+
+
+                if(jsonObject.has("team1")) {
+                    mt.setTeam1(jsonObject.optString("team1").toString());
+                }
+                if(jsonObject.has("team2")) {
+                    mt.setTeam2(jsonObject.optString("team2").toString());
+                }
+                if(jsonObject.has("part")) {
+                    mt.setPart(jsonObject.optString("part").toString());
+                }
+                if(jsonObject.has("minutes_text")) {
+                    mt.setMinutes_text(jsonObject.optString("minutes_text").toString());
+                }
+                if(jsonObject.has("time")) {
+                    mt.setTime(jsonObject.optString("time").toString());
+                }
+                if(jsonObject.has("score1")) {
+                    mt.setScore1(jsonObject.optString("score1").toString());
+                }
+                if(jsonObject.has("score2")) {
+                    mt.setScore2(jsonObject.optString("score2").toString());
+                }
+                if(jsonObject.has("half_score1")) {
+                    mt.setHalf_score1(jsonObject.optString("half_score1").toString());
+                }
+                if(jsonObject.has("half_score2")) {
+                    mt.setHalf_score2(jsonObject.optString("half_score2").toString());
+                }
+                if(jsonObject.has("red1")) {
+                    mt.setRed1(jsonObject.optString("red1").toString());
+                }
+                if(jsonObject.has("red2")) {
+                    mt.setRed2(jsonObject.optString("red2").toString());
+                }
+                if(jsonObject.has("yellow1")) {
+                    mt.setYellow1(jsonObject.optString("yellow1").toString());
+                }
+                if(jsonObject.has("yellow2")) {
+                    mt.setYellow2(jsonObject.optString("yellow2").toString());
+                }
+                if(jsonObject.has("update_time")) {
+                    mt.setUpdateTime(jsonObject.optString("update_time"));
+                }
+
+
+
+
+            }
+
+
+
+
+
+            for(int i=0; i < allMatches.size(); i++) {
+                Match mt = allMatches.get(i);
 //                long curTime = customTime(0,)
 
                 long cur = System.currentTimeMillis();
@@ -194,7 +256,7 @@ public class JParse {
 //                    continue;
                 }
 
-                Log.i("++++ >>>> ", todayFinish + " * "+lt +" * "+ tomorrowFinish);
+//                Log.i("++++ >>>> ", todayFinish + " * "+lt +" * "+ tomorrowFinish);
                 if(lt > todayFinish && lt < tomorrowFinish)
                 {
                     tomorrowMatches.add(mt);

@@ -8,7 +8,8 @@ public class MatchesHelper {
     private String leagueId;
     private String name;
     private boolean isLoading;
-    private  boolean loaded;
+    private boolean loaded;
+    private int refreshedSecondsBefore;
 
     public MatchesHelper(ArrayList<Match> matches, int type, String leagueId, String name, boolean isLoading, boolean loaded) {
         this.matches = matches;
@@ -17,6 +18,7 @@ public class MatchesHelper {
         this.name = name;
         this.isLoading = isLoading;
         this.loaded = loaded;
+        this.refreshedSecondsBefore = 0;
     }
 
     public ArrayList<Match> search(String s){
@@ -102,5 +104,17 @@ public class MatchesHelper {
 
     public void setLoaded(boolean loaded) {
         this.loaded = loaded;
+    }
+
+    public int getRefreshedSecondsBefore() {
+        return refreshedSecondsBefore;
+    }
+
+    public void setRefreshedSecondsBefore(int refreshedSecondsBefore) {
+        this.refreshedSecondsBefore = refreshedSecondsBefore;
+    }
+
+    public void increaseRefreshedSecondsBefore(int refreshedSecondsBefore) {
+        this.refreshedSecondsBefore += refreshedSecondsBefore;
     }
 }

@@ -115,24 +115,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             viewHolder.tvYellow1.setVisibility(View.GONE);
         } else {
             viewHolder.tvYellow1.setText(item.getYellow1());
+            viewHolder.tvYellow1.setVisibility(View.VISIBLE);
         }
 
         if(yc2 == 0){
             viewHolder.tvYellow2.setVisibility(View.GONE);
         } else {
             viewHolder.tvYellow2.setText(item.getYellow2());
+            viewHolder.tvYellow2.setVisibility(View.VISIBLE);
         }
 
         if(rc1 == 0){
             viewHolder.tvRed1.setVisibility(View.GONE);
         } else {
             viewHolder.tvRed1.setText(item.getRed1());
+            viewHolder.tvRed1.setVisibility(View.VISIBLE);
         }
 
         if(rc2 == 0){
             viewHolder.tvRed2.setVisibility(View.GONE);
         } else {
             viewHolder.tvRed2.setText(item.getRed2());
+            viewHolder.tvRed2.setVisibility(View.VISIBLE);
         }
 
         viewHolder.tvDate.setText(getDate(Long.valueOf(item.getTime())));

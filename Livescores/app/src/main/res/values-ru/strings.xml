@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Livescores</string>
+    <string name="action_settings">Настройки</string>
+    <string name="m_autorefresh">Автоматическое обновление</string>
+    <string name="m_cancel">отмена</string>
+    <string name="m_close">закрыть</string>
+    <string name="m_language">Язык</string>
+    <string name="m_match_details">Детали матча</string>
+    <string name="m_min">м</string>
+    <string name="m_no_data_to_display">Нет данных для отображения.</string>
+    <string name="m_notifications">Уведомления</string>
+    <string name="m_ok">ОК</string>
+    <string name="m_open">Открыть</string>
+    <string name="m_search">Поиск</string>
+    <string name="m_sec">с</string>
+    <string name="m_select_a_league">Выберите лигу.</string>
+    <string name="m_select_day">Выберите день</string>
+    <string name="m_today">Cегодня</string>
+    <string name="ms1.5_leagues">Лиги</string>
+    <string name="ms1.5_tables">Таблицы</string>
+    <string name="ms1_finished_scores">Завершенные результаты</string>
+    <string name="ms1_live_scores">Текущие результаты</string>
+    <string name="ms1_not_started_scores">Не начался результаты</string>
+    <string name="ms1_today_scores">Результаты сегодня</string>
+    <string name="ms1_tomorrow_scores">Результаты завтра</string>
+    <string name="ms1_yesterday_scores">Результаты вчера</string>
+    <string name="ms2_football_news">Новости футбола</string>
+    <string name="ms2_football_tables">Таблицы Футбол</string>
+    <string name="ms2_livescore_calendar_new">Календарь</string>
+    <string name="ms2_soccer_forum">Футбол Форум</string>
+    <string name="ms2_soccer_predictions">Футбол Прогноз</string>
+    <string name="ms3_about">Около</string>
+    <string name="ms3_calendar">Календарь</string>
+    <string name="ms3_filter">Фильтр</string>
+    <string name="ms3_search">Поиск</string>
+    <string name="ms3_settings">Настройки</string>
+    <string name="ms_h2h">Голова к голове</string>
+    <string name="ms_loading">Загружается</string>
+    <string name="ms_prediction">Прогноз</string>
+    <string name="need_restart_for_language">Приложение нужно перезапустить для изменения языка.</string>
+    <string name="permission_read_phone_state_explanation">"Читать состояние телефона" необходим для Получить ID устройства</string>
+    <string name="read_phone_state_permission_was_denied">"Читать состояние телефона" разрешение было отказано.</string>
+    <string name="read_phone_state_permission_was_granted">"Читать состояние телефона" было дано разрешение.</string>
+    <string name="requesting_permission">Запрос разрешения</string>
+    <string name="title_activity_settings">настройки</string>
+    <string name="not_started">Не начался</string>
+    <string name="title_activity_splash" translatable="false"></string>
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
+    <string name="yesterday">Вчера</string>
+    <string name="finished">Завершенные</string>
+    <string name="live">Текущие</string>
+</resources>
