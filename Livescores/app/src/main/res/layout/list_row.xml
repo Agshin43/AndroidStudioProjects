@@ -28,12 +28,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
-                android:weightSum="5"
+                android:weightSum="7"
                 android:orientation="horizontal"
                 android:layout_weight="4"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_launcher"
+                    android:id="@+id/ivTeam1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
                 <TextView
                     android:fontFamily="sans-serif"
                     android:id="@+id/tvTeam1"
@@ -67,6 +75,14 @@
                     android:layout_width="0dp"
                     android:textSize="14sp"
                     android:text="Russia"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_launcher"
+                    android:id="@+id/ivTeam2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent" />
 
             </LinearLayout>

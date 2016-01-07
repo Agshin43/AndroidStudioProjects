@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.FragmentManager;
+
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -69,6 +72,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
         final Match item = filteredList.get(i);
 
+
+        String sll = "http://livescores.biz";
+        Log.i("URL ", sll + item.getTeam1Image());
+
+        Picasso.with(context.getApplicationContext()).load(sll+item.getTeam1Image()).transform(new CircleTransform()).placeholder(R.drawable.ic_placeholder).into(viewHolder.ivTeam1);
+        Picasso.with(context.getApplicationContext()).load(sll + item.getTeam2Image()).transform(new CircleTransform()).placeholder(R.drawable.ic_placeholder).into(viewHolder.ivTeam2);
 
 
         viewHolder.tvTeam1.setText(item.getTeam1());
@@ -304,6 +313,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         private final TextView tvYellow1;
         private final TextView tvYellow2;
         private final TextView tvTime;
+        private final ImageView ivTeam1;
+        private final ImageView ivTeam2;
 
         ViewHolder(View v) {
             super(v);
@@ -319,6 +330,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             tvYellow1 = (TextView) v.findViewById(R.id.tvYellow1);
             tvYellow2 = (TextView) v.findViewById(R.id.tvYellow2);
             tvTime = (TextView) v.findViewById(R.id.tvTime);
+            ivTeam1 = (ImageView) v.findViewById(R.id.ivTeam1);
+            ivTeam2 = (ImageView) v.findViewById(R.id.ivTeam2);
         }
     }
 

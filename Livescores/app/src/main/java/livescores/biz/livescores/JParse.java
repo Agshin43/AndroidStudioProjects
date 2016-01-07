@@ -202,6 +202,15 @@ public class JParse {
                 if(jsonObject.has("update_time")) {
                     mt.setUpdateTime(jsonObject.optString("update_time"));
                 }
+                if(jsonObject.has("team1_image")) {
+                    mt.setTeam1Image(jsonObject.optString("team1_image").replace("\\/", "/"));
+                    Log.i("PARSER", "URL = "+jsonObject.optString("team1_image"));
+                }
+                if(jsonObject.has("team2_image")) {
+                    mt.setTeam2Image(jsonObject.optString("team2_image").replace("\\/", "/"));
+                    Log.i("PARSER", "URL = " + jsonObject.optString("team2_image"));
+
+                }
 
 
 

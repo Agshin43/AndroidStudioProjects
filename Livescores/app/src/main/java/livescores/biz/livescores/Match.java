@@ -18,28 +18,14 @@ public class Match {
     private String yellow1;
     private String yellow2;
     private String updateTime;
+    private String team1Image;
+    private String team2Image;
 
     private boolean found;
 
     public Match() {
     }
 
-    public Match(String team1, String team2, String part, String minutes_text, String time, String score1, String score2, String half_score1, String half_score2, String red1, String red2, String yellow1, String yellow2, String updateTime) {
-        this.team1 = team1;
-        this.team2 = team2;
-        this.part = part;
-        this.minutes_text = minutes_text;
-        this.time = time;
-        this.score1 = score1;
-        this.score2 = score2;
-        this.half_score1 = half_score1;
-        this.half_score2 = half_score2;
-        this.red1 = red1;
-        this.red2 = red2;
-        this.yellow1 = yellow1;
-        this.yellow2 = yellow2;
-        this.updateTime = updateTime;
-    }
 
     public String getUpdateTime() {
         return updateTime;
@@ -168,5 +154,21 @@ public class Match {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTeam1Image() {
+        return team1Image;
+    }
+
+    public String getTeam2Image() {
+        return team2Image;
+    }
+
+    public void setTeam1Image(String team1Image) {
+        this.team1Image = team1Image;
+    }
+
+    public void setTeam2Image(String team2Image) {
+        this.team2Image = team2Image;
     }
 }
