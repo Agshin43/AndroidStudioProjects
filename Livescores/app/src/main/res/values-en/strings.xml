@@ -67,5 +67,6 @@
     </string-array>
     <string name="title_activity_settings">settings</string>
     <string name="m_autorefresh">Auto refresh</string>
+    <string name="m_cant_load_data">Can not load data.</string>
 
 </resources>

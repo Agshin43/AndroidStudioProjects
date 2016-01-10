@@ -1,0 +1,389 @@
+[
+    {
+        "outputFile": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 50,
+                    "endOffset": 101
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_colors.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 52,
+                        "endColumn": 47,
+                        "endOffset": 98
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 106,
+                    "endColumn": 51,
+                    "endOffset": 153
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 51,
+                        "endOffset": 102
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 158,
+                    "endColumn": 98,
+                    "endOffset": 252
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 656,
+                        "endColumn": 98,
+                        "endOffset": 750
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 257,
+                    "endColumn": 93,
+                    "endOffset": 346
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 465,
+                        "endColumn": 93,
+                        "endOffset": 554
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 351,
+                    "endColumn": 96,
+                    "endOffset": 443
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 559,
+                        "endColumn": 96,
+                        "endOffset": 651
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 448,
+                    "endColumn": 45,
+                    "endOffset": 489
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 325,
+                        "endColumn": 45,
+                        "endOffset": 366
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 494,
+                    "endColumn": 47,
+                    "endOffset": 537
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 371,
+                        "endColumn": 47,
+                        "endOffset": 414
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 542,
+                    "endColumn": 45,
+                    "endOffset": 583
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 419,
+                        "endColumn": 45,
+                        "endOffset": 460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 588,
+                    "endColumn": 124,
+                    "endOffset": 708
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 96,
+                        "endColumn": 124,
+                        "endOffset": 216
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 713,
+                    "endColumn": 52,
+                    "endOffset": 761
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 270,
+                        "endColumn": 52,
+                        "endOffset": 318
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 766,
+                    "endColumn": 40,
+                    "endOffset": 802
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 40,
+                        "endOffset": 91
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 807,
+                    "endColumn": 68,
+                    "endOffset": 871
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 323,
+                        "endColumn": 68,
+                        "endOffset": 387
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 876,
+                    "endColumn": 102,
+                    "endOffset": 974
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 392,
+                        "endColumn": 102,
+                        "endOffset": 490
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 979,
+                    "endColumn": 80,
+                    "endOffset": 1055
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 495,
+                        "endColumn": 80,
+                        "endOffset": 571
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1060,
+                    "endColumn": 48,
+                    "endOffset": 1104
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 221,
+                        "endColumn": 48,
+                        "endOffset": 265
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1109,
+                    "endColumn": 51,
+                    "endOffset": 1156
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 107,
+                        "endColumn": 51,
+                        "endOffset": 154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1161,
+                    "endColumn": 49,
+                    "endOffset": 1206
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 215,
+                        "endColumn": 49,
+                        "endOffset": 260
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1211,
+                    "endColumn": 59,
+                    "endOffset": 1266
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 265,
+                        "endColumn": 59,
+                        "endOffset": 320
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1271,
+                    "endColumn": 55,
+                    "endOffset": 1322
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 159,
+                        "endColumn": 55,
+                        "endOffset": 210
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1327,
+                    "endLine": 25,
+                    "endColumn": 9,
+                    "endOffset": 1571
+                },
+                "from": {
+                    "file": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/values/of_styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 52,
+                        "endLine": 6,
+                        "endColumn": 9,
+                        "endOffset": 297
+                    }
+                }
+            }
+        ]
+    }
+]

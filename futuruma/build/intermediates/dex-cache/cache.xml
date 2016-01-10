@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/agshin/Documents/adt/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/Users/agshin/AndroidStudioProjects/futuruma/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0_b7727e937454ba3bdb12483c8b60e3a9d86824a8.jar" />
+    </item>
+
+</items>

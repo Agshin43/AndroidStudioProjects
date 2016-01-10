@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="of_transparent">#00000000</color>
+    <string name="app_name">Cigar Smuggler</string>
+    <string name="cigar_description_high">A high priced cigar, these are hard to come by.</string>
+    <string name="cigar_description_low">This is a cheap cigar and easy to buy/sell.</string>
+    <string name="cigar_description_medium">An average priced cigar, people like these.</string>
+    <string name="difficulty_1">Easy</string>
+    <string name="difficulty_2">Medium</string>
+    <string name="difficulty_3">Hard</string>
+    <string name="of_banned_dialog">This user or application has been banned.  All Feint functionality is disabled.</string>
+    <string name="of_exit_feint">Exit Feint</string>
+    <string name="of_home">Home</string>
+    <string name="of_offline_notification">You are offline.</string>
+    <string name="of_offline_notification_line2">Feint requires an active network connection.</string>
+    <string name="of_score_submitted_notification">High Score submitted</string>
+    <string name="of_settings">Settings</string>
+    <string name="ofdash">Launch Dashboard</string>
+    <string name="post_score">Post Score</string>
+    <string name="score_display_text">Display Text</string>
+    <string name="score_to_post">Score to Post</string>
+    <style name="OFLoading" parent="@android:style/Theme.Dialog">
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@color/of_transparent</item>
+		<item name="android:windowNoTitle">true</item>
+	</style>
+</resources>

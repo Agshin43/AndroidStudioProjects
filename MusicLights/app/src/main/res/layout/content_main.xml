@@ -27,19 +27,19 @@
             android:id="@+id/red"
             android:background="#000"
             android:layout_weight="1"
-            android:layout_width="30dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp" />
         <TextView
             android:id="@+id/green"
             android:layout_weight="1"
             android:background="#000"
-            android:layout_width="30dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp" />
         <TextView
             android:id="@+id/blue"
             android:layout_weight="1"
             android:background="#000"
-            android:layout_width="30dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp" />
     </LinearLayout>
 

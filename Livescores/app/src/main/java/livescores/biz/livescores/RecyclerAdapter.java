@@ -76,8 +76,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         String sll = "http://livescores.biz";
         Log.i("URL ", sll + item.getTeam1Image());
 
-        Picasso.with(context.getApplicationContext()).load(sll+item.getTeam1Image()).transform(new CircleTransform()).placeholder(R.drawable.ic_placeholder).into(viewHolder.ivTeam1);
-        Picasso.with(context.getApplicationContext()).load(sll + item.getTeam2Image()).transform(new CircleTransform()).placeholder(R.drawable.ic_placeholder).into(viewHolder.ivTeam2);
+        Picasso.with(context.getApplicationContext()).load(sll+item.getTeam1Image()).transform(new CircleTransform()).placeholder(R.mipmap.ic_placeholder_ball).into(viewHolder.ivTeam1);
+        Picasso.with(context.getApplicationContext()).load(sll + item.getTeam2Image()).transform(new CircleTransform()).placeholder(R.mipmap.ic_placeholder_ball).into(viewHolder.ivTeam2);
 
 
         viewHolder.tvTeam1.setText(item.getTeam1());
@@ -87,6 +87,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 
 
+        viewHolder.tvScore.setText("");
+        viewHolder.tvMinute.setText("");
         if(part == 1 || part == 3){
 //            Log.i("part","PART ---- -- -- - --- -- -- ----- -- ----- "+part+"  "+item.getTeam1() + " minutes -- "+item.getMinutes_text());
             boolean bl = true;
@@ -108,8 +110,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         if(part > 0 && part < 5){
             viewHolder.tvScore.setText(item.getScore1()+"-"+item.getScore2());
+            viewHolder.tvScore.setVisibility(View.VISIBLE);
         } else {
             viewHolder.tvScore.setText("-:-");
+            viewHolder.tvScore.setVisibility(View.VISIBLE);
         }
 
         final int yc1 = Integer.valueOf(item.getYellow1());
@@ -222,6 +226,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             }
         });
 
+        final String pox = viewHolder.tvMinute.getText().toString();
         viewHolder.tvScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,6 +246,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     protected String doInBackground(String... urls) {
 //                adapter = new CustomAdapter(parser.H2HMatches(httpFunctions.getJson("h2h.php?id="+baseMatchId)));
                         details = parse.generateMatchDetails(httpFunctions.getJson("details.php?id=" + item.getId()), item);
+                        details.setMinutes(pox);
                         return "";
                     }
 

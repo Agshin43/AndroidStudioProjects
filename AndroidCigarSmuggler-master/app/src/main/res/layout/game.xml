@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/game_display"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#050415">
+
+    <include android:id='@+id/HudLayout' layout='@layout/game_status'/>
+
+
+    <ImageView
+            android:id="@+id/LocationImage"
+            android:layout_width="fill_parent"
+            android:layout_height="60dip"
+            android:background="#ff0000"
+            android:layout_below="@id/HudLayout"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            />
+
+
+    <com.gamecook.cigarsmuggler.views.CigarSmugglerTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LocationImage"
+            android:textColor="#ffffff"
+            android:textSize="36dip"
+            android:id="@+id/CigarLabelImage"
+            android:text="CIGARS"/>
+
+    <LinearLayout
+            android:id="@+id/BuySellLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LocationImage"
+            android:layout_alignParentRight="true">
+        <com.gamecook.cigarsmuggler.views.CigarSmugglerButton
+                android:id="@+id/BuyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy"
+                android:background="@android:color/transparent"
+                android:textColor="#ffffff"
+                android:textSize="26dip"
+                />
+
+
+        <com.gamecook.cigarsmuggler.views.CigarSmugglerTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:textColor="#8c8a8c"
+                android:textSize="30dip"
+                android:id="@+id/BuySellDivider"
+                android:text="/"/>
+
+        <com.gamecook.cigarsmuggler.views.CigarSmugglerButton
+                android:background="@android:color/transparent"
+                android:id="@+id/SellButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sell"
+                android:textColor="#ffffff"
+                android:textSize="26dip"
+                />
+
+
+    </LinearLayout>
+
+    <!-- Cigar List -->
+    <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/CigarLabelImage"
+            android:id="@+id/items"
+            android:cacheColorHint="#00000000"
+            android:fadeScrollbars="true"/>
+
+</RelativeLayout>

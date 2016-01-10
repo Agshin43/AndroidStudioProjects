@@ -37,12 +37,12 @@
                 <ImageView
                     android:padding="5dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_launcher"
                     android:id="@+id/ivTeam1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
                 <TextView
+                    android:ellipsize="middle"
                     android:fontFamily="sans-serif"
                     android:id="@+id/tvTeam1"
                     android:textColor="#313131"
@@ -65,6 +65,7 @@
                     android:text=""
                     android:layout_height="match_parent" />
                 <TextView
+                    android:ellipsize="middle"
                     android:fontFamily="sans-serif"
                     android:textColor="#313131"
                     android:id="@+id/tvTeam2"
@@ -79,7 +80,6 @@
                 <ImageView
                     android:padding="5dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_launcher"
                     android:id="@+id/ivTeam2"
                     android:layout_weight="1"
                     android:layout_width="0dp"

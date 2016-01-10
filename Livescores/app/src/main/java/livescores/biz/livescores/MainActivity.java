@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity{
     private  ArrayList<ArrayList<Match>> matchesArray;
     MPagerAdapter mPagerAdapter;
 
+    private boolean loadingLeagueTask;
+
     private String mAppId;
     private ArrayList<RecyclerAdapter> fragmentAdapters;
 
@@ -198,7 +200,7 @@ public class MainActivity extends AppCompatActivity{
                         }
                         break;
                     }
-                    case  R.id.nav_item_tables: {
+                    case R.id.nav_item_tables: {
                         LoadTablesTask mTask = new LoadTablesTask();
                         if (Build.VERSION.SDK_INT >= 11) {
                             mTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "");
@@ -207,11 +209,11 @@ public class MainActivity extends AppCompatActivity{
                         }
                         break;
                     }
-                    case  R.id.nav_item_tomorrow_scores: {
+                    case R.id.nav_item_tomorrow_scores: {
                         mViewPager.setCurrentItem(5, true);
                         break;
                     }
-                    case  R.id.nav_item_settings: {
+                    case R.id.nav_item_settings: {
                         Intent i = new Intent(MainActivity.this, Settings.class);
                         MainActivity.this.startActivityForResult(i, REQUEST_CODE_SETTINGS);
                         break;
@@ -272,28 +274,37 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        loadMatches();
 
-        mPagerAdapter = new MPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mPagerAdapter);
-        mTabLayout.setupWithViewPager(mViewPager);
-        mViewPager.setCurrentItem(0);
-//        AsyncTask task = new AsyncTask<String,String,String> (){
-//
-//            @Override
-//            protected String doInBackground(String... urls) {
-//
-//                return "";
-//            }
-//
-//            @Override
-//            protected void onPostExecute(String result){
-//
-//
-//            }
-//        };
-//
-//        task.execute(null);
+
+
+        AsyncTask task = new AsyncTask<String,String,String> (){
+
+            ProgressDialog dialog;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                dialog = new ProgressDialog(MainActivity.this);
+                dialog.setMessage(getResources().getString(R.string.ms_loading));
+                this.dialog.show();
+            }
+            @Override
+            protected String doInBackground(String... urls) {
+                loadMatches();
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String result){
+                mPagerAdapter = new MPagerAdapter(getSupportFragmentManager());
+                mViewPager.setAdapter(mPagerAdapter);
+                mTabLayout.setupWithViewPager(mViewPager);
+                mViewPager.setCurrentItem(0);
+                dialog.dismiss();
+
+            }
+        };
+
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,null);
 
     }
 
@@ -491,9 +502,16 @@ public class MainActivity extends AppCompatActivity{
     private class LoadLeaguesTask extends AsyncTask<String,Void,String> {
 
 //        ArrayList<League> leags;
+        ProgressDialog dialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(MainActivity.this);
+            dialog.setMessage(getResources().getString(R.string.ms_loading));
+            this.dialog.show();
+        }
         @Override
         protected String doInBackground(String... urls) {
-//            Toast.makeText(getApplicationContext(), "get leagues do in background", Toast.LENGTH_SHORT).show();
             String ss = http.getJson("leagues/index.php");
             leagues = parse.generateLeagueList(ss);
             return "";
@@ -503,11 +521,20 @@ public class MainActivity extends AppCompatActivity{
         protected void onPostExecute(String result){
 //            Toast.makeText(getApplicationContext(), "get leagues on post execute", Toast.LENGTH_SHORT).show();
             displayLeaguesDialog();
+            dialog.dismiss();
         }
     }
     private class LoadTablesTask extends AsyncTask<String,Void,String> {
 
         ArrayList<League> countries;
+        ProgressDialog dialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = new ProgressDialog(MainActivity.this);
+            dialog.setMessage(getResources().getString(R.string.ms_loading));
+            this.dialog.show();
+        }
         @Override
         protected String doInBackground(String... urls) {
 //            Toast.makeText(getApplicationContext(), "get leagues do in background", Toast.LENGTH_SHORT).show();
@@ -519,6 +546,7 @@ public class MainActivity extends AppCompatActivity{
         @Override
         protected void onPostExecute(String result){
             displayCountriesDialog(countries);
+            dialog.dismiss();
         }
     }
 
@@ -579,14 +607,30 @@ public class MainActivity extends AppCompatActivity{
 
     private class LoadLeagueTask extends AsyncTask<String,Void,String> {
 
+        //finde
         String lid = "";
         ArrayList<Match> ret;
+
+        ProgressDialog pDialog;
+
+
+        @Override
+        protected void onPreExecute() {
+            loadingLeagueTask = false; // TODO
+            super.onPreExecute();
+            if(loadingLeagueTask ){
+                pDialog = new ProgressDialog(MainActivity.this);
+                pDialog.setMessage(getApplicationContext().getResources().getString(R.string.ms_loading));
+                pDialog.show();
+            }
+        }
 
         @Override
         protected String doInBackground(String... id) {
             lid = id[0];
             setProgress(0);
             String ss = http.getJson("leagues/view.php?id="+id[0]);
+            loadingLeagueTask = true;
             setProgress(50);
             try {
                 ret = parse.getMatches(ss);
@@ -624,6 +668,10 @@ public class MainActivity extends AppCompatActivity{
                     matchesHelpers.get(i).setLoaded(true);
                     matchesHelpers.get(i).setIsLoading(false);
                 }
+            }
+            if(pDialog != null){
+                pDialog.dismiss();
+                loadingLeagueTask = false;
             }
         }
     }
@@ -744,7 +792,6 @@ public class MainActivity extends AppCompatActivity{
             arrayAdapter.add(leagues.get(i).getName());
         }
 
-        String cn = "<font color='black'>"+getResources().getString(R.string.m_cancel)+"</font>";
         builderSingle.setNegativeButton(
                 getResources().getString(R.string.m_cancel),
                 new DialogInterface.OnClickListener() {
@@ -771,6 +818,8 @@ public class MainActivity extends AppCompatActivity{
         builderSingle.setIcon(R.drawable.ic_launcher);
         builderSingle.setTitle(R.string.m_select_a_league);
 
+
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 MainActivity.this,
                 R.layout.dialog_item);
@@ -796,6 +845,7 @@ public class MainActivity extends AppCompatActivity{
                 AsyncTask task = new AsyncTask<String, String, String>() {
                     ArrayList<League> lgs;
                     ProgressDialog pDialog;
+                    boolean success = false;
 
                     @Override
                     protected void onPreExecute() {
@@ -807,13 +857,21 @@ public class MainActivity extends AppCompatActivity{
 
                     @Override
                     protected String doInBackground(String... urls) {
-                        lgs = parse.generateLeagueList(http.getJson("tables/leagues.php?id=" + countries.get(w).getId()));
+                        String js = http.getJson("tables/leagues.php?id=" + countries.get(w).getId());
+                        success = (js != null) && (js.length() > 10);
+                        if(success){
+                            lgs = parse.generateLeagueList(js);
+                        }
                         return "";
                     }
 
                     @Override
                     protected void onPostExecute(String result) {
-                        displayTableViewListDialog(lgs);
+                        if(success){
+                            displayTableViewListDialog(lgs);
+                        } else {
+                            Snackbar.make(mViewPager,R.string.m_cant_load_data,Snackbar.LENGTH_LONG);
+                        }
                         pDialog.dismiss();
                     }
                 };
@@ -899,7 +957,6 @@ public class MainActivity extends AppCompatActivity{
         mViewPager.getAdapter().notifyDataSetChanged();
         mTabLayout.setupWithViewPager(mViewPager);
         mViewPager.setCurrentItem(mTabLayout.getTabCount() - 1);
-
 
     }
 
@@ -1070,7 +1127,6 @@ public class MainActivity extends AppCompatActivity{
             this.tabPosition = tabPosition;
             this.needRefresh = true;
 
-
             timer = new Timer();
             timerTask = new TimerTask() {
                 @Override
@@ -1082,6 +1138,7 @@ public class MainActivity extends AppCompatActivity{
             this.type = type;
             mLigId = matchesHelpers.get(tabPosition).getLeagueId();
         }
+
 
         Handler handler = new Handler(){
             @Override
@@ -1185,6 +1242,9 @@ public class MainActivity extends AppCompatActivity{
                     recyclerView.setAdapter(new RecyclerAdapter(matchesHelpers.get(tabPosition).getMatches(), MainActivity.this, getSupportFragmentManager()));
                 }
             }
+
+
+
 
             if(android.os.Build.VERSION.SDK_INT < 23){
                 recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {

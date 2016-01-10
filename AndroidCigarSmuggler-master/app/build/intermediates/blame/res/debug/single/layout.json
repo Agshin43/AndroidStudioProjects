@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/gameover.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/gameover.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/game_status.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/game_status.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/safe.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/safe.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/cigar_view.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/cigar_view.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/achievement_investigator.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/achievement_investigator.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/credits.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/credits.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/picker.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/picker.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/of_native_loader.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/of_native_loader.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/score_poster.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/score_poster.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/example.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/example.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/bank_alert.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/bank_alert.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/bank.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/bank.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/purchase_alert.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/purchase_alert.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/game.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/game.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/number_picker.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/number_picker.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/main_menu_item.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/main_menu_item.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/layout/of_webnav.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/layout/of_webnav.xml"
+    }
+]

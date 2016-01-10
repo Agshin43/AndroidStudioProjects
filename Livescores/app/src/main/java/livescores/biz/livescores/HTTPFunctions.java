@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +52,6 @@ public class HTTPFunctions {
 
     public String getJson(String url )
     {
-        int id = -1;
         DownloadTask mTask = new DownloadTask();
         String ss = SITE_URL+url;
 
@@ -102,6 +102,7 @@ public class HTTPFunctions {
 
             } catch (MalformedURLException ex) {
                 Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
+            } catch (UnknownHostException ex){
             } catch (IOException ex) {
                 Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
             } finally {

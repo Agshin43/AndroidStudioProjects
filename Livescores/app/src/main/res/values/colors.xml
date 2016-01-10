@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="m_primary">#47a847</color>
+    <color name="m_primary_splash">#47a847</color>
     <color name="m_cancel_color">#0b8a79</color>
     <color name="m_primary_dark">#378435</color>
     <color name="m_primary_light">#bdd6bc</color>

@@ -44,6 +44,7 @@
     <string name="read_phone_state_permission_was_granted">"Read phone state" permission was granted</string>
     <string name="m_language">Language</string>
     <string name="m_notifications">Notifications</string>
+    <string name="m_cant_load_data">Can not load the data</string>
 
 
     //        CATEGORIES = {"Live", "Today", "Yesterday", "Not Started", "Finished","Tomorrow"};

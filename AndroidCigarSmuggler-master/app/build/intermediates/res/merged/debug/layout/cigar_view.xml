@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/LinearLayout01"
+                android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+                android:paddingLeft="10sp" android:paddingRight="10sp" android:paddingBottom="10sp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" android:paddingTop="2sp">
+
+    <com.gamecook.cigarsmuggler.views.CigarSmugglerTextView
+            android:id="@+id/CigarNameLabel"
+            android:layout_width="130dip"
+            android:layout_height="wrap_content"
+              android:layout_alignParentTop="true"
+              android:layout_alignParentLeft="true"
+              android:layout_marginTop="5dip"
+              android:layout_marginLeft="10dip"
+              android:textSize="20sp"
+              android:text="Name"
+              android:textColor="#ffffff"
+            />
+
+    <com.gamecook.cigarsmuggler.views.CigarSmugglerTextView
+            android:id="@+id/CostTotalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dip"
+            android:textSize="20sp"
+            android:text="0/0"
+            android:textColor="#ffffff"
+            />
+
+    <com.gamecook.cigarsmuggler.views.HistoryGraphView
+            android:id="@+id/HistoryGraphImage"
+            android:layout_width="100dip"
+            android:layout_height="14dip"
+            android:layout_toRightOf="@id/CigarNameLabel"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dip"
+            android:layout_marginRight="10dip"
+            />
+
+    <TextView
+            android:id="@+id/DescriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/CigarNameLabel"
+            android:layout_alignParentLeft="true"
+            android:typeface="sans"
+            android:textSize="13sp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:text="This is a description."
+            />
+
+</RelativeLayout>

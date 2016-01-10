@@ -66,8 +66,7 @@ public class MatchDetailsFragment extends DialogFragment {
 
         if(mt != null){
             if(mt.length() < 5 && !mt.contains("null")&& mt.length() > 0){
-                String sh = mt.contains("T")?"":"'";
-                ((TextView)v.findViewById(R.id.tvMinutes)).setText(mt+sh);
+                ((TextView)v.findViewById(R.id.tvMinutes)).setText(mt);
             } else {
                 v.findViewById(R.id.tvMinutes).setVisibility(View.GONE);
             }

@@ -36,7 +36,7 @@ public class CircleTransform implements Transformation {
         paint2.setColor(Color.argb(255, 170, 170, 170));
         canvas.drawCircle(r, r, r, paint2);
 
-        canvas.drawCircle(r, r,(int)(r*0.9), paint);
+        canvas.drawCircle(r, r,(int)(r*0.95), paint);
 
 
         squaredBitmap.recycle();

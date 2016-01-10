@@ -51,4 +51,5 @@
     <string name="yesterday">Dünən</string>
     <string name="finished">Bitmiş</string>
     <string name="live">Canlı</string>
+    <string name="m_cant_load_data">Məlumatlar yüklənmədi.</string>
 </resources>

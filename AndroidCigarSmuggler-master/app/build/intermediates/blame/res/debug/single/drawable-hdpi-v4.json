@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/of_icon_dashboard_settings.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/of_icon_dashboard_settings.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/icon.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/of_notification_bkg.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/of_notification_bkg.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/of_achievement_icon_frame.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/of_achievement_icon_frame.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/of_icon_dashboard_exit.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/of_icon_dashboard_exit.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/of_achievement_notification_bkg.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/of_achievement_notification_bkg.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/of_icon_dashboard_home.png",
+        "source": "/Users/agshin/AndroidStudioProjects/AndroidCigarSmuggler-master/app/src/main/res/drawable-hdpi/of_icon_dashboard_home.png"
+    }
+]

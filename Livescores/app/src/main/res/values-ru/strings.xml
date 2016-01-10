@@ -51,4 +51,5 @@
     <string name="yesterday">Вчера</string>
     <string name="finished">Завершенные</string>
     <string name="live">Текущие</string>
+    <string name="m_cant_load_data">Не удается загрузить данные.</string>
 </resources>

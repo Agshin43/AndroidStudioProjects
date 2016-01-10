@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gamecook.cigarsmuggler"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="7" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:debuggable="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.gamecook.cigarsmuggler.activities.StartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gamecook.cigarsmuggler.activities.CreditsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.gamecook.cigarsmuggler.activities.GameActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.gamecook.cigarsmuggler.activities.GameOverActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.gamecook.cigarsmuggler.activities.BankActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.openfeint.internal.ui.IntroFlow"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="IntroFlow"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.openfeint.api.ui.Dashboard"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Dashboard"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.openfeint.internal.ui.Settings"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Settings"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.gamecook.cigarsmuggler.activities.Safe"
+            android:label="Safe"
+            android:theme="@android:style/Theme.NoTitleBar" />
+    </application>
+
+</manifest>
