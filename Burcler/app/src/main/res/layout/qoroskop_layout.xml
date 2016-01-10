@@ -5,24 +5,74 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="#eaecee">
+    android:background="@color/myWhite">
 
 
 
-    <com.akaya.apps.burcler.CircleButton
-        android:id="@+id/button0"
+    <LinearLayout
+        android:id="@+id/layMad"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="64dip"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="8dip"
-        android:src="@drawable/ic_accordance"
-        app:cb_color="#99CC00" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvMad"
+            android:text="Pulsuz Diskoteka İşıqları"
+            android:gravity="center"
+            android:textColor="#FF3333"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:id="@+id/btnMad"
+            style="?android:attr/buttonBarButtonStyle"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_disco"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/spMine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Spinner>
+
+    <RadioGroup
+        android:padding="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:fontFamily="sans-serif"
+            android:text="@string/str_daily"
+            android:id="@+id/rbD"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:fontFamily="sans-serif"
+            android:text="@string/str_monthly"
+            android:id="@+id/rbW"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RadioGroup>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent">
         <TextView
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="@string/str_loading"
+            android:fontFamily="sans-serif"
+            android:padding="16dp"
+            android:textSize="25sp"
             android:id="@+id/tv_qoro"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

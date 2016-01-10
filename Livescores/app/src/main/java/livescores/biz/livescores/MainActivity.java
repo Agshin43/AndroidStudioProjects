@@ -362,6 +362,12 @@ public class MainActivity extends AppCompatActivity{
 
     public void loadMatches(){
         String ss = http.getJson("data.php?app_id="+mAppId);
+
+        if(ss == null || ss.length() < 10){
+            Snackbar.make(mViewPager,R.string.m_cant_load_data, Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+
         try {
             matchesArray = parse.getSeparatedMatches(ss);
 
@@ -503,6 +509,7 @@ public class MainActivity extends AppCompatActivity{
 
 //        ArrayList<League> leags;
         ProgressDialog dialog;
+        boolean nr = true;
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -513,6 +520,11 @@ public class MainActivity extends AppCompatActivity{
         @Override
         protected String doInBackground(String... urls) {
             String ss = http.getJson("leagues/index.php");
+            if(ss == null || ss.length() < 10){
+                Snackbar.make(mViewPager, R.string.m_cant_load_data, Snackbar.LENGTH_SHORT).show();
+                nr = false;
+                return "";
+            }
             leagues = parse.generateLeagueList(ss);
             return "";
         }
@@ -520,7 +532,9 @@ public class MainActivity extends AppCompatActivity{
         @Override
         protected void onPostExecute(String result){
 //            Toast.makeText(getApplicationContext(), "get leagues on post execute", Toast.LENGTH_SHORT).show();
-            displayLeaguesDialog();
+            if(nr){
+                displayLeaguesDialog();
+            }
             dialog.dismiss();
         }
     }
@@ -528,6 +542,7 @@ public class MainActivity extends AppCompatActivity{
 
         ArrayList<League> countries;
         ProgressDialog dialog;
+        boolean nr = true;
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -539,13 +554,20 @@ public class MainActivity extends AppCompatActivity{
         protected String doInBackground(String... urls) {
 //            Toast.makeText(getApplicationContext(), "get leagues do in background", Toast.LENGTH_SHORT).show();
             String ss = http.getJson("tables/index.php");
+            if(ss == null || ss.length() < 10){
+                Snackbar.make(mViewPager, R.string.m_cant_load_data, Snackbar.LENGTH_SHORT).show();
+                nr = false;
+                return "";
+            }
             countries = parse.generateLeagueList(ss);
             return "";
         }
 
         @Override
         protected void onPostExecute(String result){
-            displayCountriesDialog(countries);
+            if(nr){
+                displayCountriesDialog(countries);
+            }
             dialog.dismiss();
         }
     }
@@ -556,13 +578,21 @@ public class MainActivity extends AppCompatActivity{
 
         String lid = "";
         ArrayList<Match> ret;
+        boolean nr = true;
 
         @Override
         protected String doInBackground(String... id) {
             lid = id[0];
             setProgress(0);
             String ss = http.getJson("data.php?day="+id[0]);
-            Log.i("LDT","HTTP URL "+ss);
+
+
+            if(ss == null || ss.length() < 10){
+                Snackbar.make(mViewPager, R.string.m_cant_load_data, Snackbar.LENGTH_SHORT).show();
+                nr = false;
+                return "";
+            }
+
             setProgress(50);
             try {
                 ret = parse.getMatches(ss);
@@ -576,6 +606,7 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(Void... values) {
+
 
             super.onProgressUpdate(values);
             boolean go = false;
@@ -592,6 +623,11 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onPostExecute(String result){
+
+            if(!nr){
+                return;
+            }
+
             Log.i("..._______", "DAY " + lid);
             for(int i = 0; i < matchesHelpers.size(); i++){
                 Log.i("DDDDDDDD","DAY LOADED "+i+" = "+matchesHelpers.get(i).getLeagueId());
@@ -599,6 +635,7 @@ public class MainActivity extends AppCompatActivity{
                     matchesHelpers.get(i).setMatches(ret);
                     matchesHelpers.get(i).setLoaded(true);
                     matchesHelpers.get(i).setIsLoading(false);
+                    break;
                 }
             }
         }
@@ -612,6 +649,7 @@ public class MainActivity extends AppCompatActivity{
         ArrayList<Match> ret;
 
         ProgressDialog pDialog;
+        boolean nr = true;
 
 
         @Override
@@ -630,6 +668,13 @@ public class MainActivity extends AppCompatActivity{
             lid = id[0];
             setProgress(0);
             String ss = http.getJson("leagues/view.php?id="+id[0]);
+
+            if(ss == null || ss.length() < 10){
+                Snackbar.make(mViewPager, R.string.m_cant_load_data, Snackbar.LENGTH_SHORT).show();
+                nr = false;
+                return "";
+            }
+
             loadingLeagueTask = true;
             setProgress(50);
             try {
@@ -660,6 +705,9 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         protected void onPostExecute(String result){
+            if(!nr){
+                return;
+            }
             Log.i("...}}}}","LEAGUE "+lid);
             for(int i = 0; i < matchesHelpers.size(); i++){
                 Log.i("OOOOOOOOOOO","LEAGUE LOADED "+i+" = "+matchesHelpers.get(i).getLeagueId());
@@ -870,7 +918,7 @@ public class MainActivity extends AppCompatActivity{
                         if(success){
                             displayTableViewListDialog(lgs);
                         } else {
-                            Snackbar.make(mViewPager,R.string.m_cant_load_data,Snackbar.LENGTH_LONG);
+                            Snackbar.make(mViewPager,R.string.m_cant_load_data,Snackbar.LENGTH_SHORT);
                         }
                         pDialog.dismiss();
                     }
@@ -886,6 +934,7 @@ public class MainActivity extends AppCompatActivity{
         final AlertDialog.Builder builderSingle = new AlertDialog.Builder(MainActivity.this);
         builderSingle.setIcon(R.drawable.ic_launcher);
         builderSingle.setTitle(R.string.m_select_a_league);
+        final int[] nr = {1};
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 MainActivity.this,
@@ -925,15 +974,24 @@ public class MainActivity extends AppCompatActivity{
 
                             @Override
                             protected String doInBackground(String... urls) {
-                                teams = parse.generateTeams(http.getJson("tables/view.php?id=" + tables.get(which).getId()));
+                                String ss = http.getJson("tables/view.php?id=" + tables.get(which).getId());
+                                if(ss == null || ss.length() < 10){
+                                    Snackbar.make(mViewPager, R.string.m_cant_load_data, Snackbar.LENGTH_SHORT).show();
+                                    nr[0] = 0;
+                                    return "";
+                                }
+                                teams = parse.generateTeams(ss);
                                 return "";
                             }
 
                             @Override
                             protected void onPostExecute(String result) {
+                                if(nr[0] == 0){
+                                    return;
+                                }
+
                                 TableViewFragment tvf = new TableViewFragment(teams);
                                 if (teams.size() > 0) {
-
                                     tvf.show(MainActivity.this.getFragmentManager(), "");
                                 } else {
 //                                    Snackbar.make(, "no data", Snackbar.LENGTH_SHORT).show();
@@ -1373,7 +1431,7 @@ public class MainActivity extends AppCompatActivity{
             }
         }
         notify      = pref.getBoolean("notify", false);
-        timeOutId   = pref.getInt("timeOutId", 0);
+        timeOutId   = pref.getInt("timeOutId", 4);
         autoRefresh = pref.getBoolean("autoRefresh", true);
     }
 

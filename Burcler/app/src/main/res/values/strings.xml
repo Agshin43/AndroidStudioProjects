@@ -24,6 +24,21 @@
      <string name="str_dolca">Dolça</string>
      <string name="str_baliqlar">Balıqlar</string>
 
+    <string-array name="goroscope_ids">
+        <item>qoc-burcu</item>
+        <item>buga-burcu</item>
+        <item>ekizler-burcu</item>
+        <item>xerceng-burcu</item>
+        <item>sir-burcu</item>
+        <item>qiz-burcu</item>
+        <item>terezi-burcu</item>
+        <item>eqreb-burcu</item>
+        <item>oxatan-burcu</item>
+        <item>oglaq-burcu</item>
+        <item>dolca-burcu</item>
+        <item>baliqlar-burcu</item>
+    </string-array>
+
     <string name="str_d0">( 21 mart – 20 aprel )</string>
     <string name="str_d1">( 21 aprel – 20 may )</string>
     <string name="str_d2">( 21 may – 20 iyun )</string>
@@ -37,6 +52,20 @@
     <string name="str_d10">( 21 yanvar  – 19 fevral )</string>
     <string name="str_d11">( 20 fevral  – 20 mart )</string>
 
+    <string-array name="con_array">
+        <item>Qoç</item>
+        <item>Buğa</item>
+        <item>Əkizlər</item>
+        <item>Xərçəng</item>
+        <item>Şir</item>
+        <item>Qız</item>
+        <item>Tərəzi</item>
+        <item>Əqrəb</item>
+        <item>Oxatan</item>
+        <item>Oğlaq</item>
+        <item>Dolça</item>
+        <item>Balıqlar</item>
+    </string-array>
 
     <string name="str_c0">Qoç</string>
      <string name="str_c1">Buğa</string>
@@ -50,6 +79,11 @@
      <string name="str_c9">Oğlaq</string>
      <string name="str_c10">Dolça</string>
      <string name="str_c11">Balıqlar</string>
+
+    <string name="str_loading">yüklənir</string>
+    <string name="str_cant_load">yüklənmədi</string>
+    <string name="str_daily">Günlük</string>
+    <string name="str_monthly">Aylıq</string>
 
      <string name="banner_id">ca-app-pub-2478601698211605/2048504975</string>
 

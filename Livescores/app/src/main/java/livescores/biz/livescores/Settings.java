@@ -84,7 +84,7 @@ public class Settings extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("lscores", MODE_PRIVATE);
         langId     = pref.getInt("langId", 0);
         notify = pref.getBoolean("notify", false);
-        timeOutId  = pref.getInt("timeOutId", 0);
+        timeOutId  = pref.getInt("timeOutId", 4);
         autoRefresh = pref.getBoolean("autoRefresh", true);
 
         SwitchCompat swAutoRefresh = (SwitchCompat) findViewById(R.id.swAutoRefresh);
