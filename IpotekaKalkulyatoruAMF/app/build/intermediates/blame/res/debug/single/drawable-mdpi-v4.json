@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/texture.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-mdpi/texture.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_warning.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-mdpi/ic_warning.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_info.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-mdpi/ic_info.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_amf.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-mdpi/ic_amf.png"
+    }
+]

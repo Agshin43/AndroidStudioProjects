@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="difficulty_keys">
+		<item>easy</item>
+		<item>normal</item>
+		<item>hard</item>
+	</array>
+    <array name="difficulty_names">
+		<item>@string/difficulty_easy</item>
+		<item>@string/difficulty_normal</item>
+		<item>@string/difficulty_hard</item>
+	</array>
+    <array name="field_size_keys">
+		<item>"4"</item>
+		<item>"5"</item>
+		<item>"6"</item>
+		<item>"7"</item>
+		<item>"8"</item>
+		<item>"9"</item>
+	</array>
+    <array name="field_size_names">
+		<item>@string/field_size_4</item>
+		<item>@string/field_size_5</item>
+		<item>@string/field_size_6</item>
+		<item>@string/field_size_7</item>
+		<item>@string/field_size_8</item>
+		<item>@string/field_size_9</item>
+	</array>
+    <color name="bg">#fffaf8ef</color>
+    <color name="board_bg">#ffbbada0</color>
+    <color name="cell_bg">#66eee4da</color>
+    <color name="cell_bg_1024">#ffedc53f</color>
+    <color name="cell_bg_128">#ffedcf72</color>
+    <color name="cell_bg_16">#fff59563</color>
+    <color name="cell_bg_2">#ffeee4da</color>
+    <color name="cell_bg_2048">#ffedc22e</color>
+    <color name="cell_bg_256">#ffedcc61</color>
+    <color name="cell_bg_32">#fff67c5f</color>
+    <color name="cell_bg_4">#ffede0c8</color>
+    <color name="cell_bg_512">#ffedc850</color>
+    <color name="cell_bg_64">#fff65e3b</color>
+    <color name="cell_bg_8">#fff2b179</color>
+    <color name="cell_text">@color/text</color>
+    <color name="cell_text_1024">#fff9f6f2</color>
+    <color name="cell_text_128">#fff9f6f2</color>
+    <color name="cell_text_16">#fff9f6f2</color>
+    <color name="cell_text_2">@color/text</color>
+    <color name="cell_text_2048">#fff9f6f2</color>
+    <color name="cell_text_256">#fff9f6f2</color>
+    <color name="cell_text_32">#fff9f6f2</color>
+    <color name="cell_text_4">@color/text</color>
+    <color name="cell_text_512">#fff9f6f2</color>
+    <color name="cell_text_64">#fff9f6f2</color>
+    <color name="cell_text_8">#fff9f6f2</color>
+    <color name="cell_wall_bg">#776e65</color>
+    <color name="cell_wall_text">@color/cell_text</color>
+    <color name="text">#776e65</color>
+    <color name="text_inverted">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <string name="app_name">2048+</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="difficulty_normal">Normal</string>
+    <string name="field_size_4">4x4</string>
+    <string name="field_size_5">5x5</string>
+    <string name="field_size_6">6x6</string>
+    <string name="field_size_7">7x7</string>
+    <string name="field_size_8">8x8</string>
+    <string name="field_size_9">9x9</string>
+    <string name="game_over">Game over</string>
+    <string name="high_score_header_date">Date</string>
+    <string name="high_score_header_score">Score</string>
+    <string name="high_scores">High scores</string>
+    <string name="preferences">Preferences</string>
+    <string name="restart">Restart game</string>
+    <string name="rules">Swipe to move the tiles. When two tiles with the same number touch, they merge into one!</string>
+    <string name="score">Score: %1$d</string>
+    <string name="score_with_highscore">Score: %1$d/%2$d</string>
+    <string name="share">Share</string>
+    <string name="share_message">I\'ve scored %1$d in 2048! Can you beat me? Try: %2$s</string>
+    <string name="size">Field size</string>
+    <string name="unable_to_load_game">Unable to load game</string>
+    <string name="unable_to_save_game">Unable to save game</string>
+    <string name="with_walls">With walls</string>
+    <style name="AppTheme" parent="android:Theme.Holo.NoActionBar">
+		<item name="android:windowBackground">@color/bg</item>
+	</style>
+    <style name="AppTheme.Dialog" parent="android:Theme.Holo.Dialog"/>
+    <style name="AppTheme.Dialog.NoActionBar" parent="android:Theme.Holo.Dialog.NoActionBar"/>
+    <style name="HighScoreListItem">
+		<item name="android:orientation">horizontal</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
+		<item name="android:gravity">center_vertical</item>
+
+		<item name="android:paddingStart">8dp</item>
+		<item name="android:paddingLeft">8dp</item>
+
+		<item name="android:paddingEnd">?android:attr/scrollbarSize</item>
+		<item name="android:paddingRight">?android:attr/scrollbarSize</item>
+	</style>
+    <style name="HighScoreListItemDate">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">2</item>
+		<item name="android:gravity">center_horizontal</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+		<item name="android:textColor">?android:attr/textColorPrimary</item>
+	</style>
+    <style name="HighScoreListItemScore">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:gravity">center_horizontal</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+		<item name="android:textColor">?android:attr/textColorPrimary</item>
+	</style>
+    <style name="HighScoreListItemSeparator">
+		<item name="android:layout_width">1px</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_marginTop">10dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+		<item name="android:background">@color/white</item>
+	</style>
+</resources>

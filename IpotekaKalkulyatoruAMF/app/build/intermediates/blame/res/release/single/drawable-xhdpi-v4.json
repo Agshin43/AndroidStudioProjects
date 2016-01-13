@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/release/drawable-xhdpi-v4/ic_launcher.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/release/drawable-xhdpi-v4/ic_info.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-xhdpi/ic_info.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/build/intermediates/res/merged/release/drawable-xhdpi-v4/ic_warning.png",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoruAMF/app/src/main/res/drawable-xhdpi/ic_warning.png"
+    }
+]

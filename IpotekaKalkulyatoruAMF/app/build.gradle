@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "23.0.0"
+
+    defaultConfig {
+        applicationId "az.amf.ipotekakalkulyatoru"
+        minSdkVersion 8
+        targetSdkVersion 21
+        versionCode 4
+        versionName "2"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
+}

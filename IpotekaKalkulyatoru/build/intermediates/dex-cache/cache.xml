@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_5ea6ecaa942e00fb2d3632d27f65f051de8cc54e.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/Documents/adt/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0_b42450b4c3ae0331316068dd3204be9e0a15114d.jar" />
+    </item>
+    <item
+        jar="/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.0_cee28fa566700e3f9d242b8fdf521d710672110b.jar" />
+    </item>
+
+</items>

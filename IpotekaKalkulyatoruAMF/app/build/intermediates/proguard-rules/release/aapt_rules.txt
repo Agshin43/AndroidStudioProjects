@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:26
+-keep class az.amf.ipotekakalkulyatoru.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:16
+-keep class az.amf.ipotekakalkulyatoru.SplashActivity { <init>(...); }
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	style="@style/HighScoreListItem"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView
+		style="@style/HighScoreListItemDate"
+		android:text="@string/high_score_header_date"
+		android:textStyle="bold" />
+	<View
+		style="@style/HighScoreListItemSeparator"/>
+
+	<TextView
+		style="@style/HighScoreListItemScore"
+		android:text="@string/high_score_header_score"
+		android:textStyle="bold" />
+
+</LinearLayout>

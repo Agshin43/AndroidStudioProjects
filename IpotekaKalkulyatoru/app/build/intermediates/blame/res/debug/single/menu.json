@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/res/merged/debug/menu/splash.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/src/main/res/menu/splash.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/build/intermediates/res/merged/debug/menu/main_activity_tabs.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/IpotekaKalkulyatoru/app/src/main/res/menu/main_activity_tabs.xml"
+    }
+]

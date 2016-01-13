@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:layout_margin="20dp">
+            <TextView 
+            android:id = "@+id/tv_pointer"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            
+            />
+        
+        <TextView 
+            android:id = "@+id/tv_alinan_evin_qiymeti"
+            android:layout_height="40dp"
+            android:layout_width="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/tv_pointer"
+            android:gravity="center"
+            android:text="Alınan evin qiyməti"
+            />
+        
+            <TextView 
+            android:id = "@+id/tv_alinan_evin_qiymeti_2"
+            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:text=""
+            />
+            
+            
+         <TextView 
+            android:id = "@+id/tv_Kreditin_meblegi"
+            android:layout_height="40dp"
+            android:layout_width="200dp"
+            android:layout_below="@id/tv_alinan_evin_qiymeti"
+            android:layout_toLeftOf="@id/tv_pointer"
+            android:gravity="center"
+            android:text="Kreditin məbləği"
+            />
+        
+            <TextView 
+            android:id = "@+id/tv_Kreditin_meblegi_2"
+            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_alinan_evin_qiymeti"
+            android:gravity="center"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:text=""
+            />
+            
+            
+         <TextView 
+            android:id = "@+id/tv_ilkin_odeniwe_min_teleb"
+            android:layout_height="40dp"
+            android:layout_width="200dp"
+            android:layout_below="@id/tv_Kreditin_meblegi"
+            android:layout_toLeftOf="@id/tv_pointer"
+            android:gravity="center"
+            android:text="İlkin ödənişə minimal tələb"
+            />
+        
+            <TextView 
+            android:id = "@+id/tv_ilkin_odeniwe_min_teleb_2"
+            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_Kreditin_meblegi"
+            android:gravity="center"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:text=""
+            />
+            
+            
+          <TextView 
+            android:id = "@+id/tv_ayliq_odeniw"
+            android:layout_height="40dp"
+            android:layout_width="200dp"
+            android:layout_below="@id/tv_ilkin_odeniwe_min_teleb"
+            android:layout_toLeftOf="@id/tv_pointer"
+            android:gravity="center"
+            android:text="Aylıq ödəniş (anuitet)"
+            />
+        
+            <TextView 
+            android:id = "@+id/tv_ayliq_odeniw_2"
+            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_ilkin_odeniwe_min_teleb"
+            android:gravity="center"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:text=""
+            />
+            <Button 
+                android:id = "@+id/btn_geri"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:text="Geri"
+                android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

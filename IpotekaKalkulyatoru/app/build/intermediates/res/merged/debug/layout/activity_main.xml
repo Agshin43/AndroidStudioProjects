@@ -1,0 +1,577 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/texture"
+    android:layout_centerVertical="true"
+
+    tools:context=".MainActivity" >
+    <RelativeLayout 
+        	android:id="@+id/lay_action_bar"
+        	android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+    		android:layout_height="65dp"
+    		android:padding="5dp"
+    		android:background="@drawable/m_action_bar_back">
+    		
+            <ImageView
+            android:id="@+id/iv_lancher"
+            android:layout_alignParentLeft="true"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_amf" />
+            
+            <TextView            android:id="@+id/tv_bekar"
+            android:layout_toRightOf="@id/iv_lancher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity ="center_vertical"
+            android:text="İpoteka kalkulyatoru"
+            android:layout_centerVertical="true"
+            android:textColor="#0000aa"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+            
+
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id = "@+id/lay_top"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin ="5dp"
+        android:gravity="center_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lay_action_bar">
+        
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+		<Button
+            android:id="@+id/btn_common_ipo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/button1"
+            android:background="@drawable/btn_toggled1"
+            android:text="Ümumi ipoteka"
+            android:layout_alignParentLeft="true"/>
+
+        <Button
+            android:id="@+id/btn_prefer_ipo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/button1"
+            android:text="Güzəştli ipoteka"
+            android:background="@drawable/btn_guzewtli_back"
+            android:layout_alignParentRight="true" />
+
+        
+	</RelativeLayout>
+    <ScrollView   
+        android:id = "@+id/scrollView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/lay_top"
+    android:scrollbars="none"
+    android:paddingBottom ="30dp"
+    >
+
+
+<RelativeLayout
+        android:id="@+id/lay_botom"
+        android:layout_width="match_parent"
+        android:paddingTop="30dp"
+        android:paddingBottom="5dp"
+        android:isScrollContainer="true"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:layout_height="wrap_content" >
+        
+        
+        <RelativeLayout
+	        android:id="@+id/lay_center"
+	        android:layout_width="60dp"
+	        android:layout_height="0dp"
+        	android:layout_centerHorizontal="true"
+	        android:layout_alignParentTop ="true" >
+
+        </RelativeLayout>
+        
+
+	        <RelativeLayout
+	            android:id="@+id/lay_row_1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_centerVertical="true"
+	            android:layout_toLeftOf="@id/lay_center"
+	            android:layout_alignParentTop="true" >
+	        
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_gelir"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignParentTop="true"
+	            android:text="Aylıq gəlir:" 
+	            	            android:paddingBottom="8dp"
+	            android:paddingTop="8dp"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+	            
+	            
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_aile"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+	            android:layout_alignParentLeft="true"
+	            android:layout_below="@id/textView_gelir"
+	            android:text="Ailə üzvlərinin sayı:" 
+	            	            android:paddingBottom="8dp"
+	            android:paddingTop="8dp"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_diger"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+	            android:layout_below="@id/textView_aile"
+	            android:layout_alignParentLeft="true"
+	            	            android:paddingBottom="8dp"
+	            android:paddingTop="8dp"
+	            android:text="Digər öhdəliklər:" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_muddet"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+	            android:layout_below="@id/textView_diger"
+	            android:layout_alignParentLeft="true"
+	            	            android:paddingBottom="8dp"
+	            android:paddingTop="8dp"
+	            android:text="Kreditin müddəti (il):" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_ilkin"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+		 		android:layout_margin = "3dp"
+	            android:layout_below="@id/textView_muddet"
+	            android:layout_alignParentLeft="true"
+	            android:paddingBottom="3dp"
+	            android:paddingTop="3dp"
+	            android:text="İlkin ödəniş (minimal):" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_faiz"
+	            android:layout_width="wrap_content"
+	            android:layout_height="40dp"
+		 		android:layout_margin = "3dp"
+	            android:layout_below="@id/textView_ilkin"
+	            android:layout_alignParentLeft="true"
+	            android:paddingBottom="8dp"
+	            android:paddingTop="8dp"
+	            android:text="Kredit faizi (illik):" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+	        </RelativeLayout>
+	        <RelativeLayout
+	        android:id="@+id/lay_row_2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@id/lay_row_1"
+	        android:layout_alignParentTop ="true" >
+
+
+	            <EditText
+	                android:id="@+id/editText_gelir"
+	                android:layout_width="100dp"
+	                android:layout_height="40dp"
+		 			android:layout_margin = "3dp"
+	                android:layout_alignParentLeft="true"
+	                android:layout_alignParentTop="true"
+	                android:gravity="center"
+	                android:background="@drawable/login_text_edit_selector"
+	                android:inputType="number" >
+	                
+	            </EditText>
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_gelir_unit"
+	            android:layout_width="40dp"
+	            android:layout_height="40dp"
+		 		android:layout_margin = "3dp"
+	            android:layout_alignParentTop="true"
+	            android:layout_toRightOf="@+id/editText_gelir"
+	            android:paddingTop="8dp"
+	            android:gravity="center"
+	            android:text="AZN" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            
+		            <ImageButton
+		                android:id="@+id/imageButton_gelir_info"
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		 				android:layout_margin = "3dp"
+		                android:layout_alignParentTop="true"
+		                android:layout_toRightOf="@id/textView_gelir_unit"
+		                android:background="@null"
+		                android:src="@drawable/infocon" />
+	            <EditText
+	                android:id="@+id/editText_aile"
+	                android:layout_width="100dp"
+	                android:layout_height="40dp"
+		 			android:layout_margin = "3dp"
+	                android:layout_alignParentLeft="true"
+	                android:gravity="center"
+	                android:layout_below="@id/editText_gelir"
+	                android:background="@drawable/login_text_edit_selector"
+	                android:inputType="number" >
+	            </EditText>
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_aile_unit"
+	            android:layout_width="40dp"
+	            android:layout_height="40dp"
+		 		android:layout_margin = "3dp"
+	            android:layout_toRightOf="@id/editText_gelir"
+	            android:layout_below="@id/editText_gelir"
+	            android:paddingTop="8dp"
+	            android:gravity="center"
+	            android:text="" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+		            <ImageButton
+		                android:id="@+id/imageButton_aile_info"
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		 				android:layout_margin = "3dp"
+		                android:layout_below="@id/imageButton_gelir_info"
+		                android:layout_toRightOf="@id/textView_aile_unit"
+		                android:background="@null"
+		                android:src="@drawable/infocon" />
+	           <EditText
+	                android:id="@+id/editText_diger"
+	                android:layout_width="100dp"
+	                android:layout_height="40dp"
+		 			android:layout_margin = "3dp"
+	                android:gravity="center"
+	                android:layout_alignParentLeft="true"
+	                android:layout_below="@id/editText_aile"
+	                android:background="@drawable/login_text_edit_selector"
+	                android:inputType="number" >
+	            </EditText>
+	            	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView_diger_unit"
+	            android:layout_width="40dp"
+	            android:layout_height="40dp"
+		 		android:layout_margin = "3dp"
+	            android:layout_toRightOf="@id/editText_gelir"
+	            android:layout_below="@id/editText_aile"
+	            android:paddingTop="8dp"
+	            android:gravity="center"
+	            android:text="AZN" 
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            	 <ImageButton
+		                android:id="@+id/imageButton_diger_info"
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+		                android:layout_below="@id/imageButton_aile_info"
+		                android:layout_toRightOf="@id/textView_diger_unit"
+		                android:background="@null"
+		                android:src="@drawable/infocon" />
+	            <Spinner
+		           android:id="@+id/spinner_muddet"
+		           android:layout_width="100dp"
+		           android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+		           android:gravity="center"
+		           android:textAlignment="center"
+		           android:layout_below = "@id/editText_diger"
+		           android:hint="AZN"
+		           android:background="@drawable/login_text_edit_selector"
+		           android:layout_alignParentLeft="true" />
+	               	<TextView
+            android:textColor="#000055"
+			            android:id="@+id/textView_muddet_unit"
+			            android:layout_width="40dp"
+			            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+			            android:layout_toRightOf="@id/editText_gelir"
+			            android:layout_below="@id/editText_diger"
+			            android:paddingTop="8dp"
+			            android:gravity="center"
+			            android:text=" il" 
+			            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            	  <ImageButton
+		                android:id="@+id/imageButton_muddet_info"
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+		                android:layout_below="@id/imageButton_diger_info"
+		                android:layout_toRightOf="@id/textView_muddet_unit"
+		                android:background="@null"
+		                android:src="@drawable/infocon" />
+	            <EditText
+	                android:id="@+id/editText_ilkin"
+	                android:layout_width="100dp"
+	                android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+	                android:layout_alignParentLeft="true"
+	                android:gravity="center"
+	                android:layout_below="@id/spinner_muddet"
+	                android:background="@drawable/login_text_edit_selector"
+	                android:inputType="number" >
+	            </EditText>
+	            	 <TextView
+            android:textColor="#000055"
+			            android:id="@+id/textView_ilkin_unit"
+			            android:layout_width="40dp"
+			            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+			            android:layout_toRightOf="@id/editText_gelir"
+			            android:layout_below="@id/spinner_muddet"
+			            android:paddingTop="8dp"
+			            android:gravity="center"
+			            android:text="%" 
+			            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            <ImageButton
+		                android:id="@+id/imageButton_ilkin_info"
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+		                android:layout_below="@id/imageButton_muddet_info"
+		                android:layout_toRightOf="@id/textView_ilkin_unit"
+		                android:background="@null"
+		                android:src="@drawable/infocon" />
+	            <EditText
+	                android:id="@+id/editText_faiz"
+	                android:layout_width="100dp"
+	                android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+	                android:gravity="center"
+	                android:layout_alignParentLeft="true"
+	                android:layout_below="@id/editText_ilkin"
+	                android:background="@drawable/login_text_edit_selector"
+	                android:inputType="number" >
+	            </EditText>
+	            	    <TextView
+            android:textColor="#000055"
+			            android:id="@+id/textView_faiz_unit"
+			            android:layout_width="40dp"
+			            android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+			            android:layout_toRightOf="@id/editText_gelir"
+			            android:layout_below="@id/editText_ilkin"
+			            android:paddingTop="8dp"
+			            android:gravity="center"
+			            android:text="%" 
+			            android:textAppearance="?android:attr/textAppearanceSmall" />
+	            <ImageButton
+		                android:id="@+id/imageButton_faiz_info"
+		                android:layout_width="40dp"
+		                android:layout_height="40dp"
+		 android:layout_margin = "3dp"
+		                android:layout_below="@id/imageButton_ilkin_info"
+		                android:layout_toRightOf="@id/textView_faiz_unit"
+		                android:background="@null"
+		                android:src="@drawable/infocon" />
+	        </RelativeLayout>
+	       <RelativeLayout
+	        android:id="@+id/lay_row_3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@id/lay_row_2"
+	        android:layout_alignParentTop ="true" >
+	            <TextView
+            android:textColor="#000055"
+	            android:id="@+id/textView1_dige"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true"
+	            	            android:paddingBottom="8dp"
+	            android:paddingTop="8dp"
+	            android:textAppearance="?android:attr/textAppearanceSmall" />
+	        </RelativeLayout>
+
+	       <Button
+	           android:id="@+id/btn_calc"
+	           android:layout_width="120dp"
+	           android:layout_height="40dp"
+			   android:layout_below="@id/lay_row_1"
+	           android:layout_marginTop="30dp"
+	           android:layout_centerHorizontal="true"
+	           android:background="@drawable/m_button_selector"
+	           android:text = "Hesabla"
+	           />
+
+    </RelativeLayout>
+
+</ScrollView>
+<RelativeLayout 
+        android:id = "@+id/lay_netice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:paddingTop="60dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="60dp"
+        android:layout_below="@id/lay_action_bar"
+        android:layout_toRightOf="@id/lay_top">
+	      
+            <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_pointer"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+        
+        <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_alinan_evin_qiymeti"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/tv_pointer"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Alınan evin qiyməti"
+            />
+        
+            <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_alinan_evin_qiymeti_2"
+            android:gravity="right"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            />
+            
+            
+         <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_Kreditin_meblegi"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="200dp"
+            android:layout_below="@id/tv_alinan_evin_qiymeti"
+            android:layout_toLeftOf="@id/tv_pointer"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Kreditin məbləği"
+            />
+        
+            <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_Kreditin_meblegi_2"
+            android:gravity="right"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_alinan_evin_qiymeti"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            />
+            
+            
+         <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_ilkin_odeniwe_min_teleb"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="200dp"
+            android:layout_below="@id/tv_Kreditin_meblegi"
+            android:layout_toLeftOf="@id/tv_pointer"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="İlkin ödənişə minimal tələb"
+            />
+        
+            <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_ilkin_odeniwe_min_teleb_2"
+            android:gravity="right"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_Kreditin_meblegi"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            />
+            
+            
+          <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_ayliq_odeniw"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="200dp"
+            android:layout_below="@id/tv_ilkin_odeniwe_min_teleb"
+            android:layout_toLeftOf="@id/tv_pointer"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Aylıq ödəniş (annuitet)"
+            />
+        
+            <TextView
+            android:textColor="#000055" 
+            android:id = "@+id/tv_ayliq_odeniw_2"
+            android:gravity="right"
+            android:layout_toRightOf="@id/tv_pointer"
+            android:layout_height="45dp"
+		 android:layout_margin = "3dp"
+            android:layout_width="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_ilkin_odeniwe_min_teleb"
+            
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            />
+            <Button 
+                android:id = "@+id/btn_geri"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+		 		android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_ayliq_odeniw"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/m_button_selector"
+                android:text="Geri"
+                />
+
+    </RelativeLayout>
+    
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="alpha.android.match"
+    android:installLocation="internalOnly"
+    android:versionCode="1"
+    android:versionName="" >
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="4" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="match" >
+        <activity
+            android:name="alpha.android.match.main"
+            android:label="match"
+            android:launchMode="singleTop"
+            android:screenOrientation="unspecified"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

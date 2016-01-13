@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/app/app/build/intermediates/res/merged/debug/layout/high_score.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/app/app/src/main/res/layout/high_score.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/app/app/build/intermediates/res/merged/debug/layout/simple.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/app/app/src/main/res/layout/simple.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/app/app/build/intermediates/res/merged/debug/layout/high_scores_header.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/app/app/src/main/res/layout/high_scores_header.xml"
+    }
+]

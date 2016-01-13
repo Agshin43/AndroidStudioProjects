@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/menu_restart"
+		android:showAsAction="never"
+		android:title="@string/restart" />
+
+	<item
+		android:id="@+id/menu_high_scores"
+		android:showAsAction="never"
+		android:title="@string/high_scores" />
+
+	<item
+		android:id="@+id/menu_preferences"
+		android:showAsAction="never"
+		android:title="@string/preferences" />
+
+	<item
+		android:id="@+id/menu_share"
+		android:showAsAction="never"
+		android:title="@string/share" />
+
+</menu>
