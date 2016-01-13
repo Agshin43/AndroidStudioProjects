@@ -17,6 +17,10 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 
 public class LauncherActivity extends Activity {
 	int totalOperations=7;
@@ -24,9 +28,26 @@ public class LauncherActivity extends Activity {
 	ProgressBar pb;
 	TextView tv;
 	int k=0;
+
+	InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+		mInterstitialAd = new InterstitialAd(this);
+		mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+
+		mInterstitialAd.setAdListener(new AdListener() {
+			@Override
+			public void onAdClosed() {
+				requestNewInterstitial();
+//				beginPlayingGame();
+			}
+		});
+
+
+
 
        // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -47,7 +68,7 @@ public class LauncherActivity extends Activity {
 							@Override
 							public void run() {
 								Log.e("Launcher","Running");
-								tv.setText("Loaded " + operationDone + "%");
+								tv.setText("Yükləndi " + operationDone + "%");
 							}
 						});	
 						pb.setProgress((int)operationDone);
@@ -74,9 +95,19 @@ public class LauncherActivity extends Activity {
 		}).start();
 		
     }
+
+	private void requestNewInterstitial() {
+		AdRequest adRequest = new AdRequest.Builder()
+				.addTestDevice("SEE_YOUR_LOGCAT_TO_GET_YOUR_DEVICE_ID")
+				.build();
+
+		mInterstitialAd.loadAd(adRequest);
+	}
+
+
     @Override
     protected void onPause() {
-    	super.onResume();
+    	super.onPause();
     	overridePendingTransition(0, 0);
     }
     @Override

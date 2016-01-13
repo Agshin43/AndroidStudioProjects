@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/drawable-nodpi-v4/restart.png",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/drawable-nodpi/restart.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/drawable-nodpi-v4/danger.png",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/drawable-nodpi/danger.png"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/drawable-nodpi-v4/background.png",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/drawable-nodpi/background.png"
+    }
+]

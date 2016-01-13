@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/debug/menu/launcher.xml",
-        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/launcher.xml"
-    },
-    {
         "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/debug/menu/start_game.xml",
         "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/start_game.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/debug/menu/launcher.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/launcher.xml"
     },
     {
         "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/debug/menu/option_menu.xml",

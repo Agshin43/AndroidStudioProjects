@@ -8,6 +8,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -15,18 +17,49 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class CustomeSurface extends SurfaceView implements Callback {
 	
 	static BackgroundThread bt;
-	private int TW;
-	private int TH;
+
+
+	InterstitialAd mInterstitialAd;
+
+
 	static ArrayList<Tile> tileHolder = new ArrayList<Tile>();
 	public CustomeSurface(Context context,AttributeSet as) {
 		super(context,as);
 		getHolder().addCallback(this);
 		bt = new BackgroundThread(this);
 		setTextSize("Score 100");
+
+
+
+		mInterstitialAd = new InterstitialAd(getContext());
+		mInterstitialAd.setAdUnitId("ca-app-pub-2478601698211605/1702760972");
+
+		mInterstitialAd.setAdListener(new AdListener() {
+			@Override
+			public void onAdClosed() {
+				requestNewInterstitial();
+//				beginPlayingGame();
+			}
+		});
+
+
 	}
+
+	private void requestNewInterstitial() {
+		AdRequest adRequest = new AdRequest.Builder()
+				.addTestDevice("EB891B6FEAB610C70323AA2F66B0D42C")
+				.build();
+
+		mInterstitialAd.loadAd(adRequest);
+	}
+
 	@Override
 	protected void onRestoreInstanceState(Parcelable state) {
 		surfaceCreated(this.getHolder());
@@ -283,8 +316,9 @@ public class CustomeSurface extends SurfaceView implements Callback {
     		 stopGame(canvas);
     		 return;
     	 }
-	     } 
-	     paint.setARGB(255, 0, 0, 0);
+	     }
+		paint.setARGB(255, 0, 100, 0);
+		paint.setTextSize(VarHolder.SCREEN_WIDTH / 16);
 	     canvas.drawText("" + VarHolder.SCORE + " AZN", VarHolder.SCREEN_WIDTH/2 - 20, (float) (VarHolder.SCREEN_HEIGHT*0.1), paint);
 	     if(VarHolder.GAME_TYPE==4)
 	    	 zenControl(canvas);
@@ -359,17 +393,36 @@ public class CustomeSurface extends SurfaceView implements Callback {
 		 
 	}
 	public void stopGame(Canvas canvas){
-	 paint.setARGB(255, 0, 0, 0);
+	 paint.setARGB(255, 0, 100, 0);
+		paint.setTextSize(VarHolder.SCREEN_WIDTH / 10);
 	
-	 canvas.drawText("Oyun bitdi", VarHolder.SCREEN_WIDTH/2 - VarHolder.SCREEN_WIDTH/10, (float) (VarHolder.SCREEN_HEIGHT*0.47), paint);
+	 canvas.drawText("Oyun bitdi", VarHolder.SCREEN_WIDTH / 2 , (float) (VarHolder.SCREEN_HEIGHT * 0.47), paint);
+		new Handler(Looper.getMainLooper()).post(new Runnable() {
+			@Override
+			public void run() {
+
+				if(VarHolder.LAST_SCORE > 2400){
+					requestNewInterstitial();
+
+					if (mInterstitialAd.isLoaded()) {
+						mInterstitialAd.show();
+					} else {
+//					beginPlayingGame();
+					}
+				}
+
+			}
+		});
+
 	 if(VarHolder.GAME_TYPE==4){
 		 float time =  (System.currentTimeMillis()-startTime)/1000;
-		
-		 canvas.drawText("Vaxt " + time+"saniyə", VarHolder.SCREEN_WIDTH/2 - VarHolder.SCREEN_WIDTH/10, (float) (VarHolder.SCREEN_HEIGHT*0.53), paint);
+
+		 paint.setARGB(255, 0, 0, 100);
+		 canvas.drawText("Vaxt " + time+"saniyə", VarHolder.SCREEN_WIDTH/2 , (float) (VarHolder.SCREEN_HEIGHT*0.53), paint);
 		 PermanentScoreHolder.storeScore(VarHolder.GAME_TYPE+"", time);
 	 }else{
-		 
-		 canvas.drawText("Pul " + VarHolder.LAST_SCORE + " AZN", VarHolder.SCREEN_WIDTH/2 - VarHolder.SCREEN_WIDTH/10, (float) (VarHolder.SCREEN_HEIGHT*0.53), paint);
+		 paint.setARGB(255, 100, 0, 0);
+		 canvas.drawText("Pul " + VarHolder.LAST_SCORE + " AZN", VarHolder.SCREEN_WIDTH/2 , (float) (VarHolder.SCREEN_HEIGHT*0.53), paint);
 		 PermanentScoreHolder.storeScore(VarHolder.GAME_TYPE+"", VarHolder.LAST_SCORE);
 	 }
 	 canvas.drawBitmap(ImageHolder.RESTART_BUTTON, (float)(VarHolder.SCREEN_WIDTH*0.4),(float) (VarHolder.SCREEN_HEIGHT*0.6), paint);	

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/menu/start_game.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/start_game.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/menu/about.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/about.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/menu/option_menu.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/option_menu.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/menu/launcher.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/launcher.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/menu/score.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/score.xml"
+    },
+    {
+        "merged": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/build/intermediates/res/merged/release/menu/main.xml",
+        "source": "/Users/agshin/AndroidStudioProjects/Opps_Wrong_Tab/app/src/main/res/menu/main.xml"
+    }
+]
